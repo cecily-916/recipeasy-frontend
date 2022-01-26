@@ -2,7 +2,14 @@
 // an image(?), rating, note icon, servings, num of ingredients, time
 
 const Recipe = (props) => {
-  return <div>{props.recipe.title}</div>;
+  console.log(props.recipe);
+  return (
+    <div>
+      <p>
+        {props.recipe.id}. {props.recipe.title}
+      </p>
+    </div>
+  );
 };
 
 export default Recipe;

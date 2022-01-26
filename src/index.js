@@ -12,7 +12,7 @@ import {
   About,
   Contact,
   Profile,
-} from "./components";
+} from "./components/main-pages";
 
 ReactDOM.render(
   // <React.StrictMode>
