@@ -2,34 +2,17 @@ import React from "react";
 import RecipeList from "./recipe-list";
 import { useEffect, useState } from "react";
 import axios from "axios"
+import NewRecipePopup from "./new-recipe";
 
-
-// const recipeData = function() {
-//     // let recipesData = "did it work?"
-
-//     let recipesData = "hmm"
-//     axios
-//         .get('http://localhost:8080/recipes/2')
-//         .then((response) => {
-//             console.log(response.data.title)
-//             recipesData = response.data.title;
-//             return recipesData
-//         })
-//         .catch((error) => {
-//             console.log("didn't work sorry");
-//         });
-    
-//     return recipesData
-// }
 
 function Home() {
 
     const [recipesData, setRecipesData] = useState(0);
-
+    const [newRecipeButton, setNewRecipeButton] = useState(false);
 
     useEffect(() => {
         axios
-        .get('http://localhost:8080/recipes/1')
+        .get('http://localhost:8080/recipes/3')
         .then((response) => {
             console.log(response.data.title)
             setRecipesData(response.data.title);
@@ -51,7 +34,7 @@ function Home() {
                 />
             </div>
             <div className="col-lg-5">
-                <h1 className="font-weight-light">Recipes!</h1>
+                <h1 className="font-weight-light">Your Recipes</h1>
                 <p>
                 Welcome to Recipeasy, where all your favorite recipes are just so easy peasy.
                 </p>
@@ -59,6 +42,12 @@ function Home() {
                 recipe data goes here: { recipesData }
             </div>
             </div>
+        </div>
+        <div>
+            <button onClick={() => setNewRecipeButton(true)}>Add New Recipe</button>
+            <NewRecipePopup trigger={newRecipeButton} setTrigger={setNewRecipeButton}>
+                <h3>My Popup</h3>
+            </NewRecipePopup>
         </div>
         </div>
     );

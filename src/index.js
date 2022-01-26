@@ -5,7 +5,14 @@ import "./index.css";
 import * as ServiceWorker from "./service-worker-registration";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Navigation, Footer, Home, About, Contact } from "./components";
+import {
+  Navigation,
+  Footer,
+  Home,
+  About,
+  Contact,
+  Profile,
+} from "./components";
 
 ReactDOM.render(
   // <React.StrictMode>
@@ -19,6 +26,7 @@ ReactDOM.render(
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/profile" element={<Profile />} />
     </Routes>
     <Footer />
   </Router>,
