@@ -2,12 +2,24 @@
 // The recipe information is displayed in either a listed grid format.
 // The list has sortable columns for rating, servings, etc.
 
-import React from "react";
+import Recipe from "./recipe";
 
-const recipeList = [
-  "1. Fried chicken and biscuits",
-  "2. Bingo Special",
-  "3. Tuna sammy!",
-];
+const RecipeList = (props) => {
+  console.log(props);
+  // const recipeComponents = props.recipes.map((recipe) => {
+  //   return (
+  //     <li>
+  //       <Recipe recipe={recipe}></Recipe>
+  //     </li>
+  //   );
+  // });
 
-export default recipeList;
+  return (
+    <section>
+      <h2>Recipes</h2>
+      {/* <ol>{recipeComponents}</ol> */}
+    </section>
+  );
+};
+
+export default RecipeList;
