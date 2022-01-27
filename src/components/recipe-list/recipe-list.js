@@ -6,10 +6,9 @@ import Recipe from "./recipe";
 import axios from "axios";
 
 function RecipeList() {
-  // console.log(props);
-
   const [recipesData, setRecipesData] = useState([]);
 
+  // GET request to compile recipe instances in recipe list
   useEffect(() => {
     axios
       .get("http://localhost:8080/recipes")
@@ -22,6 +21,7 @@ function RecipeList() {
       });
   }, []);
 
+  // Map the recipe items to display individual recipes
   const recipeItems = recipesData.map((recipe) => {
     return (
       <ol>
@@ -29,6 +29,9 @@ function RecipeList() {
       </ol>
     );
   });
+
+
+  // Return list of recipe jsx items to be displayed in the list container
   return <div>{recipeItems}</div>;
 }
 
