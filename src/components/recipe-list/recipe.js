@@ -6,7 +6,7 @@ const Recipe = (props) => {
   return (
     <div>
       <Link to={`recipe/${props.recipe.ID}`} state={props.recipe}>
-        {props.recipe.title}
+        {props.recipe.ID}. {props.recipe.title}
       </Link>
     </div>
   );
