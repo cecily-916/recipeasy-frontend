@@ -9,7 +9,7 @@ import {
   Navigation,
   Footer,
   Home,
-  About,
+  CurrentRecipe,
   Contact,
   Profile,
 } from "./components/main-pages";
@@ -24,7 +24,7 @@ ReactDOM.render(
     <Navigation />
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
+      <Route path="/recipe" element={<CurrentRecipe />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/profile" element={<Profile />} />
     </Routes>

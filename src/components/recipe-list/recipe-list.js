@@ -1,35 +1,25 @@
 // Recipe list component displays all recipe items in an ordered list.
 // The recipe information is displayed in either a listed grid format.
 // The list has sortable columns for rating, servings, etc.
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Recipe from "./recipe";
-import axios from "axios";
 
-function RecipeList() {
-  const [recipesData, setRecipesData] = useState([]);
+function RecipeList(props) {
+  const [currentRecipe, setCurrentRecipe] = useState(0);
 
-  // GET request to compile recipe instances in recipe list
-  useEffect(() => {
-    axios
-      .get("http://localhost:8080/recipes")
-      .then((response) => {
-        console.log(response.data);
-        setRecipesData(response.data);
-      })
-      .catch((error) => {
-        console.log("didn't work sorry");
-      });
-  }, []);
-
+  console.log(props.recipes);
   // Map the recipe items to display individual recipes
-  const recipeItems = recipesData.map((recipe) => {
+  const recipeItems = props.recipes.map((recipe) => {
     return (
       <ol>
-        <Recipe recipe={recipe} />
+        <Recipe
+          recipe={recipe}
+          trigger={currentRecipe}
+          setTrigger={setCurrentRecipe}
+        />
       </ol>
     );
   });
-
 
   // Return list of recipe jsx items to be displayed in the list container
   return <div>{recipeItems}</div>;

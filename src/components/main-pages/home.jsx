@@ -7,20 +7,19 @@ import NewRecipePopup from "../new-recipe-input/new-recipe";
 
 function Home() {
 
-    const [recipesData, setRecipesData] = useState(0);
+    const [recipesData, setRecipesData] = useState([]);
     const [newRecipeButton, setNewRecipeButton] = useState(false);
 
     useEffect(() => {
         axios
-        .get('http://localhost:8080/recipes')
-        .then((response) => {
-            console.log(response.data);
-            setRecipesData(response.data);
-        })
-        .catch((error) => {
-            console.log("didn't work sorry");
-        });
-    }, [])
+            .get("http://localhost:8080/recipes")
+            .then((response) => {
+                setRecipesData(response.data);
+            })
+            .catch((error) => {
+                console.log("didn't work sorry");
+            });
+    }, []);
 
     const createNewRecipe = (newRecipe) => {
         axios
@@ -53,8 +52,7 @@ function Home() {
                 <p>
                 Welcome to Recipeasy, where all your favorite recipes are just so easy peasy.
                 </p>
-                <ListContainer />
-                {/* recipe data goes here: { recipesData[0].title } */}
+                <ListContainer recipes={recipesData} />
             </div>
             </div>
         </div>

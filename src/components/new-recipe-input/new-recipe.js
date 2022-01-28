@@ -4,9 +4,6 @@ import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import { useState } from "react";
 
-const unitOptions = ["cup", "tbsp", "tsp", "pinch"];
-const defaultOption = unitOptions[0];
-
 function NewRecipePopup(props) {
   const [formFields, setFormFields] = useState({
     title: "",
