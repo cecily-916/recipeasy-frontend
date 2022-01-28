@@ -24,7 +24,7 @@ ReactDOM.render(
     <Navigation />
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/recipe" element={<CurrentRecipe />} />
+      <Route path="/recipe/:recipeID" element={<CurrentRecipe />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/profile" element={<Profile />} />
     </Routes>

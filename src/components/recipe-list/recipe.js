@@ -3,10 +3,9 @@
 import { Link } from "react-router-dom";
 
 const Recipe = (props) => {
-  console.log(props.currentRecipe);
   return (
     <div>
-      <Link to="/recipe" state={props.currentRecipe}>
+      <Link to={`recipe/${props.recipe.ID}`} state={props.recipe}>
         {props.recipe.title}
       </Link>
     </div>

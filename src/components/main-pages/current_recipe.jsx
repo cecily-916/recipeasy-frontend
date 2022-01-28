@@ -1,9 +1,10 @@
-import React from "react";
-
+import { useLocation } from 'react-router-dom'
 function CurrentRecipe() {
-    console.log()
 
+    const location = useLocation()
+    const recipe = location.state
 
+    console.log(recipe)
     return (
     <div className="about">
         <div className="container">
@@ -16,12 +17,9 @@ function CurrentRecipe() {
             />
             </div>
             <div className="col-lg-5">
-            <h1 className="font-weight-light">About</h1>
-            <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text
-                ever since the 1500s, when an unknown printer took a galley of
-                type and scrambled it to make a type specimen book.
+            <h1 className="font-weight-light">{recipe.title}</h1>
+            <p></p>
+            <p>Details about the recipe will go here!
             </p>
             </div>
         </div>

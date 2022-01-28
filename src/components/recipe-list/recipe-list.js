@@ -5,18 +5,11 @@ import { useState } from "react";
 import Recipe from "./recipe";
 
 function RecipeList(props) {
-  const [currentRecipe, setCurrentRecipe] = useState(0);
-
-  console.log(props.recipes);
   // Map the recipe items to display individual recipes
   const recipeItems = props.recipes.map((recipe) => {
     return (
       <ol>
-        <Recipe
-          recipe={recipe}
-          trigger={currentRecipe}
-          setTrigger={setCurrentRecipe}
-        />
+        <Recipe recipe={recipe} />
       </ol>
     );
   });
