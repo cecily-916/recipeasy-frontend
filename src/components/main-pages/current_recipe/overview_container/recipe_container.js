@@ -11,6 +11,7 @@ function RecipeOverview(props) {
         Rating: {props.recipe.rating} Prep Time: {props.recipe.prepTime} Cook
         Time: {props.recipe.cookTime}
       </p>
+      <h4>Steps:</h4>
       <StepsList steps={props.recipe.steps} />
       <IngredientsList ingredients={props.recipe.ingredients} />
       {/* <StepIngredients ingredients={ingredients}/> */}

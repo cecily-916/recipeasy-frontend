@@ -3,7 +3,8 @@ import React from "react";
 function Ingredient(props) {
   return (
     <div>
-      <ol>{props.ingredient}</ol>
+      {props.ingredient.amount} {props.ingredient.unit} of{" "}
+      {props.ingredient.ingredient}
     </div>
   );
 }

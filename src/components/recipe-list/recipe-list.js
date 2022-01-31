@@ -9,9 +9,9 @@ function RecipeList(props) {
   console.log(props.recipes);
   const recipeItems = props.recipes.map((recipe) => {
     return (
-      <ol>
+      <ul>
         <Recipe recipe={recipe} />
-      </ol>
+      </ul>
     );
   });
 

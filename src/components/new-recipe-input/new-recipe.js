@@ -1,10 +1,10 @@
 import React from "react";
 import "./new-recipe.css";
-import Dropdown from "react-dropdown";
+// import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import { useState } from "react";
-import StepsList from "../main-pages/current_recipe/steps_list";
-import newStep from "./steps";
+// import StepsList from "../main-pages/current_recipe/recipe_container/steps_list";
+// import newStep from "./steps";
 
 function NewRecipePopup(props) {
   const [formFields, setFormFields] = useState({
@@ -25,7 +25,7 @@ function NewRecipePopup(props) {
     });
   };
   const addNewStep = () => {
-    return <newStep />;
+    // return <newStep />;
   };
   return props.trigger ? (
     <div className="popup">

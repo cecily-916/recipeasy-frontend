@@ -1,8 +1,8 @@
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useEffect, useState } from "react";
-import StepIngredients from './step_ingredients'
+// import StepIngredients from './step_ingredients'
 import axios from 'axios';
-import RecipeOverview from './recipe_container';
+import RecipeOverview from './overview_container/recipe_container';
 
 function CurrentRecipe() {
 
@@ -28,18 +28,6 @@ function CurrentRecipe() {
     },[]);
     console.log(recipeData)
     console.log(recipeData.ingredients)
-    // Calls GET endpoint for all step information ()
-    // useEffect(() => {
-    //     axios
-    //         .get(`http://localhost:8080/recipes/${recipe.ID}/steps`)
-    //         .then((response) => {
-    //             setRecipeStepsData(response.data.steps);
-    //         })
-    //         .catch((error) => {
-    //             console.log("Recipe data cannot be rendered");
-    //         });
-    // },[]);
-
 
     return (
     <div className="about">
@@ -52,8 +40,9 @@ function CurrentRecipe() {
                 alt=""
             />
             </div>
-        <RecipeOverview recipe={recipeData}/>
+            <RecipeOverview recipe={recipeData}/>
         </div>
+        <Link to={`./steps/1`} state={recipeData}>Begin Recipe</Link>
         </div>
     </div>
     );

@@ -13,6 +13,7 @@ import {
   Contact,
   Profile,
 } from "./components/main-pages";
+import RecipeWalkthrough from "./components/main-pages/current_recipe/walkthrough/recipe_walkthrough";
 
 ReactDOM.render(
   // <React.StrictMode>
@@ -25,6 +26,10 @@ ReactDOM.render(
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/recipe/:recipeID" element={<CurrentRecipe />} />
+      <Route
+        path="/recipe/:recipeID/steps/:stepID"
+        element={<RecipeWalkthrough />}
+      />
       <Route path="/contact" element={<Contact />} />
       <Route path="/profile" element={<Profile />} />
     </Routes>
