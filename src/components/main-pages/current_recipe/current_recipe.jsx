@@ -1,10 +1,8 @@
 import { useLocation } from 'react-router-dom'
-import RecipeList from '../../recipe-list/recipe-list'
 import { useEffect, useState } from "react";
-import StepsList from './steps_list'
 import StepIngredients from './step_ingredients'
 import axios from 'axios';
-import IngredientsList from './ingredients_list';
+import RecipeOverview from './recipe_container';
 
 function CurrentRecipe() {
 
@@ -54,14 +52,7 @@ function CurrentRecipe() {
                 alt=""
             />
             </div>
-            <div className="col-lg-5">
-            <h1 className="font-weight-light">{recipeData.title}</h1>
-            <h2>{recipeData.description}</h2>
-            <p>Rating: {recipeData.rating} Prep Time: {recipeData.prepTime} Cook Time: {recipeData.cookTime}</p>
-            <StepsList steps={recipeData.steps}/>
-            <IngredientsList ingredients={recipeData.ingredients}/>
-            {/* <StepIngredients ingredients={ingredients}/> */}
-            </div>
+        <RecipeOverview recipe={recipeData}/>
         </div>
         </div>
     </div>

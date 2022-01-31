@@ -7,7 +7,9 @@ const Recipe = (props) => {
   return (
     <div>
       <Link to={`recipe/${props.recipe.ID}`} state={props.recipe}>
-        {props.recipe.ID}. {props.recipe.title}
+        <h5>
+          {props.recipe.ID}. {props.recipe.title}
+        </h5>
         <Rating rating={props.recipe.rating} />
       </Link>
     </div>
