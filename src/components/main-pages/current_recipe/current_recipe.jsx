@@ -50,7 +50,7 @@ function CurrentRecipe() {
             <div className="col-lg-7">
             <img
                 className="img-fluid rounded mb-4 mb-lg-0"
-                src="https://www.veggieinspired.com/wp-content/uploads/2015/05/healthy-oatmeal-berries-featured.jpg"
+                src={recipeData.image}
                 alt=""
             />
             </div>
