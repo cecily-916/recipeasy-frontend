@@ -6,6 +6,7 @@ import Recipe from "./recipe";
 
 function RecipeList(props) {
   // Map the recipe items to display individual recipes
+  console.log(props.recipes);
   const recipeItems = props.recipes.map((recipe) => {
     return (
       <ol>

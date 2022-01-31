@@ -35,7 +35,7 @@ function Home() {
                 alert("Couldn't create a new recipe.");
             });
         };
-
+    console.log(recipesData)
     return (
         <div className="home">
         <div className="container">

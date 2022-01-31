@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import StepsList from './steps_list'
 import StepIngredients from './step_ingredients'
 import axios from 'axios';
+import IngredientsList from './ingredients_list';
 
 function CurrentRecipe() {
 
@@ -21,24 +22,25 @@ function CurrentRecipe() {
         axios
             .get(`http://localhost:8080/recipes/${recipe.ID}`)
             .then((response) => {
-                setRecipeData(response.data[0]);
+                setRecipeData(response.data);
             })
             .catch((error) => {
                 console.log("Recipe data cannot be rendered");
             });
     },[]);
-
+    console.log(recipeData)
+    console.log(recipeData.ingredients)
     // Calls GET endpoint for all step information ()
-    useEffect(() => {
-        axios
-            .get(`http://localhost:8080/recipes/${recipe.ID}/steps`)
-            .then((response) => {
-                setRecipeStepsData(response.data.steps);
-            })
-            .catch((error) => {
-                console.log("Recipe data cannot be rendered");
-            });
-    },[]);
+    // useEffect(() => {
+    //     axios
+    //         .get(`http://localhost:8080/recipes/${recipe.ID}/steps`)
+    //         .then((response) => {
+    //             setRecipeStepsData(response.data.steps);
+    //         })
+    //         .catch((error) => {
+    //             console.log("Recipe data cannot be rendered");
+    //         });
+    // },[]);
 
 
     return (
@@ -48,7 +50,7 @@ function CurrentRecipe() {
             <div className="col-lg-7">
             <img
                 className="img-fluid rounded mb-4 mb-lg-0"
-                src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80"
+                src="https://www.veggieinspired.com/wp-content/uploads/2015/05/healthy-oatmeal-berries-featured.jpg"
                 alt=""
             />
             </div>
@@ -56,7 +58,8 @@ function CurrentRecipe() {
             <h1 className="font-weight-light">{recipeData.title}</h1>
             <h2>{recipeData.description}</h2>
             <p>Rating: {recipeData.rating} Prep Time: {recipeData.prepTime} Cook Time: {recipeData.cookTime}</p>
-            <StepsList steps={recipeStepsData}/>
+            <StepsList steps={recipeData.steps}/>
+            <IngredientsList ingredients={recipeData.ingredients}/>
             {/* <StepIngredients ingredients={ingredients}/> */}
             </div>
         </div>

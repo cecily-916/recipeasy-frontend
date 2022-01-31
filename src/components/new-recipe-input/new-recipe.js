@@ -3,6 +3,8 @@ import "./new-recipe.css";
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 import { useState } from "react";
+import StepsList from "../main-pages/current_recipe/steps_list";
+import newStep from "./steps";
 
 function NewRecipePopup(props) {
   const [formFields, setFormFields] = useState({
@@ -22,12 +24,15 @@ function NewRecipePopup(props) {
       title: "",
     });
   };
-
+  const addNewStep = () => {
+    return <newStep />;
+  };
   return props.trigger ? (
     <div className="popup">
       <div className="popup-inner">
         <h1>Add New Recipe</h1>
-        <form onSubmit={submitNewRecipe}>
+        <form>
+          {/* onSubmit={submitNewRecipe} */}
           <input
             type="text"
             onChange={titleChangeHandler}
@@ -36,6 +41,7 @@ function NewRecipePopup(props) {
             required
           />
           <p>Preview: {formFields.title}</p>
+          <button onClick={addNewStep}>Add new step</button>
           <input
             type="Submit"
             // className="close-btn"

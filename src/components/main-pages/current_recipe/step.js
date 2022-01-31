@@ -4,7 +4,7 @@ function Step(props) {
   return (
     <div>
       {/* <Link to={`recipe/${props.recipe.ID}`} state={props.recipe}> */}
-      {props.step.ID}. {props.step.details}
+      <p>{props.step.details}</p>
       {/* </Link> */}
     </div>
   );
