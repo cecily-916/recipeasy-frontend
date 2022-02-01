@@ -6,7 +6,8 @@
 
 @layer base {
   h1 {
-    @apply text-xl;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 50px;
   }
   header {
     font-family: 'Pacifico', cursive;

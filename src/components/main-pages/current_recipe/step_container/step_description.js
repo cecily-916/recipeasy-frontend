@@ -3,7 +3,7 @@ import React from "react";
 function StepDescription(props) {
   return (
     <div>
-      <h3>Current Step: {props.step.details}</h3>
+      <h3 className="text-xl font-bold">{props.step.details}</h3>
       {/* <h4>{props.step.completed}</h4> */}
     </div>
   );

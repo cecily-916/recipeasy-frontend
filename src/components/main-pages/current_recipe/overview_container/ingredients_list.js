@@ -12,7 +12,7 @@ function IngredientsList(props) {
     });
     return (
       <div>
-        <h4>Ingredients:</h4>
+        <p className="text-xl font-bold">Ingredients:</p>
         <p>{ingredientsItems}</p>
       </div>
     );

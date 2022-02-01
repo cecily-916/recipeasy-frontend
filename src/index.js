@@ -6,8 +6,8 @@ import * as ServiceWorker from "./service-worker-registration";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {
-  // Navigation,
-  Footer,
+  Navigation,
+  // Footer,
   Home,
   CurrentRecipe,
   Contact,
@@ -22,7 +22,7 @@ ReactDOM.render(
   // document.getElementById('root')
 
   <Router>
-    {/* <Navigation /> */}
+    <Navigation />
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/recipe/:recipeID" element={<CurrentRecipe />} />

@@ -11,7 +11,7 @@ function ListContainer(props) {
 
   return (
     // title
-    <section className="mx-12 mt-10 mb-20 bg-[#b3b5b8b0] rounded-md">
+    <section className="mx-12 mt-10 mb-20 bg-[#b3b5b8b0] rounded-md shadow-xl">
       <div
         className="
         flex 

@@ -30,21 +30,28 @@ function CurrentRecipe() {
     console.log(recipeData.ingredients)
 
     return (
-    <div className="about">
-        <div className="container">
-        <div className="row align-items-center my-5">
-            <div className="col-lg-7">
+        <div className="grid grid-cols-3 gap-4 grid-rows-2 mt-11 mx-11 content-center">
+            <RecipeOverview recipe={recipeData} className="col-span-2"/>
             <img
-                className="img-fluid rounded mb-4 mb-lg-0"
+                className="rounded-sm max-h-60 col-span-1 col-end-4 max-w-fit"
                 src={recipeData.image}
                 alt=""
             />
-            </div>
-            <RecipeOverview recipe={recipeData}/>
+            <div className="col-span-1 content-center">
+            <Link className="inline-block
+                            py-2
+                            px-7
+                            border border-[#E5E7EB]
+                            rounded-md 
+                            text-base text-body-color 
+                            font-medium 
+                            shadow-sm 
+                            m-3 
+                            p-3 
+                            bg-emerald-800 text-white" 
+                            to={`./steps/1`} state={recipeData}>Begin Recipe</Link>
         </div>
-        <Link to={`./steps/1`} state={recipeData}>Begin Recipe</Link>
         </div>
-    </div>
     );
 }
 

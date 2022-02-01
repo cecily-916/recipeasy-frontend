@@ -12,7 +12,7 @@ function StepIngredients(props) {
     });
     return (
       <div>
-        <h3>Ingredients:</h3>
+        <h3 className="text-md font-semibold">Ingredients:</h3>
         <p>{ingredients}</p>
       </div>
     );

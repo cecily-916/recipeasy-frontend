@@ -5,7 +5,7 @@ import Rating from "./rating";
 
 const Recipe = (props) => {
   return (
-    <div class="bg-white rounded-lg overflow-hidden mb-10 max-w-xs">
+    <div class="bg-white rounded-lg overflow-hidden mx-auto m-4 max-w-xs shadow-lg">
       <img src={props.recipe.image} alt="dish" class="w-auto h-fit" />
       <div class="p-8 sm:p-9 md:p-7 xl:p-9 text-center">
         <h3
@@ -39,7 +39,7 @@ const Recipe = (props) => {
         rounded-full
         text-base text-body-color
         font-medium
-        hover:border-primary hover:bg-primary hover:bg-emerald-800
+        hover:border-primary hover:bg-emerald-800
         hover:text-white
         transition
         "

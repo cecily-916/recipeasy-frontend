@@ -34,18 +34,14 @@ function RecipeWalkthrough() {
 
 
     return (
-    <div className="about">
-        <div className="container">
-        <div className="row align-items-center my-5">
-            <div className="basis-1/3 hover:basis-1/2">
-            <RecipeOverview recipe={recipeData}/>
+        <div className="grid grid-col-4">
+            <div className="col-span-1 m-5">
+                <RecipeOverview recipe={recipeData}/>
             </div>
-            <div>
+            <div className="col-end-5 col-span-3 m-5">
                 <StepContainer step={currentStep} changeStep={advanceStep}/>
             </div>
         </div>
-        </div>
-    </div>
     );
 }
 
