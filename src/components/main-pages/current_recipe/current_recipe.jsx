@@ -31,13 +31,13 @@ function CurrentRecipe() {
 
     return (
         <div className="grid grid-cols-3 gap-4 grid-rows-2 mt-11 mx-11 content-center">
-            <RecipeOverview recipe={recipeData} className="col-span-2"/>
+            <RecipeOverview recipe={recipeData} className="col-span-3 content-center"/>
             <img
-                className="rounded-sm max-h-60 col-span-1 col-end-4 max-w-fit"
+                className="rounded-sm max-h-60 col-span-2 col-end-4 max-w-fit content-center"
                 src={recipeData.image}
                 alt=""
             />
-            <div className="col-span-1 content-center">
+            <div className="row-start-2 col-span-1 content-center">
             <Link className="inline-block
                             py-2
                             px-7

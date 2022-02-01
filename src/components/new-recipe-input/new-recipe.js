@@ -32,7 +32,7 @@ function NewRecipePopup(props) {
       <div className="popup-inner">
         <h1>Add New Recipe</h1>
         <form>
-          {/* onSubmit={submitNewRecipe} */}
+          onSubmit={submitNewRecipe}
           <input
             type="text"
             onChange={titleChangeHandler}
