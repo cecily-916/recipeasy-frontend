@@ -1,17 +1,31 @@
 import React from "react";
 // import Header from "./header";
-import RecipeList from "./recipe-list";
+import Recipe from "./recipe";
 
 function ListContainer(props) {
+  // Map the recipe items to display individual recipes
+  console.log(props.recipes);
+  const recipeItems = props.recipes.map((recipe) => {
+    return <Recipe recipe={recipe} />;
+  });
+
   return (
     // title
-    <div>
-      <h3>Recipe List</h3>
-      {/* // header with sort features component */}
-      {/* <Header></Header> */}
-      {/* // recipe table - has it's own child components of category row and recipe */}
-      <RecipeList recipes={props.recipes} />
-    </div>
+    <section className="mx-12 mt-10 mb-20 bg-[#b3b5b8b0] rounded-md">
+      <div
+        className="
+        flex 
+        flex-wrap 
+        flex-row 
+        justify-start 
+        justify-items-center 
+        space-x-5"
+      >
+        {/* // header with sort features component */}
+        {/* <RecipeList recipes={props.recipes} /> */}
+        {recipeItems}
+      </div>
+    </section>
   );
 }
 

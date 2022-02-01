@@ -37,7 +37,7 @@ function RecipeWalkthrough() {
     <div className="about">
         <div className="container">
         <div className="row align-items-center my-5">
-            <div className="col-lg-7">
+            <div className="basis-1/3 hover:basis-1/2">
             <RecipeOverview recipe={recipeData}/>
             </div>
             <div>

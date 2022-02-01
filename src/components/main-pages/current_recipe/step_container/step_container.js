@@ -10,6 +10,7 @@ function StepContainer({ step, changeStep }) {
       <StepDescription step={step} />
       <StepIngredients ingredients={step.ingredients} />
       <button
+        class="bg-cyan-500 hover:bg-cyan-600"
         onClick={() => {
           changeStep();
         }}
