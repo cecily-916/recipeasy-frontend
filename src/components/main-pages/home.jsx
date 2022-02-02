@@ -3,13 +3,15 @@ import ListContainer from "../recipe-list/list-container";
 import { useEffect, useState } from "react";
 import axios from "axios"
 import NewRecipePopup from "../new-recipe-input/new-recipe";
+import { Link } from "react-router-dom";
 
 
 function Home() {
 
     const [recipesData, setRecipesData] = useState([]);
-    const [newRecipeButton, setNewRecipeButton] = useState(false);
-
+    // const [newRecipeButton, setNewRecipeButton] = useState(false);
+    // onClick={() => setNewRecipeButton(true)}
+    // trigger={newRecipeButton} setTrigger={setNewRecipeButton}
     useEffect(() => {
         axios
             .get("http://localhost:8080/recipes")
@@ -44,7 +46,7 @@ function Home() {
                 Welcome to Recipeasy, where all your favorite recipes are just so easy peasy.
             </p>
             <div className="mx-auto my-4 h-8 w-fit">
-                <button className="
+                <Link to="./add-recipe" className="
                         text-xl
                         font-quicksand 
                         align-center
@@ -57,8 +59,7 @@ function Home() {
                         hover:border-primary 
                         hover:bg-emerald-800 hover:text-emerald-800
                         transition"
-                onClick={() => setNewRecipeButton(true)}>Add New Recipe</button>
-                <NewRecipePopup createNewRecipe={createNewRecipe} trigger={newRecipeButton} setTrigger={setNewRecipeButton}/>
+                >Add New Recipe</Link>
             </div>
             <ListContainer recipes={recipesData}/>
         </div>

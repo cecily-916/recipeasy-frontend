@@ -4,14 +4,32 @@ import "react-dropdown/style.css";
 import { useState } from "react";
 // import StepsList from "../main-pages/current_recipe/recipe_container/steps_list";
 import AddStep from "./step-form";
+import axios from 'axios';
 
-function NewRecipePopup({ createNewRecipe, trigger, setTrigger }) {
-  const [newRecipe, setNewRecipe] = useState({});
+
+function NewRecipeForm() {
+  // const [newRecipe, setNewRecipe] = useState({});
   const [title, setTitle] = useState();
+
   const [description, setDescription] = useState();
   const [prepTime, setPrepTime] = useState();
   const [cookTime, setCookTime] = useState();
   const [mainImage, setMainImage] = useState();
+
+  const createNewRecipe = (newRecipe) => {
+    axios
+        .post('http://localhost:8080/recipes', newRecipe)
+        .then((response) => {
+            console.log("Response:", response.data);
+            // const recipe = [...recipesData];
+            // recipe.push(response.data);
+            // setRecipesData(recipe);
+        })
+        .catch((error) => {
+            console.log("Error:", error);
+            alert("Couldn't create a new recipe.");
+        });
+    };
 
   // const changeHandler = (changeEvent) => {
   //   setFormFields({
@@ -24,17 +42,19 @@ function NewRecipePopup({ createNewRecipe, trigger, setTrigger }) {
   const [steps, setSteps] = useState([]);
 
   const handleSubmit = (e) => {
-    setNewRecipe({
+    const newRecipe = {
       title: title,
       description: description,
-      preptime: prepTime,
-      cooktime: cookTime,
-      mainimage: mainImage,
+      prepTime: prepTime,
+      cookTime: cookTime,
+      image: mainImage,
       steps: steps,
-    });
+    };    
     console.log(newRecipe);
+
     e.preventDefault();
     createNewRecipe(newRecipe);
+    // createNewRecipe(newRecipe);
   };
 
   // const addRecipe = (newRecipe) => {
@@ -59,17 +79,17 @@ function NewRecipePopup({ createNewRecipe, trigger, setTrigger }) {
     );
   };
 
-  return trigger ? (
-    <div className="popup">
-      <div className="popup-inner">
+  return (
+    <div>
         <h1>Add New Recipe</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
+          <h2>1 | Add Recipe Details</h2>
           <label>Name:</label>
           <br />
           <input
             name="name"
             type="text"
-            onChange={(e) => setTitle}
+            onChange={(e) => setTitle(e.target.value)}
             value={title}
             placeholder="Recipe name"
             required
@@ -83,7 +103,7 @@ function NewRecipePopup({ createNewRecipe, trigger, setTrigger }) {
             name="description"
             type="text"
             value={description}
-            onChange={(e) => setDescription}
+            onChange={(e) => setDescription(e.target.value)}
             placeholder="Description"
           />
           <br />
@@ -92,7 +112,7 @@ function NewRecipePopup({ createNewRecipe, trigger, setTrigger }) {
           <input
             name="preptime"
             type="text"
-            onChange={(e) => setPrepTime}
+            onChange={(e) => setPrepTime(e.target.value)}
             value={prepTime}
             placeholder="PrepTime"
           />
@@ -102,7 +122,7 @@ function NewRecipePopup({ createNewRecipe, trigger, setTrigger }) {
           <input
             name="cooktime"
             type="text"
-            onChange={(e) => setCookTime}
+            onChange={(e) => setCookTime(e.target.value)}
             value={cookTime}
             placeholder="CookTime"
           />
@@ -112,7 +132,7 @@ function NewRecipePopup({ createNewRecipe, trigger, setTrigger }) {
           <input
             name="image"
             type="url"
-            onChange={(e) => setMainImage}
+            onChange={(e) => setMainImage(e.target.value)}
             value={mainImage}
             placeholder="Enter Image URL"
           />
@@ -123,6 +143,8 @@ function NewRecipePopup({ createNewRecipe, trigger, setTrigger }) {
             type="Submit"
             // className="close-btn"
           /> */}
+        <input type="Submit"/>
+
         </form>
         <button
           className="grey-container"
@@ -135,21 +157,8 @@ function NewRecipePopup({ createNewRecipe, trigger, setTrigger }) {
         {addStepButton === true && openStepForm()}
         <br />
         <br />
-        <button
-          onClick={(e) => {
-            handleSubmit(e);
-          }}
-        >
-          Submit
-        </button>
-        <button className="close-btn" onClick={() => setTrigger(false)}>
-          Close Form
-        </button>
-      </div>
     </div>
-  ) : (
-    ""
-  );
+  )
 }
 
-export default NewRecipePopup;
+export default NewRecipeForm;
