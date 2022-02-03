@@ -23,8 +23,8 @@ function Navigation() {
                             </NavLink>
                         </li> */}
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/contact">
-                            Contact
+                            <NavLink className="nav-link" to="/add-recipe">
+                            Add Recipe
                             </NavLink>
                         </li>
                         <li className="nav-item">

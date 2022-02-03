@@ -11,6 +11,15 @@
   }
   header {
     font-family: 'Pacifico', cursive;
+  }
+
+  .grey-container {
+    background-color: #b3b5b8b0;
+    border-radius: .375rem;
+    /* box-shadow: 0 25px 4px 0 rgb(0 0 0 /.05); */
+    padding: 6px;
 
   }
+  
 }
+

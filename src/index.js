@@ -10,9 +10,9 @@ import {
   // Footer,
   Home,
   CurrentRecipe,
-  Contact,
   Profile,
 } from "./components/main-pages";
+import NewRecipeForm from "./components/new-recipe-input/add-recipe";
 import RecipeWalkthrough from "./components/main-pages/current_recipe/walkthrough/recipe_walkthrough";
 
 ReactDOM.render(
@@ -30,7 +30,7 @@ ReactDOM.render(
         path="/recipe/:recipeID/steps/:stepID"
         element={<RecipeWalkthrough />}
       />
-      <Route path="/contact" element={<Contact />} />
+      <Route path="/add-recipe" element={<NewRecipeForm />} />
       <Route path="/profile" element={<Profile />} />
     </Routes>
     {/* <Footer /> */}
