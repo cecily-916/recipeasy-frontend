@@ -60,7 +60,6 @@ function AddToCalendarPopup(props) {
         <form onSubmit={handleSubmit}>
           <label>Recipe: {props.recipe.title}</label>
           <br />
-          {/* <input type="text" value={title} onChange={handleTitleChange}></input> */}
           <TextField
             id="date"
             value={date}
@@ -78,11 +77,22 @@ function AddToCalendarPopup(props) {
             <option value="Dessert">Dessert</option>
             <option value="Snack">Snack</option>
           </select>
+          <br />
           <input type="Submit" />
         </form>
-        <a href={html_url} onClick={() => props.setTrigger(false)}>
+        <br />
+        <button
+          onClick={() => {
+            window.open(html_url, "_blank");
+            props.setTrigger(false);
+          }}
+        >
           Add to Calendar
-        </a>
+        </button>
+        <br />
+        <button className="close-btn" onClick={() => props.setTrigger(false)}>
+          Close Form
+        </button>
       </div>
     </div>
   ) : (

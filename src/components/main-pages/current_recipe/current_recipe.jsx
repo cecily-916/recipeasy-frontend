@@ -61,7 +61,7 @@ function CurrentRecipe() {
             m-3 
             p-3 
             bg-emerald-800 text-white"
-            onClick={() => setCalendarButton(true)}>Add Recipe your Google Calendar</button>
+            onClick={() => setCalendarButton(true)}>Add Recipe to Google Calendar</button>
             <AddToCalendarPopup recipe={recipeData} trigger={calendarButton} setTrigger={setCalendarButton}/>
 
         </div>
