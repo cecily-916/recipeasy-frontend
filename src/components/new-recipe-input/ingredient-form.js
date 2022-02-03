@@ -27,7 +27,6 @@ function AddIngredient({ addIngredient }) {
   };
 
   const units = [
-    "select",
     "pinch",
     "tbsp",
     "tsp",
