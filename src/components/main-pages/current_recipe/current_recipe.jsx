@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 // import StepIngredients from './step_ingredients'
 import axios from 'axios';
 import RecipeOverview from './overview_container/recipe_container';
+import AddToCalendarPopup from './calendar_popup';
 
 function CurrentRecipe() {
 
@@ -10,10 +11,7 @@ function CurrentRecipe() {
     const recipe = location.state
 
     const [recipeData, setRecipeData] = useState([])
-    const [recipeStepsData, setRecipeStepsData] = useState([])
-    // const [stepsData, setStepsData] = useState("")
-    // const [stepsIngredientsData, setStepsIngredientsData] = useState("")
-    // const [ingredientsData, setIngredientsData] = useState("")
+    const [calendarButton, setCalendarButton] = useState(false);
 
     // Calls GET endpoint for recipe information (id, title, description, preptime, cooktime, rating)
     useEffect(() => {
@@ -28,6 +26,7 @@ function CurrentRecipe() {
     },[]);
     console.log(recipeData)
     console.log(recipeData.ingredients)
+
 
     return (
         <div className="grid grid-cols-3 gap-4 grid-rows-2 mt-11 mx-11 content-center">
@@ -50,9 +49,26 @@ function CurrentRecipe() {
                             p-3 
                             bg-emerald-800 text-white" 
                             to={`./steps/1`} state={recipeData}>Begin Recipe</Link>
+            <button            
+            className="inline-block
+            py-2
+            px-7
+            border border-[#E5E7EB]
+            rounded-md 
+            text-base text-body-color 
+            font-medium 
+            shadow-sm 
+            m-3 
+            p-3 
+            bg-emerald-800 text-white"
+            onClick={() => setCalendarButton(true)}>Add Recipe your Google Calendar</button>
+            <AddToCalendarPopup recipe={recipeData} trigger={calendarButton} setTrigger={setCalendarButton}/>
+
         </div>
         </div>
     );
 }
 
 export default CurrentRecipe;
+
+
