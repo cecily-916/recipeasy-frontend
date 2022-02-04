@@ -1,6 +1,9 @@
 export { default as Navigation } from "./navigation";
 export { default as Footer } from "./footer";
 export { default as Home } from "./home";
-export { default as CurrentRecipe } from "./current_recipe/current_recipe";
+export { default as CurrentRecipe } from "./recipe_overview";
 export { default as NewRecipeForm } from "../new-recipe-input/add-recipe";
 export { default as Profile } from "./profile";
+export { default as UserLogin } from "./login";
+export { default as UserSignUp } from "./signup";
+export { default as RecipeWalkthrough } from "./recipe_walkthrough";

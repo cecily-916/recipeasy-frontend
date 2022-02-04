@@ -5,15 +5,16 @@ function IngredientsList(props) {
   if (props.ingredients) {
     const ingredientsItems = props.ingredients.map((ingredient) => {
       return (
-        <ol>
+        <li key={ingredient.ID}>
           {ingredient.Name} | {ingredient.Quantity} {ingredient.Unit}
-        </ol>
+        </li>
       );
     });
+
     return (
       <div>
         <p className="text-xl font-bold">Ingredients:</p>
-        <p>{ingredientsItems}</p>
+        <ul>{ingredientsItems}</ul>
       </div>
     );
   }

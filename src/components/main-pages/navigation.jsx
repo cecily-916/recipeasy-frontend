@@ -1,5 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import Userfront from "@userfront/react";
+
+
+Userfront.init("vndxxrvn");
+const LogoutButton = Userfront.build({
+    toolId: "adabdo"
+});
 
 function Navigation() {
     return (
@@ -31,6 +38,11 @@ function Navigation() {
                             <NavLink className="nav-link" to="/profile">
                             Profile
                             </NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <LogoutButton className="nav-link" to="/login">
+                            Logout
+                            </LogoutButton>
                         </li>
                         </ul>
                     </div>

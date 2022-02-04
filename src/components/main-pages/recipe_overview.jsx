@@ -2,8 +2,8 @@ import { Link, useLocation } from 'react-router-dom'
 import { useEffect, useState } from "react";
 // import StepIngredients from './step_ingredients'
 import axios from 'axios';
-import RecipeOverview from './overview_container/recipe_container';
-import AddToCalendarPopup from './calendar_popup';
+import RecipeOverview from '../recipe_overview/recipe_container';
+import AddToCalendarPopup from '../current_recipe/calendar_popup';
 
 function CurrentRecipe() {
 
@@ -23,7 +23,7 @@ function CurrentRecipe() {
             .catch((error) => {
                 console.log("Recipe data cannot be rendered");
             });
-    },[]);
+    },[recipe.ID]);
     console.log(recipeData)
     console.log(recipeData.ingredients)
 

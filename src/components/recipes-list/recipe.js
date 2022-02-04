@@ -5,11 +5,11 @@ import Rating from "./rating";
 
 const Recipe = (props) => {
   return (
-    <div class="bg-white rounded-lg overflow-hidden mx-auto m-4 max-w-xs shadow-lg">
-      <img src={props.recipe.image} alt="dish" class="w-auto h-fit" />
-      <div class="p-8 sm:p-9 md:p-7 xl:p-9 text-center">
+    <div className="bg-white rounded-lg overflow-hidden mx-auto m-4 max-w-xs shadow-lg">
+      <img src={props.recipe.image} alt="dish" className="w-auto h-fit" />
+      <div className="p-8 sm:p-9 md:p-7 xl:p-9 text-center">
         <h3
-          class="
+          className="
               font-semibold
               text-dark text-xl
               sm:text-[22px]
@@ -24,14 +24,14 @@ const Recipe = (props) => {
         >
           {props.recipe.title}
         </h3>
-        <p class="text-base text-body-color leading-relaxed mb-7">
+        <div className="text-base text-body-color leading-relaxed mb-7">
           {props.recipe.description}
           <Rating rating={props.recipe.rating} />
-        </p>
+        </div>
         <Link
           to={`recipe/${props.recipe.ID}`}
           state={props.recipe}
-          class="
+          className="
         inline-block
         py-2
         px-7

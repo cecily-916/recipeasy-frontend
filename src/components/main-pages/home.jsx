@@ -1,5 +1,5 @@
 import React from "react";
-import ListContainer from "../recipe-list/list-container";
+import ListContainer from "../recipes-list/list-container";
 import { useEffect, useState } from "react";
 import axios from "axios"
 import NewRecipePopup from "../new-recipe-input/new-recipe";
@@ -23,20 +23,20 @@ function Home() {
             });
     }, []);
 
-    const createNewRecipe = (newRecipe) => {
-        axios
-            .post('http://localhost:8080/recipes', newRecipe)
-            .then((response) => {
-                console.log("Response:", response.data);
-                const recipe = [...recipesData];
-                recipe.push(response.data);
-                setRecipesData(recipe);
-            })
-            .catch((error) => {
-                console.log("Error:", error);
-                alert("Couldn't create a new recipe.");
-            });
-        };
+    // const createNewRecipe = (newRecipe) => {
+    //     axios
+    //         .post('http://localhost:8080/recipes', newRecipe)
+    //         .then((response) => {
+    //             console.log("Response:", response.data);
+    //             const recipe = [...recipesData];
+    //             recipe.push(response.data);
+    //             setRecipesData(recipe);
+    //         })
+    //         .catch((error) => {
+    //             console.log("Error:", error);
+    //             alert("Couldn't create a new recipe.");
+    //         });
+    //     };
 
     console.log(recipesData)
     return (

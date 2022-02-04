@@ -1,11 +1,11 @@
 import React from "react";
-import Step from "../overview_container/step";
+import Step from "./step";
 
 function StepsList(props) {
   if (props.steps) {
     const steps = props.steps.map((step) => {
       return (
-        <ul>
+        <ul key={step.ID}>
           <Step step={step} />
         </ul>
       );
