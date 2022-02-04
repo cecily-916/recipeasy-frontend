@@ -14,6 +14,7 @@ import {
   Profile,
   UserSignUp,
   RecipeWalkthrough,
+  PasswordReset,
 } from "./components/main-pages";
 import NewRecipeForm from "./components/new-recipe-input/add-recipe";
 
@@ -36,7 +37,7 @@ ReactDOM.render(
       <Route path="/profile" element={<Profile />} />
       <Route path="/login" element={<UserLogin />} />
       <Route path="/signup" element={<UserSignUp />} />
-      {/* <Route path="/reset" element={<Reset />} /> */}
+      <Route path="/reset" element={<PasswordReset />} />
     </Routes>
     {/* <Footer /> */}
   </Router>,
