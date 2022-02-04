@@ -31,7 +31,6 @@ function RecipeWalkthrough() {
         }
     }
 
-
     return (
         <div className="grid grid-col-4">
             <div className="col-span-1 m-5">
