@@ -30,12 +30,12 @@ function Navigation() {
                             </NavLink>
                         </li> */}
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/add-recipe">
+                            <NavLink className="nav-link" to="home/add-recipe">
                             Add Recipe
                             </NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/profile">
+                            <NavLink className="nav-link" to="home/profile">
                             Profile
                             </NavLink>
                         </li>
