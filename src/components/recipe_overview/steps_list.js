@@ -5,9 +5,12 @@ function StepsList(props) {
   if (props.steps) {
     const steps = props.steps.map((step) => {
       return (
-        <ul key={step.ID}>
-          <Step step={step} />
-        </ul>
+        <div>
+          <br />
+          <ul key={step.ID}>
+            <Step step={step} />
+          </ul>
+        </div>
       );
     });
 

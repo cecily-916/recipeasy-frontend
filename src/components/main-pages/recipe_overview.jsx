@@ -29,40 +29,44 @@ function CurrentRecipe() {
 
 
     return (
-        <div className="grid grid-cols-3 gap-4 grid-rows-2 mt-11 mx-11 content-center">
-            <RecipeOverview recipe={recipeData} className="col-span-3 content-center"/>
+        <div className="grid grid-cols-4 gap-24 grid-rows-3 mt-11 mx-11 content-center">
+            <div className="col-span-2 row-span-3 content-center">
+                <RecipeOverview recipe={recipeData} />
+            </div>
+            <div col-span-1 row-span-1 col-end-4>
             <img
-                className="rounded-sm max-h-60 col-span-2 col-end-4 max-w-fit content-center"
+                className="rounded-sm max-h-60 max-w-fit content-center"
                 src={recipeData.image}
                 alt=""
             />
-            <div className="row-start-2 col-span-1 content-center">
-            <Link className="inline-block
-                            py-2
-                            px-7
-                            border border-[#E5E7EB]
-                            rounded-md 
-                            text-base text-body-color 
-                            font-medium 
-                            shadow-sm 
-                            m-3 
-                            p-3 
-                            bg-emerald-800 text-white" 
-                            to={`./steps/1`} state={recipeData}>Begin Recipe</Link>
-            <button            
-            className="inline-block
-            py-2
-            px-7
-            border border-[#E5E7EB]
-            rounded-md 
-            text-base text-body-color 
-            font-medium 
-            shadow-sm 
-            m-3 
-            p-3 
-            bg-emerald-800 text-white"
-            onClick={() => setCalendarButton(true)}>Add Recipe to Google Calendar</button>
-            <AddToCalendarPopup recipe={recipeData} trigger={calendarButton} setTrigger={setCalendarButton}/>
+            </div>
+            <div className="row-start-2 col-span-1 col-end-4 content-center">
+                <Link className="inline-block
+                                py-2
+                                px-7
+                                border border-[#E5E7EB]
+                                rounded-md 
+                                text-base text-body-color 
+                                font-medium 
+                                shadow-sm 
+                                m-3 
+                                p-3 
+                                bg-emerald-800 text-white" 
+                                to={`./steps/1`} state={recipeData}>Begin Recipe</Link>
+                <button            
+                className="inline-block
+                py-2
+                px-7
+                border border-[#E5E7EB]
+                rounded-md 
+                text-base text-body-color 
+                font-medium 
+                shadow-sm 
+                m-3 
+                p-3 
+                bg-emerald-800 text-white"
+                onClick={() => setCalendarButton(true)}>Add Recipe to Google Calendar</button>
+                <AddToCalendarPopup recipe={recipeData} trigger={calendarButton} setTrigger={setCalendarButton}/>
         </div>
         </div>
     );

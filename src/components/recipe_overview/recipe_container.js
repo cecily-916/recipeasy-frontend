@@ -9,10 +9,12 @@ function RecipeOverview(props) {
       <h2>{props.recipe.description}</h2>
       <p>
         Rating: {props.recipe.rating} Prep Time: {props.recipe.prepTime} Cook
-        Time: {props.recipe.cookTime}
+        Time: {props.recipe.cookTime} Servings: {props.recipe.servings}
       </p>
+      <br />
       <p className="text-xl font-bold">Steps:</p>
       <StepsList steps={props.recipe.steps} />
+      <br />
       <IngredientsList ingredients={props.recipe.ingredients} />
       {/* <StepIngredients ingredients={ingredients}/> */}
     </div>
