@@ -5,7 +5,7 @@ import axios from "axios"
 import { Link } from "react-router-dom";
 
 
-function Home() {
+function PublicHome() {
 
     const [recipesData, setRecipesData] = useState([]);
     // const [newRecipeButton, setNewRecipeButton] = useState(false);
@@ -39,16 +39,14 @@ function Home() {
 
     console.log(recipesData)
     return (
-        <div className="overscroll-auto bg-scroll bg-top bg-bg-img bg-cover pb-3 ">
-            <header className="pt-3 text-8xl text-center text-white">Recipeasy</header>
-            <p className= "mt-16 text-lg text-center text-white">
-                {/* Welcome to Recipeasy, where all your favorite recipes are just so easy peasy. */}
-            </p>
-            <div className="mx-auto my-4 h-8 w-fit">
-                <Link to="./add-recipe" className="
+        <div className="overscroll-auto bg-scroll bg-home-img bg-cover pb-3 ">
+            <header className="pt-3 text-8xl text-center text-emerald-900">Recipeasy</header>
+            <div className="mx-auto mt-20 mb-12 h-8 w-fit">
+                <Link to="./login" className="
                         text-xl
                         font-quicksand 
                         align-center
+                        font-extrabold
                         py-2
                         px-7
                         border border-[#E5E7EB]
@@ -58,7 +56,7 @@ function Home() {
                         hover:border-primary 
                         hover:bg-emerald-800 hover:text-emerald-800
                         transition"
-                >Add New Recipe</Link>
+                >LOGIN</Link>
             </div>
             <ListContainer recipes={recipesData}/>
         </div>
@@ -66,4 +64,4 @@ function Home() {
 }
 
 
-export default Home;
+export default PublicHome;

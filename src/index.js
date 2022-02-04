@@ -15,6 +15,7 @@ import {
   UserSignUp,
   RecipeWalkthrough,
   PasswordReset,
+  PublicHome,
   LoginNavigation,
 } from "./components/main-pages";
 import NewRecipeForm from "./components/new-recipe-input/add-recipe";
@@ -26,6 +27,7 @@ function Routing() {
       <Router>
         <LoginNavigation />
         <Routes>
+          <Route path="/" element={<PublicHome />} />
           <Route path="/login" element={<UserLogin />} />
           <Route path="/signup" element={<UserSignUp />} />
           <Route path="/reset" element={<PasswordReset />} />
@@ -38,14 +40,14 @@ function Routing() {
       <Router>
         <Navigation />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/recipe/:recipeID" element={<CurrentRecipe />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="home/recipe/:recipeID" element={<CurrentRecipe />} />
           <Route
-            path="/recipe/:recipeID/steps/:stepID"
+            path="home/recipe/:recipeID/steps/:stepID"
             element={<RecipeWalkthrough />}
           />
           <Route path="/add-recipe" element={<NewRecipeForm />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="home/profile" element={<Profile />} />
         </Routes>
       </Router>
     );
