@@ -10,13 +10,9 @@ const SignupForm = Userfront.build({
 function UserSignUp(){
 
     return (
-        <div className='bg-emerald-800'>
-            <div className='mt-8'>
-                <SignupForm/>
-            </div>
-            {/* <div>
-                <LoginForm />
-            </div> */}
+
+        <div className='mt-8'>
+            <SignupForm/>
         </div>
     )
 }

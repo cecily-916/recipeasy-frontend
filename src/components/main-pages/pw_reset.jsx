@@ -10,11 +10,9 @@ const PasswordResetForm = Userfront.build({
 function PasswordReset(){
 
     return (
-        <div className='bg-emerald-800'>
             <div className='mt-8'>
                 <PasswordResetForm/>
             </div>
-        </div>
     )
 }
 

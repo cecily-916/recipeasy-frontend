@@ -11,11 +11,9 @@ const LoginForm = Userfront.build({
 function UserLogin(){
 
     return (
-        <div className='bg-emerald-800'>
             <div className='mt-8'>
                 <LoginForm />
             </div> 
-        </div>
     )
 }
 

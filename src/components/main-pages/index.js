@@ -8,3 +8,4 @@ export { default as UserLogin } from "./login";
 export { default as UserSignUp } from "./signup";
 export { default as RecipeWalkthrough } from "./recipe_walkthrough";
 export { default as PasswordReset } from "./pw_reset";
+export { default as LoginNavigation } from "./login_navigation";
