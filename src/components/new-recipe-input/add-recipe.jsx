@@ -5,6 +5,7 @@ import { useState } from "react";
 // import StepsList from "../main-pages/current_recipe/recipe_container/steps_list";
 import AddStepsForm from "./add_step";
 import axios from 'axios';
+import { useEffect } from "react";
 
 
 function NewRecipeForm() {
@@ -22,6 +23,9 @@ function NewRecipeForm() {
     servings: '',
 		steps: []
   });
+
+  // const [steps, setSteps] = useState([])
+
 
   const handleSubmit=(event)=>{
     // setNewRecipe({ title, description, prepTime, cookTime, image, servings, steps })
@@ -50,47 +54,77 @@ function NewRecipeForm() {
     }));
   }
 
-  
+  const addStep=(newStep)=>{    
+    setNewRecipe(prevState => ({
+      ...prevState,
+      steps : [...prevState.steps, newStep]
+    }));
+  }
+
+
+  // Add step pop up button
+  const [newStepButton, setNewStepButton] = useState(false)
+
   return (
-  <div>
-    <h1>Add New Recipe</h1>
-    <br />
-    <form onSubmit={handleSubmit}>
-      <input 
-        placeholder="Title"
-        name='title'
-        value = {newRecipe.title}
-        onChange={handleChange}/>
+    <div>
+      <h1>Add New Recipe</h1>
       <br />
-      <textarea 
-        placeholder="Description"
-        name='description'
-        value = {newRecipe.description}
-        onChange={handleChange}/>
-      <br />
-      <input 
-        placeholder="Servings"
-        name='servings'
-        value = {newRecipe.servings}
-        onChange={handleChange}/>
-      <br />
-      <input 
-        placeholder = "Prep Time"
-        name='prepTime'
-        value = {newRecipe.prepTime}
-        onChange={handleChange}/>
-      <br />
-      <input 
-        placeholder = "Cook Time"
-        name='cookTime'
-        value={newRecipe.cookTime}
-        onChange={handleChange}/>
-      <br />
-      {/* <AddStepsForm value={newRecipe.steps} onChange={handleChange}/> */}
-    <input type='submit'/>
-  </form>
+      <form onSubmit={handleSubmit}>
+        <input 
+          placeholder="Title"
+          name='title'
+          value = {newRecipe.title}
+          onChange={handleChange}/>
+        <br />
+        <textarea 
+          placeholder="Description"
+          name='description'
+          value = {newRecipe.description}
+          onChange={handleChange}/>
+        <br />
+        <input 
+          placeholder="Servings"
+          name='servings'
+          value = {newRecipe.servings}
+          onChange={handleChange}/>
+        <br />
+        <input 
+          placeholder = "Prep Time"
+          name='prepTime'
+          value = {newRecipe.prepTime}
+          onChange={handleChange}/>
+        <br />
+        <input 
+          placeholder = "Cook Time"
+          name='cookTime'
+          value={newRecipe.cookTime}
+          onChange={handleChange}/>
+        <br />
+    
+      <button  type="button"          
+        className="inline-block
+        py-2
+        px-7
+        border border-[#E5E7EB]
+        rounded-md 
+        text-base text-body-color 
+        font-medium 
+        shadow-sm 
+        m-3 
+        p-3 
+        bg-emerald-800 text-white"
+        onClick={() => setNewStepButton(true)}>
+        Add Step to Recipe
+      </button>
+      <AddStepsForm trigger={newStepButton} setTrigger={setNewStepButton} addStep={addStep}/>
+      <input type='submit'/>
+      </form>
   </div>
   )
 }
 
 export default NewRecipeForm;
+
+// value={newRecipe.steps}
+// onChange={handleChange}
+

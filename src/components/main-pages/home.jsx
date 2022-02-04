@@ -22,21 +22,6 @@ function Home() {
             });
     }, []);
 
-    // const createNewRecipe = (newRecipe) => {
-    //     axios
-    //         .post('http://localhost:8080/recipes', newRecipe)
-    //         .then((response) => {
-    //             console.log("Response:", response.data);
-    //             const recipe = [...recipesData];
-    //             recipe.push(response.data);
-    //             setRecipesData(recipe);
-    //         })
-    //         .catch((error) => {
-    //             console.log("Error:", error);
-    //             alert("Couldn't create a new recipe.");
-    //         });
-    //     };
-
     console.log(recipesData)
     return (
         <div className="overscroll-auto bg-scroll bg-top bg-bg-img bg-cover pb-3 ">

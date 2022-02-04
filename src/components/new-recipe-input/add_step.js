@@ -2,23 +2,41 @@ import React from "react";
 import AddIngredient from "./ingredient-form";
 import { useState } from "react";
 
-function AddStepsForm({ props }) {
-  const stepsData = {
-    details: "details",
-    extradetails: "extradetails",
-    // ingredients: [{
-    //   ingredient: 'ingredient',
-    //   unit: 'unit',
-    //   amount:'amount',
-    //   order: 'order'
+function AddStepsForm(props) {
+  //Internal form in the new recipe form
+  //at least one step
+  //able to add more steps
+  //each step has 0+ ingredients
+
+  const [newStep, setNewStep] = useState({
+    details: "",
+    extradetails: "",
+    ingredients: [],
+    order: "",
+  });
+
+  //////
+
+  const handleSubmit = () => {
+    props.addStep(newStep);
+    resetNewStep();
   };
 
-  const handleFieldChange = (index) => (event, value, selectedKey) => {
-    let data = { ...props.value };
+  const resetNewStep = () => {
+    setNewStep({
+      details: "",
+      extradetails: "",
+      ingredients: [],
+      order: "",
+    });
+  };
 
-    data[index] = value;
-
-    props.onChange(null, data);
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setNewStep((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
 
   // // Open add ingredient form
@@ -45,16 +63,34 @@ function AddStepsForm({ props }) {
   //   openIngredientForm();
   // }
 
-  return (
+  return props.trigger ? (
     <div>
-      {props.value.map((subform, index) => (
-        <AddStepsForm
-          key={subform.key}
-          value={subform}
-          onChange={handleFieldChange(index)}
-        />
-      ))}
+      <p className="font-extrabold">Add Step</p>
+      <textarea
+        placeholder="Details"
+        name="details"
+        value={newStep.details}
+        onChange={handleChange}
+      />
+      <br />
+      <textarea
+        placeholder="Extra Details"
+        name="extradetails"
+        value={newStep.extradetails}
+        onChange={handleChange}
+      />
+      <br />
+      <button
+        type="button"
+        onClick={() => {
+          handleSubmit();
+        }}
+      >
+        Save step
+      </button>
     </div>
+  ) : (
+    ""
   );
 }
 
