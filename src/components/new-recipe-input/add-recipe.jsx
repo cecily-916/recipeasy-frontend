@@ -30,7 +30,7 @@ function NewRecipeForm() {
   const handleSubmit=(event)=>{
     // setNewRecipe({ title, description, prepTime, cookTime, image, servings, steps })
     event.preventDefault()
-
+    
     console.log(newRecipe)
     // axios
     //   .post('http://localhost:8080/recipes', newRecipe)
@@ -54,13 +54,20 @@ function NewRecipeForm() {
     }));
   }
 
-  const addStep=(newStep)=>{    
-    setNewRecipe(prevState => ({
-      ...prevState,
-      steps : [...prevState.steps, newStep]
-    }));
-  }
+  const[newSteps, setNewSteps]=useState([])
 
+  const addStep=(newStep)=>{
+    console.log(newStep)    
+    setNewSteps(prevState => ([...prevState, newStep]))
+    console.log(newSteps);
+  }
+  
+  useEffect(()=>{
+    setNewRecipe(prevState => ({
+    ...prevState,
+    steps : newSteps
+    }));
+  },[newSteps])
 
   // Add step pop up button
   const [newStepButton, setNewStepButton] = useState(false)
