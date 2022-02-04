@@ -1,7 +1,6 @@
-import { Link, useLocation } from 'react-router-dom'
-import { useEffect, useState } from "react";
+import { useLocation } from 'react-router-dom'
+import { useState } from "react";
 // import StepIngredients from './step_ingredients'
-import axios from 'axios';
 import RecipeOverview from '../recipe_overview/recipe_container';
 import StepContainer from '../current_recipe/step_container/step_container';
 

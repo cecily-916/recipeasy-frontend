@@ -4,12 +4,7 @@ import "./index.css";
 // import App from "./App";
 import * as ServiceWorker from "./service-worker-registration";
 import reportWebVitals from "./reportWebVitals";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {
   Navigation,
   // Footer,
@@ -55,31 +50,7 @@ function Routing() {
       </Router>
     );
   }
-  //   return (
-  //     <Routes>
-  //       <Route path="/login" element={<UserLogin />} />
-  //     </Routes>
-  //   );
 }
-
-// <Router>
-//   <Routes>
-// <Navigation />
-// <Routes>
-//   <Route path="/home" element={<Home />} />
-//   <Route path="/recipe/:recipeID" element={<CurrentRecipe />} />
-//   <Route
-//     path="/recipe/:recipeID/steps/:stepID"
-//     element={<RecipeWalkthrough />}
-//   />
-//   <Route path="/add-recipe" element={<NewRecipeForm />} />
-//   <Route path="/profile" element={<Profile />} /> */}
-//   // <Route path="/login" element={<UserLogin />} />
-//   // <Route path="/signup" element={<UserSignUp />} />
-//   // <Route path="/reset" element={<PasswordReset />} />
-// // </Routes>
-// <Footer />
-// </Router>
 
 ReactDOM.render(
   <React.StrictMode>

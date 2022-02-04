@@ -2,7 +2,6 @@ import React from "react";
 import ListContainer from "../recipes-list/list-container";
 import { useEffect, useState } from "react";
 import axios from "axios"
-import NewRecipePopup from "../new-recipe-input/new-recipe";
 import { Link } from "react-router-dom";
 
 
