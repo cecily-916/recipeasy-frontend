@@ -8,7 +8,7 @@ function AddIngredientsForm(props) {
   const [newIngredient, setNewIngredient] = useState({
     ingredient: "",
     unit: "",
-    amount: "",
+    amount: 0.0,
   });
 
   const handleSubmit = () => {
@@ -20,7 +20,7 @@ function AddIngredientsForm(props) {
     setNewIngredient({
       ingredient: "",
       unit: "",
-      amount: "",
+      amount: 0.0,
     });
   };
 
@@ -71,7 +71,8 @@ function AddIngredientsForm(props) {
       />
       <br />
       <input
-        type="text"
+        type="number"
+        step=".1"
         placeholder="Amount"
         name="amount"
         value={newIngredient.amount}

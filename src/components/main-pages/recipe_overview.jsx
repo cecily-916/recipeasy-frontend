@@ -27,6 +27,15 @@ function CurrentRecipe() {
     console.log(recipeData)
     console.log(recipeData.ingredients)
 
+    // const deleteRecipe=() => {
+    //     axios
+    //         .delete(`http://localhost:8080/archive/${recipe.ID}`)
+    //         .then((response)=>{
+    //             alert("Recipe successfully deleted")
+    //         })
+    //         .catch((error) => {console.log("Error with delete.")})
+    //     window.location.href = '/home'
+    // }
 
     return (
         <div className="grid grid-cols-4 gap-24 grid-rows-3 mt-11 mx-11 content-center">
@@ -75,3 +84,16 @@ function CurrentRecipe() {
 export default CurrentRecipe;
 
 
+{/* <button            
+className="inline-block
+py-2
+px-7
+border border-[#E5E7EB]
+rounded-md 
+text-base text-body-color 
+font-medium 
+shadow-sm 
+m-3 
+p-3 
+bg-emerald-800 text-white"
+onClick={()=>{deleteRecipe()}}>Delete Recipe</button> */}

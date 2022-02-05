@@ -17,8 +17,8 @@ import {
   PasswordReset,
   PublicHome,
   LoginNavigation,
+  NewRecipe,
 } from "./components/main-pages";
-import NewRecipeForm from "./components/new-recipe-input/add-recipe";
 import Userfront from "@userfront/react";
 
 function Routing() {
@@ -46,7 +46,7 @@ function Routing() {
             path="home/recipe/:recipeID/steps/:stepID"
             element={<RecipeWalkthrough />}
           />
-          <Route path="home/add-recipe" element={<NewRecipeForm />} />
+          <Route path="home/new_recipe" element={<NewRecipe />} />
           <Route path="home/profile" element={<Profile />} />
         </Routes>
       </Router>

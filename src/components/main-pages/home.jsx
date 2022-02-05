@@ -30,7 +30,7 @@ function Home() {
                 {/* Welcome to Recipeasy, where all your favorite recipes are just so easy peasy. */}
             </p>
             <div className="mx-auto my-4 h-8 w-fit">
-                <Link to="./add-recipe" className="
+                <Link to="./new_recipe" className="
                         text-xl
                         font-quicksand 
                         align-center
