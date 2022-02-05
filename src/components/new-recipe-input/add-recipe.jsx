@@ -61,7 +61,7 @@ function NewRecipeForm() {
     setNewSteps(prevState => ([...prevState, newStep]))
     console.log(newSteps);
   }
-  
+
   useEffect(()=>{
     setNewRecipe(prevState => ({
     ...prevState,
@@ -87,6 +87,13 @@ function NewRecipeForm() {
           placeholder="Description"
           name='description'
           value = {newRecipe.description}
+          onChange={handleChange}/>
+        <br />
+        <input
+          type="url" 
+          placeholder="Enter Image URL"
+          name='image'
+          value = {newRecipe.image}
           onChange={handleChange}/>
         <br />
         <input 

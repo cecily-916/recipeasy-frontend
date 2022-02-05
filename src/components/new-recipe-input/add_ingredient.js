@@ -1,82 +1,87 @@
 import React from "react";
-import AddIngredient from "./ingredient-form";
 import { useState } from "react";
 
-function AddStepsForm(props) {
-  //Internal form in the new recipe form
-  //at least one step
-  //able to add more steps
+function AddIngredientsForm(props) {
+  //Internal form in the new step form
   //each step has 0+ ingredients
 
-  const [newStep, setNewStep] = useState({
-    details: "",
-    extradetails: "",
-    ingredients: [],
-    order: "",
+  const [newIngredient, setNewIngredient] = useState({
+    ingredient: "",
+    unit: "",
+    amount: "",
   });
 
   const handleSubmit = () => {
-    props.addStep(newStep);
-    resetNewStep();
+    props.addIngredient(newIngredient);
+    resetNewIngredient();
   };
 
-  const resetNewStep = () => {
-    setNewStep({
-      details: "",
-      extradetails: "",
-      ingredients: [],
-      order: "",
+  const resetNewIngredient = () => {
+    setNewIngredient({
+      ingredient: "",
+      unit: "",
+      amount: "",
     });
   };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setNewStep((prevState) => ({
+    setNewIngredient((prevState) => ({
       ...prevState,
       [name]: value,
     }));
   };
 
-  // // Open add ingredient form
-  // const [addIngredientButton, setAddIngredientButton] = useState(false);
+  const units = [
+    "pinch",
+    "tbsp",
+    "tsp",
+    "cup",
+    "pint",
+    "quart",
+    "gallon",
+    "fluid ounce",
+    "ml",
+    "l",
+    "pound",
+    "mg",
+    "g",
+    "kg",
+  ];
 
-  // // Add ingredients to the step
-
-  // const addIngredient = (newIngredient) => {
-  //   console.log(newIngredient);
-  //   let ingredients = [...stepIngredients, newIngredient];
-  //   setStepIngredients(ingredients);
-  // };
-
-  // const openIngredientForm = () => {
-  //   return (
-  //     <section>
-  //       <h2>Add ingredient:</h2>
-  //       <AddIngredient addIngredient={addIngredient} />
-  //     </section>
-  //   );
-  // };
-
-  // if (addIngredientButton === true) {
-  //   openIngredientForm();
-  // }
+  let unitCount = 0;
+  const unitOptions = units.map((unit) => {
+    unitCount++;
+    return (
+      <option key={unitCount} name={unit}>
+        {unit}
+      </option>
+    );
+  });
 
   return props.trigger ? (
     <div>
-      <p className="font-extrabold">Add Step</p>
-      <textarea
-        placeholder="Details"
-        name="details"
-        value={newStep.details}
+      <p className="font-extrabold">Add Ingredient</p>
+      <input
+        type="text"
+        placeholder="Ingredient"
+        name="ingredient"
+        value={newIngredient.ingredient}
         onChange={handleChange}
       />
       <br />
-      <textarea
-        placeholder="Extra Details"
-        name="extradetails"
-        value={newStep.extradetails}
+      <input
+        type="number"
+        placeholder="Amount"
+        name="amount"
+        value={newIngredient.amount}
         onChange={handleChange}
       />
+      <br />
+      <select name="unit" value={newIngredient.unit} onChange={handleChange}>
+        <option>Select Unit</option>
+        {unitOptions}
+      </select>
       <br />
       <button
         type="button"
@@ -84,7 +89,7 @@ function AddStepsForm(props) {
           handleSubmit();
         }}
       >
-        Save step
+        Save Ingredient
       </button>
     </div>
   ) : (
@@ -92,4 +97,4 @@ function AddStepsForm(props) {
   );
 }
 
-export default AddStepsForm;
+export default AddIngredientsForm;

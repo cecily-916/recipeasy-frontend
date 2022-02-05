@@ -1,5 +1,5 @@
 import React from "react";
-import AddIngredient from "./ingredient-form";
+import AddIngredientsForm from "./add_ingredient";
 import { useState } from "react";
 
 function AddStepsForm(props) {
@@ -37,29 +37,14 @@ function AddStepsForm(props) {
     }));
   };
 
-  // // Open add ingredient form
-  // const [addIngredientButton, setAddIngredientButton] = useState(false);
+  const addIngredient = (newIngredient) => {
+    setNewStep((prevState) => ({
+      ...prevState,
+      ingredients: [...prevState.ingredients, newIngredient],
+    }));
+  };
 
-  // // Add ingredients to the step
-
-  // const addIngredient = (newIngredient) => {
-  //   console.log(newIngredient);
-  //   let ingredients = [...stepIngredients, newIngredient];
-  //   setStepIngredients(ingredients);
-  // };
-
-  // const openIngredientForm = () => {
-  //   return (
-  //     <section>
-  //       <h2>Add ingredient:</h2>
-  //       <AddIngredient addIngredient={addIngredient} />
-  //     </section>
-  //   );
-  // };
-
-  // if (addIngredientButton === true) {
-  //   openIngredientForm();
-  // }
+  const [newIngredientButton, setNewIngredientButton] = useState(false);
 
   return props.trigger ? (
     <div>
@@ -78,6 +63,29 @@ function AddStepsForm(props) {
         onChange={handleChange}
       />
       <br />
+
+      <button
+        type="button"
+        className="inline-block
+        py-2
+        px-7
+        border border-[#E5E7EB]
+        rounded-md 
+        text-base text-body-color 
+        font-medium 
+        shadow-sm 
+        m-3 
+        p-3 
+        bg-emerald-800 text-white"
+        onClick={() => setNewIngredientButton(true)}
+      >
+        Add Ingredient to Step
+      </button>
+      <AddIngredientsForm
+        trigger={newIngredientButton}
+        setTrigger={setNewIngredientButton}
+        addIngredient={addIngredient}
+      />
       <button
         type="button"
         onClick={() => {
