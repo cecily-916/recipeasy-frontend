@@ -32,18 +32,20 @@ function NewRecipeForm() {
     event.preventDefault()
     
     console.log(newRecipe)
-    // axios
-    //   .post('http://localhost:8080/recipes', newRecipe)
-    //   .then((response) => {
-    //       console.log("Response:", response.data);
-    //       // const recipe = [...recipesData];
-    //       // recipe.push(response.data);
-    //       // setRecipesData(recipe);
-    //   })
-    //   .catch((error) => {
-    //       console.log("Error:", error);
-    //       alert("Couldn't create a new recipe.");
-    //   });
+    axios
+      .post('http://localhost:8080/recipes', newRecipe)
+      .then((response) => {
+          console.log("Response:", response.data);
+          // const recipe = [...recipesData];
+          // recipe.push(response.data);
+          // setRecipesData(recipe);
+      })
+      .catch((error) => {
+          console.log("Error:", error);
+          alert("Couldn't create a new recipe.");
+      });
+    
+    alert("You've created a new recipe!")
   };
 
   const handleChange=(event)=>{
@@ -73,15 +75,20 @@ function NewRecipeForm() {
   const [newStepButton, setNewStepButton] = useState(false)
 
   return (
-    <div>
-      <h1>Add New Recipe</h1>
+    <div className="overscroll-auto bg-scroll bg-cover pb-24 ">
+      <div className="m-auto max-w-lg max-h-fit bg-[#85878ad1] rounded-md shadow-xl">
+      <h1 className= "mt-16 pt-4 text-lg font-extrabold text-center text-white">
+              Add New Recipe
+      </h1>
+      {/* <div className='p-8 grid grid-cols-3'>     */}
       <br />
-      <form onSubmit={handleSubmit}>
+      <form className=" mx-auto h-fit justify-self-auto w-60" onSubmit={handleSubmit}>
         <input 
           placeholder="Title"
           name='title'
           value = {newRecipe.title}
           onChange={handleChange}/>
+        <br />
         <br />
         <textarea 
           placeholder="Description"
@@ -96,44 +103,52 @@ function NewRecipeForm() {
           value = {newRecipe.image}
           onChange={handleChange}/>
         <br />
+        <br />
+
         <input 
           placeholder="Servings"
           name='servings'
           value = {newRecipe.servings}
           onChange={handleChange}/>
         <br />
+        <br />
+
         <input 
           placeholder = "Prep Time"
           name='prepTime'
           value = {newRecipe.prepTime}
           onChange={handleChange}/>
         <br />
+        <br />
+
         <input 
           placeholder = "Cook Time"
           name='cookTime'
           value={newRecipe.cookTime}
           onChange={handleChange}/>
         <br />
+        <br />
+
     
       <button  type="button"          
         className="inline-block
         py-2
-        px-7
         border border-[#E5E7EB]
         rounded-md 
         text-base text-body-color 
         font-medium 
         shadow-sm 
-        m-3 
-        p-3 
         bg-emerald-800 text-white"
         onClick={() => setNewStepButton(true)}>
         Add Step to Recipe
       </button>
       <AddStepsForm trigger={newStepButton} setTrigger={setNewStepButton} addStep={addStep}/>
+      <br />
       <input type='submit'/>
       </form>
   </div>
+  </div>
+    // </div>
   )
 }
 

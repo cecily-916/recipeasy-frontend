@@ -71,7 +71,7 @@ function AddIngredientsForm(props) {
       />
       <br />
       <input
-        type="number"
+        type="text"
         placeholder="Amount"
         name="amount"
         value={newIngredient.amount}
