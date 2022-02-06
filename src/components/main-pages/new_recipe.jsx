@@ -2,9 +2,12 @@ import React from 'react';
 import AddRecipeForm from "../new-recipe-input/add_recipe_form"
 import NewRecipePreview from '../new-recipe-input/preview';
 import { useState } from "react";
+import axios from 'axios';
+import Userfront from '@userfront/react';
 
 function NewRecipe(){
 
+    const user=Userfront.user
 
     const [newRecipe, setNewRecipe] = useState({
     title: "",
@@ -14,26 +17,32 @@ function NewRecipe(){
     image: "",
     servings: "",
     steps: [],
+    user: "",
     });
 
     const handleSubmit = (event) => {
-    event.preventDefault();
+        event.preventDefault();
 
-    console.log(newRecipe);
-    // axios
-    //     .post("http://localhost:8080/recipes", newRecipe)
-    //     .then((response) => {
-    //     console.log("Response:", response.data);
-    //     // const recipe = [...recipesData];
-    //     // recipe.push(response.data);
-    //     // setRecipesData(recipe);
-    //     })
-    //     .catch((error) => {
-    //     console.log("Error:", error);
-    //     alert("Couldn't create a new recipe.");
-    //     });
+        setNewRecipe((prevState) => ({
+            ...prevState,
+            user: user.userId,
+            }));
 
-    alert("You've created a new recipe!");
+        console.log(newRecipe);
+        axios
+            .post("http://localhost:8080/recipes", newRecipe)
+            .then((response) => {
+            console.log("Response:", response.data);
+            // const recipe = [...recipesData];
+            // recipe.push(response.data);
+            // setRecipesData(recipe);
+            })
+            .catch((error) => {
+            console.log("Error:", error);
+            alert("Couldn't create a new recipe.");
+            });
+
+        alert("You've created a new recipe!");
     };
 
     return(
