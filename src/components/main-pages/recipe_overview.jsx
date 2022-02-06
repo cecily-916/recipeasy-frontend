@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 // import StepIngredients from './step_ingredients'
 import axios from 'axios';
 import RecipeOverview from '../recipe_overview/recipe_container';
-import AddToCalendarPopup from '../current_recipe/calendar_popup';
+import AddToCalendarPopup from '../recipe_overview/calendar_popup';
 
 function CurrentRecipe() {
 

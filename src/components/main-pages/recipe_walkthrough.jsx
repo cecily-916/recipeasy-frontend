@@ -2,7 +2,8 @@ import { useLocation } from 'react-router-dom'
 import { useState } from "react";
 // import StepIngredients from './step_ingredients'
 import RecipeOverview from '../recipe_overview/recipe_container';
-import StepContainer from '../current_recipe/step_container/step_container';
+import StepContainer from '../recipe_walkthrough/WALKTHROUGH/step_container/step_container';
+import StepIngredients from '../recipe_walkthrough/WALKTHROUGH/step_container/step_ingredients';
 
 function RecipeWalkthrough() {
     const location = useLocation()
@@ -38,6 +39,9 @@ function RecipeWalkthrough() {
             </div>
             <div className="col-end-5 col-span-3 m-5">
                 <StepContainer step={currentStep} changeStep={advanceStep}/>
+            </div>
+            <div>
+                {/* <StepIngredients  */}
             </div>
         </div>
     );
