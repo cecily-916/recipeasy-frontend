@@ -3,26 +3,40 @@ import ListContainer from "../recipes-list/list-container";
 import { useEffect, useState } from "react";
 import axios from "axios"
 import { Link } from "react-router-dom";
+import Userfront from "@userfront/react";
 
 
-function Home() {
+function Home({user}) {
 
     const [recipesData, setRecipesData] = useState([]);
+
+    useEffect(()=> {
+        console.log(user.userId);
+        axios
+            .get(`http://localhost:8080/${user.userId}/recipes`)
+            .then((response) => {
+            console.log(response);
+            setRecipesData(response.data)
+            })
+            .catch((error) => {
+            console.log("nope");
+            });
+    }, [user.userId]);
     // const [newRecipeButton, setNewRecipeButton] = useState(false);
     // onClick={() => setNewRecipeButton(true)}
     // trigger={newRecipeButton} setTrigger={setNewRecipeButton}
-    useEffect(() => {
-        axios
-            .get("http://localhost:8080/recipes")
-            .then((response) => {
-                setRecipesData(response.data);
-            })
-            .catch((error) => {
-                console.log("didn't work sorry");
-            });
-    }, []);
+    // useEffect(() => {
+    //     axios
+    //         .get("http://localhost:8080/recipes")
+    //         .then((response) => {
+    //             setRecipesData(response.data);
+    //         })
+    //         .catch((error) => {
+    //             console.log("didn't work sorry");
+    //         });
+    // }, []);
 
-    console.log(recipesData)
+    // console.log(recipesData)
     return (
         <div className="overscroll-auto bg-scroll bg-top bg-bg-img bg-cover pb-3 ">
             <header className="pt-3 text-8xl text-center text-white">Recipeasy</header>
