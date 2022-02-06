@@ -11,7 +11,7 @@ function StepContainer({ step, changeStep }) {
         <StepDescription step={step} />
         <StepIngredients ingredients={step.ingredients} />
         <button
-          class="inline-block
+          className="inline-block
           py-2
           px-7
           border border-[#E5E7EB]

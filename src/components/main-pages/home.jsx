@@ -38,8 +38,8 @@ function Home() {
 
     // console.log(recipesData)
     return (
-        <div className="overscroll-auto bg-scroll bg-top bg-bg-img bg-cover pb-3 ">
-            <header className="pt-3 text-8xl text-center text-white">Recipeasy</header>
+        <div className=" bg-fixed bg-top bg-bg-img bg-cover pb-3 ">
+            <header className="scroll-smooth pt-3 text-8xl text-center text-white">Recipeasy</header>
             <p className= "mt-16 text-lg text-center text-white">
                 {/* Welcome to Recipeasy, where all your favorite recipes are just so easy peasy. */}
             </p>

@@ -3,8 +3,8 @@ import { useState } from "react";
 // import StepIngredients from './step_ingredients'
 import RecipeOverview from '../recipe_overview/recipe_container';
 import StepContainer from '../recipe_walkthrough/WALKTHROUGH/step_container/step_container';
-import StepIngredients from '../recipe_walkthrough/WALKTHROUGH/step_container/step_ingredients';
-
+import IngredientsList from '../recipe_overview/ingredients_list';
+import StepWalkthroughContainer from '../recipe_walkthrough/WALKTHROUGH/sidebar_checklist';
 function RecipeWalkthrough() {
     const location = useLocation()
     const recipeData = location.state
@@ -33,15 +33,15 @@ function RecipeWalkthrough() {
     }
 
     return (
-        <div className="grid grid-col-4">
-            <div className="col-span-1 m-5">
+        <div className="relative grid grid-col-4">
+            <div className="sticky top-0 m-5 h-8">
                 <RecipeOverview recipe={recipeData}/>
             </div>
             <div className="col-end-5 col-span-3 m-5">
+                <StepWalkthroughContainer />
+                <IngredientsList ingredients = {recipeData.ingredients} />
+                <br/>
                 <StepContainer step={currentStep} changeStep={advanceStep}/>
-            </div>
-            <div>
-                {/* <StepIngredients  */}
             </div>
         </div>
     );
