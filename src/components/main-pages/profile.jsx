@@ -1,11 +1,12 @@
 import React from "react";
-import { PasswordReset } from ".";
 import { useEffect, useState} from 'react';
 import axios from 'axios';
+import Userfront from '@userfront/react';
 
-function Profile({user}) {
+function Profile() {
+    const user=Userfront.user
 
-    const [currentUser, setCurrentUser] = useState()
+    const [currentUser, setCurrentUser] = useState({})
 
     useEffect(()=> {
         console.log(user.userId);
@@ -18,9 +19,9 @@ function Profile({user}) {
             .catch((error) => {
             console.log("nope");
             });
-    }, [user.userId]);
+    },[user.userId]);
+    console.log(currentUser)
 
-    console.log(currentUser.name)
     return (
     <div className="profile">
         <div className="container">
@@ -38,9 +39,3 @@ function Profile({user}) {
 }
 
 export default Profile;
-
-// Include the reset password thing
-{/* <div className="col-lg-5">
-<h1 className="font-weight-light">Profile Settings</h1>
-<PasswordReset />
-</div> */}

@@ -3,15 +3,15 @@ import ListContainer from "../recipes-list/list-container";
 import { useEffect, useState } from "react";
 import axios from "axios"
 import { Link } from "react-router-dom";
-import Userfront from "@userfront/react";
+import Userfront from '@userfront/react';
 
 
-function Home({user}) {
+function Home() {
+    const user=Userfront.user
 
     const [recipesData, setRecipesData] = useState([]);
 
     useEffect(()=> {
-        console.log(user.userId);
         axios
             .get(`http://localhost:8080/${user.userId}/recipes`)
             .then((response) => {

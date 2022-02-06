@@ -1,8 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Userfront from "@userfront/react";
-import { useState, useEffect } from "react";
-import axios from 'axios';
 
 Userfront.init("vndxxrvn");
 const LogoutButton = Userfront.build({

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 // import App from "./App";
@@ -36,20 +36,19 @@ function Routing() {
     );
   } else {
     const userData = JSON.stringify(Userfront.user, null, 2);
-    const user = Userfront.user;
 
     return (
       <Router>
         <Navigation />
         <Routes>
-          <Route path="/home" element={<Home user={user} />} />
+          <Route path="/home" element={<Home />} />
           <Route path="home/recipe/:recipeID" element={<CurrentRecipe />} />
           <Route
             path="home/recipe/:recipeID/steps/:stepID"
             element={<RecipeWalkthrough />}
           />
-          <Route path="home/new_recipe" element={<NewRecipe user={user} />} />
-          <Route path="home/profile" element={<Profile user={user} />} />
+          <Route path="home/new_recipe" element={<NewRecipe />} />
+          <Route path="home/profile" element={<Profile />} />
         </Routes>
       </Router>
     );
