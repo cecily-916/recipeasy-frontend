@@ -21,7 +21,7 @@ function RecipeWalkthrough() {
                 <IngredientsList ingredients = {recipeData.ingredients} />
             </div>
             <div className="col-end-5 col-span-3 m-5">
-                <StepsContainer steps={recipeData.steps} currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
+                <StepsContainer recipe={recipeData} currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
             </div>
         </div>
     );
