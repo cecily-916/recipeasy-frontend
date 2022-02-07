@@ -7,9 +7,9 @@ import IngredientsList from '../recipe_overview/ingredients_list';
 import SidebarChecklist from '../recipe_walkthrough/WALKTHROUGH/sidebar_checklist';
 function RecipeWalkthrough() {
     const location = useLocation()
+    console.log(location)
     const recipeData = location.state
     
-
     const [currentStepNum, setCurrentStepNum] = useState(1)
 
     return (

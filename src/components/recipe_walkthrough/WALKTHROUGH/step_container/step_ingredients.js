@@ -1,11 +1,11 @@
 import React from "react";
 import Ingredient from "./ingredient";
 
-function StepIngredients(props) {
-  if (props.ingredients) {
-    const ingredients = props.ingredients.map((ingredient) => {
+function StepIngredients({ ingredients }) {
+  if (ingredients.length !== 0) {
+    const ingredientsList = ingredients.map((ingredient, index) => {
       return (
-        <ul>
+        <ul key={index}>
           <Ingredient ingredient={ingredient} />
         </ul>
       );
@@ -13,7 +13,7 @@ function StepIngredients(props) {
     return (
       <div>
         <h3 className="text-md font-semibold">Ingredients:</h3>
-        <div>{ingredients}</div>
+        <div>{ingredientsList}</div>
       </div>
     );
   }

@@ -1,11 +1,8 @@
 import React from "react";
-import StepDescription from "./step_description";
 import StepIngredients from "./step_ingredients";
 
-////THIS IS ACTUALLY PER STEP> NEED SEPARATE STEP CONTAINER FOR A MAP OF ALL STEPS///
-
-function StepContainer({ num, step, stepNum, setCurrentStepNum }) {
-  console.log(step);
+function Step({ num, step, stepNum, setCurrentStepNum }) {
+  console.log(num);
 
   const renderDetails = () => {
     let details = step.details;
@@ -32,8 +29,8 @@ function StepContainer({ num, step, stepNum, setCurrentStepNum }) {
   const nextStepNum = stepNum + 1;
 
   return (
-    <div className="bg-white p-8" id="{stepNum}">
-      <div id="step" className="p-9 bg-[#b3b5b8b0] rounded-md shadow-xl">
+    <div className="bg-white p-8">
+      <div id={num} className="p-9 bg-[#b3b5b8b0] rounded-md shadow-xl">
         <h1>Step {num}</h1>
         <br />
         {renderDetails()}
@@ -61,4 +58,4 @@ function StepContainer({ num, step, stepNum, setCurrentStepNum }) {
   );
 }
 
-export default StepContainer;
+export default Step;

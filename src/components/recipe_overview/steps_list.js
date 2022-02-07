@@ -3,11 +3,11 @@ import Step from "./step";
 
 function StepsList(props) {
   if (props.steps) {
-    const steps = props.steps.map((step) => {
+    const steps = props.steps.map((step, index) => {
       return (
-        <div>
+        <div key={index}>
           <br />
-          <ul key={step.ID}>
+          <ul>
             <Step step={step} />
           </ul>
         </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 
 //display and mark off each step when completed
 // this document is just the container
@@ -14,9 +14,19 @@ function SidebarChecklist({ recipe, stepNum, setCurrentStepNum }) {
         </div>
       );
     } else {
+      let link = `.#${num}`;
+      console.log(link);
       return (
         <div key={num}>
-          <Link to="#{num}"> Step {num}</Link>
+          <Link
+            to={link}
+            onClick={() => {
+              setCurrentStepNum(num);
+            }}
+            state={recipe}
+          >
+            Step {num}
+          </Link>
         </div>
       );
     }

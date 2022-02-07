@@ -42,7 +42,7 @@ function CurrentRecipe() {
             <div className="col-span-2 row-span-3 content-center">
                 <RecipeOverview recipe={recipeData} />
             </div>
-            <div col-span-1 row-span-1 col-end-4>
+            <div className="col-span-1 row-span-1 col-end-4">
             <img
                 className="rounded-sm max-h-60 max-w-fit content-center"
                 src={recipeData.image}
