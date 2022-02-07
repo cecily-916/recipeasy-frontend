@@ -1,18 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import StepIngredients from "./step_ingredients";
 import { HashLink as Link } from "react-router-hash-link";
+import { InView, useInView } from "react-intersection-observer";
 
 function Step({ num, step, recipe, setCurrentStepNum }) {
-  console.log(num);
+  const { ref, inView } = useInView({
+    threshold: 1,
+  });
 
+  const [onScreen, setOnScreen] = useState(false);
+
+  useEffect(() => {
+    if (inView) {
+      setOnScreen(true);
+      setCurrentStepNum(num);
+    } else {
+      setOnScreen(false);
+    }
+  }, [inView]);
+
+  console.log(num, inView);
   const renderDetails = () => {
     let details = step.details;
 
     const parsedStepText = details
       .replace(/([.?!])\s*(?=[A-Z])/g, "$1|")
       .split("|");
-
-    console.log(parsedStepText);
 
     const stepText = parsedStepText.map((sentence, index) => {
       return (
@@ -28,11 +41,15 @@ function Step({ num, step, recipe, setCurrentStepNum }) {
   };
 
   const nextStepNum = num + 1;
-  let link = `.#${nextStepNum}`;
-  console.log(recipe);
+
   return (
-    <div className="bg-white p-8">
-      <div id={num} className="p-9 bg-[#b3b5b8b0] rounded-md shadow-xl">
+    <div
+      className="bg-white p-8 snap-center"
+      inView={inView}
+      ref={ref}
+      // onChange={setCurrentStepNum(num)}
+    >
+      <div id={num} className=" p-9 bg-[#b3b5b8b0] rounded-md shadow-xl">
         <h1>Step {num}</h1>
         <br />
         {renderDetails()}
@@ -47,9 +64,10 @@ function Step({ num, step, recipe, setCurrentStepNum }) {
         font-medium 
         shadow-sm 
         m-3 
+        cursor-pointer
         p-3 
         bg-emerald-800 text-white"
-          to={link}
+          to={`.#${nextStepNum}`}
           onClick={() => {
             setCurrentStepNum(nextStepNum);
           }}

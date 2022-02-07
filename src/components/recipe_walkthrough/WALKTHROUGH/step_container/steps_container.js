@@ -6,8 +6,6 @@ function StepsContainer({ currentStep, recipe, setCurrentStepNum }) {
 
   const stepDisplay = steps.map((displayStep, index) => {
     let num = index + 1;
-    console.log(num);
-    console.log(displayStep);
 
     return (
       <Step
@@ -20,7 +18,9 @@ function StepsContainer({ currentStep, recipe, setCurrentStepNum }) {
     );
   });
 
-  return <div>{stepDisplay}</div>;
+  return (
+    <div className="scroll-smooth snap-proximity snap-y">{stepDisplay}</div>
+  );
 }
 
 export default StepsContainer;

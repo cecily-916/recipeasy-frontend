@@ -5,6 +5,7 @@ import { HashLink as Link } from "react-router-hash-link";
 // this document is just the container
 
 function SidebarChecklist({ recipe, stepNum, setCurrentStepNum }) {
+  console.log(stepNum);
   const stepList = recipe.steps.map((step, num) => {
     num += 1;
     if (num === stepNum) {
@@ -14,12 +15,10 @@ function SidebarChecklist({ recipe, stepNum, setCurrentStepNum }) {
         </div>
       );
     } else {
-      let link = `.#${num}`;
-      console.log(link);
       return (
         <div key={num}>
           <Link
-            to={link}
+            to={`.#${num}`}
             onClick={() => {
               setCurrentStepNum(num);
             }}
