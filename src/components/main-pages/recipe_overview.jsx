@@ -61,7 +61,7 @@ function CurrentRecipe() {
                                 m-3 
                                 p-3 
                                 bg-emerald-800 text-white" 
-                                to={`./steps/1`} state={recipeData}>Begin Recipe</Link>
+                                to={`./steps`} state={recipeData}>Begin Recipe</Link>
                 <button            
                 className="inline-block
                 py-2

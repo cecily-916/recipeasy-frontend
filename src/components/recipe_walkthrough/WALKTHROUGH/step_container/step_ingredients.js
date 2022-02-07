@@ -13,7 +13,7 @@ function StepIngredients(props) {
     return (
       <div>
         <h3 className="text-md font-semibold">Ingredients:</h3>
-        <p>{ingredients}</p>
+        <div>{ingredients}</div>
       </div>
     );
   }

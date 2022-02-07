@@ -9,7 +9,7 @@ function IngredientsList(props) {
   if (props.ingredients) {
     const ingredientsItems = props.ingredients.map((ingredient) => {
       return (
-        <li key={ingredient.ID}>
+        <li key="{ingredient}">
           {ingredient.Name} | {ingredient.Quantity} {ingredient.Unit}
         </li>
       );
