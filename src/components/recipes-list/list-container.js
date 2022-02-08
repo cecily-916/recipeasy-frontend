@@ -2,11 +2,11 @@ import React from "react";
 // import Header from "./header";
 import Recipe from "./recipe";
 
-function ListContainer(props) {
+function ListContainer({ recipes }) {
   // Map the recipe items to display individual recipes
-  console.log(props.recipes);
-  const recipeItems = props.recipes.map((recipe) => {
-    return <Recipe key={recipe.ID} recipe={recipe} />;
+  console.log(recipes);
+  const recipeItems = recipes.map((recipe, index) => {
+    return <Recipe key={index} recipe={recipe} />;
   });
 
   return (

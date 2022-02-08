@@ -35,7 +35,7 @@ function Routing() {
       </Router>
     );
   } else {
-    const userData = JSON.stringify(Userfront.user, null, 2);
+    const userInfo = JSON.stringify(Userfront.user, null, 2);
 
     return (
       <Router>

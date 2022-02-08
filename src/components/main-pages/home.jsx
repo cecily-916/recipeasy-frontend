@@ -5,7 +5,6 @@ import axios from "axios"
 import { Link } from "react-router-dom";
 import Userfront from '@userfront/react';
 
-
 function Home() {
     const user=Userfront.user
 
@@ -22,21 +21,7 @@ function Home() {
             console.log("nope");
             });
     }, [user.userId]);
-    // const [newRecipeButton, setNewRecipeButton] = useState(false);
-    // onClick={() => setNewRecipeButton(true)}
-    // trigger={newRecipeButton} setTrigger={setNewRecipeButton}
-    // useEffect(() => {
-    //     axios
-    //         .get("http://localhost:8080/recipes")
-    //         .then((response) => {
-    //             setRecipesData(response.data);
-    //         })
-    //         .catch((error) => {
-    //             console.log("didn't work sorry");
-    //         });
-    // }, []);
 
-    // console.log(recipesData)
     return (
         <div className=" bg-fixed bg-top bg-bg-img bg-cover pb-3 ">
             <header className="scroll-smooth pt-3 text-8xl text-center text-white">Recipeasy</header>
@@ -57,7 +42,8 @@ function Home() {
                         hover:border-primary 
                         hover:bg-emerald-800 hover:text-emerald-800
                         transition"
-                >Add New Recipe</Link>
+                >Create Recipe</Link>
+
             </div>
             <ListContainer recipes={recipesData}/>
         </div>

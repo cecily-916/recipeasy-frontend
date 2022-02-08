@@ -12,6 +12,7 @@ function CurrentRecipe() {
 
     const [recipeData, setRecipeData] = useState([])
     const [calendarButton, setCalendarButton] = useState(false);
+    // const [collection, setCalendarButton] = useState(false);
 
     // Calls GET endpoint for recipe information (id, title, description, preptime, cooktime, rating)
     useEffect(() => {

@@ -2,42 +2,54 @@ import React from "react";
 import { useEffect, useState} from 'react';
 import axios from 'axios';
 import Userfront from '@userfront/react';
-import AddName from '../profile/add_name';
+import AddCollectionPopup from '../recipes-list/collections/add_collection_button';
+
 
 function Profile() {
     const user=Userfront.user
 
-    const [currentUser, setCurrentUser] = useState({})
+    const [userData, setUserData] = useState({name: ""})
+    const [collectionButton, setCollectionButton] = useState(false)
+
+    console.log(user.userId)
     
     useEffect(()=> {
-        console.log(user.userId);
         axios
             .get(`http://localhost:8080/${user.userId}`)
             .then((response) => {
             console.log(response);
-            setCurrentUser(response.data)
+            setUserData(response.data)
             })
             .catch((error) => {
-            console.log("nope");
+            console.log("error: Get request failed.");
             });
-    },[user.userId]);
-    console.log(currentUser)
+    }, [user.userId]);
 
-    // const [addNameButton, setAddNameButton] = useState(false)
 
     return (
     <div className="profile">
         <div className="container">
         <div className="row align-items-center my-5">
-            <h1>Welcome {currentUser.name}</h1>
-        {/* <button onClick={() => setAddNameButton(true)}>Edit Name</button> */}
-        {/* <AddName user={currentUser} trigger={addNameButton} setTrigger={setAddNameButton}/> */}
+            <h1>Welcome {userData.name}</h1>
+            <br />
+            <button 
+                        onClick={() => setCollectionButton(true)}
+                        className="
+                        text-xl
+                        font-quicksand 
+                        align-center
+                        py-2
+                        px-7
+                        border border-[#E5E7EB]
+                        bg-white
+                        rounded-full
+                        text-black
+                        hover:border-primary 
+                        hover:bg-emerald-800 hover:text-emerald-800
+                        transition"
+                >New Collection</button>
+            <AddCollectionPopup userid={userData.ID} trigger={collectionButton} setTrigger={setCollectionButton}></AddCollectionPopup>
 
-            {/* <img
-                className="rounded-sm max-h-60 max-w-fit content-center"
-                src={recipeData.image}
-                alt=""
-                /> */}
         </div>
         </div>
     </div>

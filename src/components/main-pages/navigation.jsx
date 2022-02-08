@@ -11,9 +11,9 @@ const LogoutButton = Userfront.build({
 function Navigation() {
 
     return (
-        <div className="navigation">
-            <nav className="navbar navbar-expand navbar-dark bg-dark">
-                <div className="container">
+        <div className="navigation sticky top-0">
+            <nav className="navbar navbar-expand navbar-dark bg-dark ">
+                <div className="container ">
                     <NavLink className="navbar-brand" to="/home">
                     Recipeasy | Recipes Made Easy
                     </NavLink>

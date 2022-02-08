@@ -13,8 +13,8 @@ function RecipeWalkthrough() {
     const [currentStepNum, setCurrentStepNum] = useState(1)
     console.log(currentStepNum)
     return (
-        <div className="relative scroll-smooth grid grid-col-4">
-            <div className="sticky top-0 m-5 h-8">
+        <div className="scroll-smooth grid grid-col-4">
+            <div className="sticky top-28 m-5 h-8">
                 {/* <RecipeOverview recipe={recipeData}/> */}
                 <SidebarChecklist recipe={recipeData} stepNum={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
                 <br/>
