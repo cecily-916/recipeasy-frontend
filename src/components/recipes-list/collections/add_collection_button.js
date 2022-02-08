@@ -2,11 +2,12 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios";
 
-function AddCollectionPopup({ userid, trigger, setTrigger }) {
+function AddCollectionPopup({ userid, trigger, setTrigger, setPageUpdate }) {
   const [newCollection, setNewCollection] = useState({
     userid: userid,
     name: "",
   });
+  console.log(userid);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -20,6 +21,7 @@ function AddCollectionPopup({ userid, trigger, setTrigger }) {
           userid: userid,
           name: "",
         });
+        setPageUpdate(response);
       })
       .catch((error) => {
         console.log("Error: Post collection failed.");

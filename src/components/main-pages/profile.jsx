@@ -3,15 +3,15 @@ import { useEffect, useState} from 'react';
 import axios from 'axios';
 import Userfront from '@userfront/react';
 import AddCollectionPopup from '../recipes-list/collections/add_collection_button';
-
+import CollectionsListContainer from "../recipes-list/collections/collections_list_container";
 
 function Profile() {
     const user=Userfront.user
 
-    const [userData, setUserData] = useState({name: ""})
+    const [userData, setUserData] = useState("")
+    const [collectionsData, setCollectionsData] = useState([])
     const [collectionButton, setCollectionButton] = useState(false)
-
-    console.log(user.userId)
+    const [pageUpdate, setPageUpdate] = useState()
     
     useEffect(()=> {
         axios
@@ -23,8 +23,20 @@ function Profile() {
             .catch((error) => {
             console.log("error: Get request failed.");
             });
-    }, [user.userId]);
+    }, []);
 
+    useEffect(()=> {
+        axios
+            .get(`http://localhost:8080/${user.userId}/collections`)
+            .then((response) => {
+            console.log(response);
+            setCollectionsData(response.data)
+            })
+            .catch((error) => {
+            console.log("error: Get request failed.");
+            });
+    }, [pageUpdate]);
+    console.log(collectionsData)
 
     return (
     <div className="profile">
@@ -48,12 +60,14 @@ function Profile() {
                         hover:bg-emerald-800 hover:text-emerald-800
                         transition"
                 >New Collection</button>
-            <AddCollectionPopup userid={userData.ID} trigger={collectionButton} setTrigger={setCollectionButton}></AddCollectionPopup>
-
+            <AddCollectionPopup userid={user.userId} setPageUpdate={setPageUpdate} trigger={collectionButton} setTrigger={setCollectionButton}></AddCollectionPopup>
         </div>
+        {/* <Collection>Something</Collection> */}
         </div>
+        <CollectionsListContainer collections={collectionsData} setPageUpdate={setPageUpdate}/>
     </div>
     );
-}
+};
+
 
 export default Profile;
