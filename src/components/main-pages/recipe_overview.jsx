@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import axios from 'axios';
 import RecipeOverview from '../recipe_overview/recipe_container';
 import AddToCalendarPopup from '../recipe_overview/calendar_popup';
+import AddToCollectionPopup from '../recipe_overview/collections_popup';
 
 function CurrentRecipe() {
 
@@ -12,7 +13,8 @@ function CurrentRecipe() {
 
     const [recipeData, setRecipeData] = useState([])
     const [calendarButton, setCalendarButton] = useState(false);
-    // const [collection, setCalendarButton] = useState(false);
+    const [collectionsButton, setCollectionsButton] = useState(false)
+    // const [collection, setCollection] = useState(false);
 
     // Calls GET endpoint for recipe information (id, title, description, preptime, cooktime, rating)
     useEffect(() => {
@@ -77,6 +79,20 @@ function CurrentRecipe() {
                 bg-emerald-800 text-white"
                 onClick={() => setCalendarButton(true)}>Add Recipe to Google Calendar</button>
                 <AddToCalendarPopup recipe={recipeData} trigger={calendarButton} setTrigger={setCalendarButton}/>
+                <button            
+                className="inline-block
+                py-2
+                px-7
+                border border-[#E5E7EB]
+                rounded-md 
+                text-base text-body-color 
+                font-medium 
+                shadow-sm 
+                m-3 
+                p-3 
+                bg-emerald-800 text-white"
+                onClick={() => setCollectionsButton(true)}>Add to Collection</button>
+                <AddToCollectionPopup recipe={recipeData} trigger={collectionsButton} setTrigger={setCollectionsButton}/>
         </div>
         </div>
     );
