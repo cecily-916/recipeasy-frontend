@@ -10,3 +10,4 @@ export { default as RecipeWalkthrough } from "./recipe_walkthrough";
 export { default as PasswordReset } from "./pw_reset";
 export { default as LoginNavigation } from "./login_navigation";
 export { default as PublicHome } from "./public_home";
+export { default as CurrentCollection } from "./current_collection";

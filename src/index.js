@@ -13,6 +13,7 @@ import {
   CurrentRecipe,
   Profile,
   UserSignUp,
+  CurrentCollection,
   RecipeWalkthrough,
   PasswordReset,
   PublicHome,
@@ -42,7 +43,11 @@ function Routing() {
         <Navigation />
         <Routes>
           <Route path="/home" element={<Home />} />
-          <Route path="home/recipe/:recipeID" element={<CurrentRecipe />} />
+          <Route path="recipe/:recipeID" element={<CurrentRecipe />} />
+          <Route
+            path="collection/:collectionID"
+            element={<CurrentCollection />}
+          />
           <Route
             path="home/recipe/:recipeID/steps"
             element={<RecipeWalkthrough />}

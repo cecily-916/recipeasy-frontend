@@ -14,7 +14,6 @@ function CurrentRecipe() {
     const [recipeData, setRecipeData] = useState([])
     const [calendarButton, setCalendarButton] = useState(false);
     const [collectionsButton, setCollectionsButton] = useState(false)
-    // const [collection, setCollection] = useState(false);
 
     // Calls GET endpoint for recipe information (id, title, description, preptime, cooktime, rating)
     useEffect(() => {
@@ -77,7 +76,7 @@ function CurrentRecipe() {
                 m-3 
                 p-3 
                 bg-emerald-800 text-white"
-                onClick={() => setCalendarButton(true)}>Add Recipe to Google Calendar</button>
+                onClick={() => setCalendarButton(true)}>Add to Google Calendar</button>
                 <AddToCalendarPopup recipe={recipeData} trigger={calendarButton} setTrigger={setCalendarButton}/>
                 <button            
                 className="inline-block

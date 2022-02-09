@@ -29,15 +29,15 @@ function AddToCollectionPopup({ recipe, trigger, setTrigger }) {
 
     axios
       .patch(
-        `http://localhost:8080/recipes/${recipe.id}/collections/${collectionID}`
+        `http://localhost:8080/recipes/${recipe.ID}/collections/${collectionID}`
       )
       .then((response) => {
         console.log(response);
-        alert(
-          `Recipe successfully assigned to ${collectionID} collection!`
-        ).catch((error) => {
-          console.log("error: Assignment request failed.");
-        });
+        // alert(
+        //   `Recipe successfully assigned to ${collectionID} collection!`)
+      })
+      .catch((error) => {
+        console.log("error: Assignment request failed.");
       });
   };
 
@@ -47,7 +47,7 @@ function AddToCollectionPopup({ recipe, trigger, setTrigger }) {
 
   const collectionItems = collectionsData.map((collection, index) => {
     return (
-      <option value={collection.name} key={index}>
+      <option value={collection.ID} key={index}>
         {collection.name}
       </option>
     );
@@ -58,6 +58,8 @@ function AddToCollectionPopup({ recipe, trigger, setTrigger }) {
       <div className="popup-inner">
         <h1>Add to Collection</h1>
         <form onSubmit={handleSubmit}>
+          <label>Select a collection</label>
+          <br />
           <select
             value={collectionID}
             onChange={handleChange}
@@ -65,6 +67,7 @@ function AddToCollectionPopup({ recipe, trigger, setTrigger }) {
           >
             {collectionItems}
           </select>
+          <br />
           <br />
           <input type="Submit" />
         </form>

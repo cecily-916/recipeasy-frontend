@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -7,6 +7,7 @@ import axios from "axios";
 
 function Collection({ collection, setPageUpdate }) {
   console.log(collection);
+
   const deleteCollection = () => {
     axios
       .delete(`http://localhost:8080/collections/${collection.ID}`)
@@ -37,8 +38,12 @@ function Collection({ collection, setPageUpdate }) {
               hover:text-primary
               "
         >
-          {collection.name}
+          {" "}
+          <Link to={`/collection/${collection.ID}`} state={collection}>
+            {collection.name}
+          </Link>
         </h3>
+        <p>{collection["Recipes"].length} recipes</p>
         <button
           onClick={() => {
             deleteCollection();
@@ -46,24 +51,7 @@ function Collection({ collection, setPageUpdate }) {
         >
           🗑
         </button>
-        {/* <Link
-          // to={`collection/${collection.ID}`}
-          // state={collection}
-          className="
-        inline-block
-        py-2
-        px-7
-        border border-[#E5E7EB]
-        rounded-full
-        text-base text-body-color
-        font-medium
-        hover:border-primary hover:bg-emerald-800
-        hover:text-white
-        transition
-        "
-        >
-          Open Collection
-        </Link> */}
+        <br />
       </div>
     </div>
   );

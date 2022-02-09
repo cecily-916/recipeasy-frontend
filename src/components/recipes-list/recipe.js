@@ -29,7 +29,7 @@ const Recipe = (props) => {
           <Rating rating={props.recipe.rating} />
         </div>
         <Link
-          to={`recipe/${props.recipe.ID}`}
+          to={`/recipe/${props.recipe.ID}`}
           state={props.recipe}
           className="
         inline-block
