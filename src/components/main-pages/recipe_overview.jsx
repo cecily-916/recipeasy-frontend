@@ -5,6 +5,7 @@ import axios from 'axios';
 import RecipeOverview from '../recipe_overview/recipe_container';
 import AddToCalendarPopup from '../recipe_overview/calendar_popup';
 import AddToCollectionPopup from '../recipe_overview/collections_popup';
+import ArchiveRecipePopup from '../recipe_overview/archive_recipe_popup';
 
 function CurrentRecipe() {
 
@@ -14,6 +15,7 @@ function CurrentRecipe() {
     const [recipeData, setRecipeData] = useState([])
     const [calendarButton, setCalendarButton] = useState(false);
     const [collectionsButton, setCollectionsButton] = useState(false)
+    const [archiveRecipeButton, setArchiveRecipeButton] = useState(false)
 
     // Calls GET endpoint for recipe information (id, title, description, preptime, cooktime, rating)
     useEffect(() => {
@@ -92,6 +94,20 @@ function CurrentRecipe() {
                 bg-emerald-800 text-white"
                 onClick={() => setCollectionsButton(true)}>Add to Collection</button>
                 <AddToCollectionPopup recipe={recipeData} trigger={collectionsButton} setTrigger={setCollectionsButton}/>
+                <button            
+                className="inline-block
+                py-2
+                px-7
+                border border-[#E5E7EB]
+                rounded-md 
+                text-base text-body-color 
+                font-medium 
+                shadow-sm 
+                m-3 
+                p-3 
+                bg-white text-emerald-800"
+                onClick={() => setArchiveRecipeButton(true)}>Archive Recipe</button>
+                <ArchiveRecipePopup recipe={recipeData} trigger={archiveRecipeButton} setTrigger={setArchiveRecipeButton}/>
         </div>
         </div>
     );

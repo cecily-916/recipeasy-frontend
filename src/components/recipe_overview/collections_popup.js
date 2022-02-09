@@ -33,8 +33,9 @@ function AddToCollectionPopup({ recipe, trigger, setTrigger }) {
       )
       .then((response) => {
         console.log(response);
-        // alert(
-        //   `Recipe successfully assigned to ${collectionID} collection!`)
+        alert(
+          `Recipe successfully assigned to ${collectionsData[collectionID].name} collection!`
+        );
       })
       .catch((error) => {
         console.log("error: Assignment request failed.");
@@ -60,11 +61,8 @@ function AddToCollectionPopup({ recipe, trigger, setTrigger }) {
         <form onSubmit={handleSubmit}>
           <label>Select a collection</label>
           <br />
-          <select
-            value={collectionID}
-            onChange={handleChange}
-            placeholder="Select Collection"
-          >
+          <select value={collectionID} onChange={handleChange}>
+            <option>Select a collection</option>
             {collectionItems}
           </select>
           <br />
