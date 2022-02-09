@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
 import axios from "axios"
 import { Link } from "react-router-dom";
 import Userfront from '@userfront/react';
+import ArchivePopup from '../archive/archive_popup.js';
 
 function Home() {
     const user=Userfront.user
 
     const [recipesData, setRecipesData] = useState([]);
+    const [archiveButton, setArchiveButton] = useState(false)
 
     useEffect(()=> {
         axios
@@ -46,6 +48,20 @@ function Home() {
 
             </div>
             <ListContainer recipes={recipesData}/>
+            <button className="
+                        text-xl
+                        font-quicksand 
+                        align-center
+                        py-2
+                        px-7
+                        border border-[#E5E7EB]
+                        bg-white
+                        rounded-full
+                        text-black
+                        hover:border-primary 
+                        hover:bg-emerald-800 hover:text-emerald-800
+                        transition" onClick={()=>setArchiveButton(true)}>Archive</button>
+            <ArchivePopup userID={user.userId} trigger={archiveButton} setTrigger={setArchiveButton}/>
         </div>
     );
 }

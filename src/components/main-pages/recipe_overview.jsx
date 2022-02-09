@@ -42,8 +42,8 @@ function CurrentRecipe() {
     // }
 
     return (
-        <div className="grid grid-cols-4 gap-24 grid-rows-3 mt-11 mx-11 content-center">
-            <div className="col-span-2 row-span-3 content-center">
+        <div className="grid grid-cols-4 gap-24 grid-rows-2 mt-11 mx-11 content-center">
+            <div className="col-span-2 row-span-2 content-center">
                 <RecipeOverview recipe={recipeData} />
             </div>
             <div className="col-span-1 row-span-1 col-end-4">
@@ -53,7 +53,7 @@ function CurrentRecipe() {
                 alt=""
             />
             </div>
-            <div className="row-start-2 col-span-1 col-end-4 content-center">
+            <div className="row-start-2 col-span-1 col-end-4 content-top">
                 <Link className="inline-block
                                 py-2
                                 px-7

@@ -49,7 +49,7 @@ function Routing() {
             element={<CurrentCollection />}
           />
           <Route
-            path="home/recipe/:recipeID/steps"
+            path="/recipe/:recipeID/steps"
             element={<RecipeWalkthrough />}
           />
           <Route path="home/new_recipe" element={<NewRecipe />} />

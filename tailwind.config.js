@@ -8,6 +8,7 @@ module.exports = {
       backgroundImage: {
         "bg-img": "url('/assets/lemons.jpeg')",
         "home-img": "url('/assets/lemon-m.jpeg')",
+        "coll-img": "url('/assets/lemons_public.jpeg')",
       },
     },
   },
