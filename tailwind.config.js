@@ -6,9 +6,9 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        "bg-img": "url('/assets/lemons.jpeg')",
-        "home-img": "url('/assets/lemon-m.jpeg')",
-        "coll-img": "url('/assets/lemons_public.jpeg')",
+        "bg-img": "url('/src/assets/lemons.jpeg')",
+        "home-img": "url('/src/assets/lemon-m.jpeg')",
+        "coll-img": "url('/src/assets/lemons_public.jpeg')",
       },
     },
   },

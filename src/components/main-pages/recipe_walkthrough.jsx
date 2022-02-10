@@ -5,6 +5,8 @@ import RecipeOverview from '../recipe_overview/recipe_container';
 import StepsContainer from '../recipe_walkthrough/WALKTHROUGH/step_container/steps_container';
 import IngredientsList from '../recipe_overview/ingredients_list';
 import SidebarChecklist from '../recipe_walkthrough/WALKTHROUGH/sidebar_checklist';
+import Speech from '../recipe_walkthrough/WALKTHROUGH/step_container/speech_recognition';
+
 function RecipeWalkthrough() {
     const location = useLocation()
     console.log(location)
@@ -20,9 +22,12 @@ function RecipeWalkthrough() {
                 <br/>
                 <IngredientsList ingredients = {recipeData.ingredients} />
             </div>
+
             <div className="col-end-5 col-span-3 m-5">
+                <Speech currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
                 <StepsContainer recipe={recipeData} currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
             </div>
+
         </div>
     );
 }
