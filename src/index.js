@@ -19,7 +19,6 @@ import {
   PublicHome,
   LoginNavigation,
   NewRecipe,
-  ExtractedCurrentRecipe,
 } from "./components/main-pages";
 import Userfront from "@userfront/react";
 
@@ -55,10 +54,6 @@ function Routing() {
           />
           <Route path="home/new_recipe" element={<NewRecipe />} />
           <Route path="home/profile" element={<Profile />} />
-          <Route
-            path="home/recipe/extract/:recipeID"
-            element={<ExtractedCurrentRecipe />}
-          />
         </Routes>
       </Router>
     );

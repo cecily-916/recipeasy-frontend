@@ -3,10 +3,9 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import Userfront from "@userfront/react";
 
-function ArchivePopup({ userID, trigger, setTrigger }) {
+function ArchivePopup({ userID, trigger, setTrigger, setChange, change }) {
   // Opens a popup that allows user restore archived recipes
 
-  const [change, setChange] = useState();
   const [archiveData, setArchiveData] = useState([]);
 
   useEffect(() => {
@@ -19,19 +18,19 @@ function ArchivePopup({ userID, trigger, setTrigger }) {
       .catch((error) => {
         console.log("error: Get request failed.");
       });
-  }, []);
+  }, [change]);
 
   const handleRestore = (recipeID) => {
-    // axios
-    //   .put(`http://localhost:8080/archive/${recipeID}}`)
-    //   .then((response) => {
-    //     console.log(response);
-    //     alert(`Recipe successfully restored!`);
-    //     setChange(recipeID);
-    //   })
-    //   .catch((error) => {
-    //     console.log("error: Restoration request failed.");
-    //   });
+    axios
+      .put(`http://localhost:8080/archive/${recipeID}}`)
+      .then((response) => {
+        console.log(response);
+        alert(`Recipe successfully restored!`);
+        setChange(recipeID);
+      })
+      .catch((error) => {
+        console.log("error: Restoration request failed.");
+      });
     console.log(recipeID);
   };
 

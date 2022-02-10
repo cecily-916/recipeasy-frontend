@@ -5,13 +5,13 @@ import axios from "axios"
 import { Link } from "react-router-dom";
 import Userfront from '@userfront/react';
 import ArchivePopup from '../archive/archive_popup.js';
-import ExtractRecipe from "../url_extraction/url_input";
 
 function Home() {
     const user=Userfront.user
 
     const [recipesData, setRecipesData] = useState([]);
     const [archiveButton, setArchiveButton] = useState(false)
+    const [change, setChange] = useState();
 
     useEffect(()=> {
         axios
@@ -23,9 +23,7 @@ function Home() {
             .catch((error) => {
             console.log("nope");
             });
-    }, [user.userId]);
-
-
+    }, [change]);
 
 
     return (
@@ -34,23 +32,6 @@ function Home() {
             <p className= "mt-16 text-lg text-center text-white">
                 {/* Welcome to Recipeasy, where all your favorite recipes are just so easy peasy. */}
             </p>
-            <div className="mx-auto my-4 h-8 w-fit">
-                <Link to="./new_recipe" className="
-                        text-xl
-                        font-quicksand 
-                        align-center
-                        py-2
-                        px-7
-                        border border-[#E5E7EB]
-                        bg-white
-                        rounded-full
-                        text-black
-                        hover:border-primary 
-                        hover:bg-emerald-800 hover:text-emerald-800
-                        transition"
-                >Create Recipe</Link>
-            <ExtractRecipe/>
-            </div>
             <ListContainer recipes={recipesData}/>
             <button className="
                         text-xl
@@ -65,7 +46,7 @@ function Home() {
                         hover:border-primary 
                         hover:bg-emerald-800 hover:text-emerald-800
                         transition" onClick={()=>setArchiveButton(true)}>Archive</button>
-            <ArchivePopup userID={user.userId} trigger={archiveButton} setTrigger={setArchiveButton}/>
+            <ArchivePopup change={change} setChange={setChange} userID={user.userId} trigger={archiveButton} setTrigger={setArchiveButton}/>
         </div>
     );
 }
