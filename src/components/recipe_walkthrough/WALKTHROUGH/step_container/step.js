@@ -41,7 +41,12 @@ function Step({ num, step, recipe, setCurrentStepNum }) {
   };
 
   const nextStepNum = num + 1;
-
+  const handleNext = () => {
+    document
+      .getElementById(`${nextStepNum}`)
+      .scrollIntoView({ behavior: "smooth" });
+    setCurrentStepNum(nextStepNum);
+  };
   return (
     <div
       className="bg-white p-8 snap-center"
@@ -54,7 +59,8 @@ function Step({ num, step, recipe, setCurrentStepNum }) {
         <br />
         {renderDetails()}
         <StepIngredients ingredients={step.ingredients} />
-        <Link
+
+        <button
           className="inline-block
         py-2
         px-7
@@ -67,14 +73,12 @@ function Step({ num, step, recipe, setCurrentStepNum }) {
         cursor-pointer
         p-3 
         bg-emerald-800 text-white"
-          to={`.#${nextStepNum}`}
           onClick={() => {
-            setCurrentStepNum(nextStepNum);
+            handleNext();
           }}
-          state={recipe}
         >
           Done!
-        </Link>
+        </button>
       </div>
     </div>
   );

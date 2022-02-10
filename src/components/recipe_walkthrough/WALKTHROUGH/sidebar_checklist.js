@@ -6,6 +6,14 @@ import { HashLink as Link } from "react-router-hash-link";
 
 function SidebarChecklist({ recipe, stepNum, setCurrentStepNum }) {
   console.log(stepNum);
+
+  const handleNext = (nextStepNum) => {
+    document
+      .getElementById(`${nextStepNum}`)
+      .scrollIntoView({ behavior: "smooth" });
+    setCurrentStepNum(nextStepNum);
+  };
+
   const stepList = recipe.steps.map((step, num) => {
     num += 1;
     if (num === stepNum) {
@@ -17,15 +25,13 @@ function SidebarChecklist({ recipe, stepNum, setCurrentStepNum }) {
     } else {
       return (
         <div key={num}>
-          <Link
-            to={`.#${num}`}
+          <button
             onClick={() => {
-              setCurrentStepNum(num);
+              handleNext(num);
             }}
-            state={recipe}
           >
             Step {num}
-          </Link>
+          </button>
         </div>
       );
     }
