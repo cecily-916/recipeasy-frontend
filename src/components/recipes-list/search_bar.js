@@ -3,6 +3,7 @@ import { useState } from "react";
 
 function SearchBar({ recipes, setFoundRecipes, setChange, trigger }) {
   const [query, setQuery] = useState("");
+  console.log(recipes);
   console.log(query);
   //   const result = recipes.filter((recipe) => {
   //     if (query === "") {
@@ -26,7 +27,6 @@ function SearchBar({ recipes, setFoundRecipes, setChange, trigger }) {
       }
     });
     setFoundRecipes(results);
-    console.log(query);
   }, [query]);
 
   return trigger ? (
