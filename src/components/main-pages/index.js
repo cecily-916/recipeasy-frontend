@@ -11,3 +11,4 @@ export { default as PasswordReset } from "./pw_reset";
 export { default as LoginNavigation } from "./login_navigation";
 export { default as PublicHome } from "./public_home";
 export { default as CurrentCollection } from "./current_collection";
+export { default as ExtractedCurrentRecipe } from "./url_recipe_overview";

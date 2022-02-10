@@ -5,6 +5,7 @@ import axios from "axios"
 import { Link } from "react-router-dom";
 import Userfront from '@userfront/react';
 import ArchivePopup from '../archive/archive_popup.js';
+import ExtractRecipe from "../url_extraction/url_input";
 
 function Home() {
     const user=Userfront.user
@@ -23,6 +24,9 @@ function Home() {
             console.log("nope");
             });
     }, [user.userId]);
+
+
+
 
     return (
         <div className=" bg-fixed bg-top bg-bg-img bg-cover pb-3 ">
@@ -45,7 +49,7 @@ function Home() {
                         hover:bg-emerald-800 hover:text-emerald-800
                         transition"
                 >Create Recipe</Link>
-
+            <ExtractRecipe/>
             </div>
             <ListContainer recipes={recipesData}/>
             <button className="

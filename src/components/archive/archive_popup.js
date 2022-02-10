@@ -19,7 +19,7 @@ function ArchivePopup({ userID, trigger, setTrigger }) {
       .catch((error) => {
         console.log("error: Get request failed.");
       });
-  }, [change]);
+  }, []);
 
   const handleRestore = (recipeID) => {
     // axios
