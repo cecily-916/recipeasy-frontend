@@ -9,6 +9,7 @@ function ArchiveRecipePopup({ recipe, setTrigger, trigger }) {
       .then((response) => {
         console.log(response);
         alert(`${recipe.title} successfully archived`);
+        window.location = "/Home";
       })
       .catch((error) => {
         console.log("error: Delete request failed.");

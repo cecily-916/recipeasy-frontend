@@ -10,13 +10,17 @@ import Speech from '../recipe_walkthrough/WALKTHROUGH/step_container/speech_reco
 function RecipeWalkthrough() {
     const location = useLocation()
     console.log(location)
+    useEffect(() => {window.scrollTo(0,0)},[])
     const recipeData = location.state
     
+    const [sideBar, setSideBar] = useState(true)
+
     const [currentStepNum, setCurrentStepNum] = useState(1)
     console.log(currentStepNum)
-    return (
+    return sideBar ? (
         <div className=" grid grid-col-5">
             <div className="sticky top-8 m-5 h-8">
+                <button onClick={()=>setSideBar(false)}>Hide sidebar</button>
                 <Speech currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
                 <br />
                 {/* <RecipeOverview recipe={recipeData}/> */}
@@ -30,7 +34,21 @@ function RecipeWalkthrough() {
             </div>
 
         </div>
-    );
+    ):(
+        // <div className=" grid grid-col-5">
+    <div>
+        <div className="sticky top-8 m-5 h-8 inline">
+            <button onClick={()=>setSideBar(true)}>Show sidebar</button>
+            <Speech currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
+            <br />
+        </div> 
+        <div className="col-end-6 col-span-4">
+            <StepsContainer recipe={recipeData} currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
+            <button onClick={()=>document.body.scrollTop = document.documentElement.scrollTop = 0}>Back to top</button>
+        </div>
+
+    </div>
+    )
 }
 
 export default RecipeWalkthrough;

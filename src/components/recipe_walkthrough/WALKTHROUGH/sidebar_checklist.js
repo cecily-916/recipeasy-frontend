@@ -39,7 +39,13 @@ function SidebarChecklist({ recipe, stepNum, setCurrentStepNum }) {
 
   return (
     <div>
-      <h1 className="drop-shadow-md rounded-xl w-full">{recipe.title}</h1>
+      <Link
+        className="hover:text-emerald-900"
+        to={`/recipe/${recipe.ID}`}
+        state={recipe}
+      >
+        <h1 className="drop-shadow-md rounded-xl w-full">{recipe.title}</h1>
+      </Link>
 
       {/* <br />
       <img

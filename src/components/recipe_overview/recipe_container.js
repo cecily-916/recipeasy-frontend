@@ -7,7 +7,9 @@ function RecipeOverview(props) {
     <div>
       <h1>{props.recipe.title}</h1>
       <br />
-      <h2>{props.recipe.description}</h2>
+      <p className="font-bold text-emerald-900">
+        By: {props.recipe.originalcreator}
+      </p>
       <br />
       <p>
         <p className="font-bold inline">Prep Time:</p>
@@ -17,6 +19,10 @@ function RecipeOverview(props) {
         <p className="font-bold inline-flex">Servings: </p>
         {props.recipe.servings}&ensp;&ensp;
       </p>
+      <br />
+
+      <h2>{props.recipe.description}</h2>
+
       <br />
       <p className="text-xl font-bold">Steps:</p>
       <StepsList steps={props.recipe.steps} />

@@ -23,7 +23,7 @@ function StepsContainer({ currentStep, recipe, setCurrentStepNum }) {
   });
 
   return (
-    <div className="scroll-smooth  snap-proximity snap-y">{stepDisplay}</div>
+    <div className="scroll-smooth snap-proximity snap-y">{stepDisplay}</div>
   );
 }
 

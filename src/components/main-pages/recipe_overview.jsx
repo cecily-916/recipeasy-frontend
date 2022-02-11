@@ -12,6 +12,8 @@ function CurrentRecipe() {
     const location = useLocation()
     const recipe = location.state
 
+    window.scrollTo(0,0)
+
     const [recipeData, setRecipeData] = useState([])
     const [calendarButton, setCalendarButton] = useState(false);
     const [collectionsButton, setCollectionsButton] = useState(false)

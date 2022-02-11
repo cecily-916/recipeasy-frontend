@@ -84,7 +84,7 @@ function Step({ num, step, recipe, setCurrentStepNum, bg }) {
         p-3 
         float-right
         absolute bottom-8 right-8
-        bg-emerald-800 text-white"
+        bg-emerald-800 text-white hover:bg-emerald-600"
           onClick={() => {
             handleNext();
           }}
