@@ -51,7 +51,7 @@ function ArchivePopup({ userID, trigger, setTrigger, setChange, change }) {
   });
 
   return trigger ? (
-    <div className="popup">
+    <div className="popup z-50">
       <div className="popup-inner">
         <h1>Archived Recipes</h1>
         <br />
