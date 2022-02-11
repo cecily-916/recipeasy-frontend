@@ -33,6 +33,7 @@ function AddToCollectionPopup({ recipe, trigger, setTrigger }) {
     if (collectionID === "Add New Collection") {
       setNewCollectionTrigger(true);
     } else {
+      console.log(recipe.ID, collectionID);
       axios
         .patch(
           `http://localhost:8080/recipes/${recipe.ID}/collections/${collectionID}`
@@ -66,9 +67,13 @@ function AddToCollectionPopup({ recipe, trigger, setTrigger }) {
       <div className="popup-inner">
         <h1>Add to Collection</h1>
         <form onSubmit={handleSubmit}>
-          <label>Select a collection</label>
           <br />
-          <select value={collectionID} onChange={handleChange}>
+          <br />
+          <select
+            className="border"
+            value={collectionID}
+            onChange={handleChange}
+          >
             <option>Select a collection</option>
             {collectionItems}
             <option>Add New Collection</option>
@@ -76,7 +81,7 @@ function AddToCollectionPopup({ recipe, trigger, setTrigger }) {
           <br />
 
           <br />
-          <input type="Submit" />
+          <input className="font-bold" type="Submit" />
         </form>
         <AddCollectionPopup
           userid={user.userId}

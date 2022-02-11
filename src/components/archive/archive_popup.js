@@ -38,8 +38,9 @@ function ArchivePopup({ userID, trigger, setTrigger, setChange, change }) {
     return (
       <div key={index}>
         <br />
-        <p>{recipe.title}</p>
+        <p className="font-bold inline">{recipe.title}&ensp;</p>
         <button
+          className="underline"
           onClick={() => {
             handleRestore(recipe.ID);
           }}
@@ -56,6 +57,7 @@ function ArchivePopup({ userID, trigger, setTrigger, setChange, change }) {
         <h1>Archived Recipes</h1>
         <br />
         {archivedRecipes}
+        <br />
         <button className="close-btn" onClick={() => setTrigger(false)}>
           Close
         </button>
