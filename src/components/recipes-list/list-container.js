@@ -1,6 +1,9 @@
 import React from "react";
 // import Header from "./header";
 import Recipe from "./recipe";
+import StackGrid, { transitions } from "react-stack-grid";
+
+const { scaleDown } = transitions;
 
 function ListContainer({ recipes }) {
   // Map the recipe items to display individual recipes
@@ -12,7 +15,7 @@ function ListContainer({ recipes }) {
   return (
     // title
     <section className="mx-12 mt-10 mb-20 bg-[#b3b5b8b0] rounded-md shadow-xl">
-      <div
+      {/* <div
         className="
         flex 
         flex-wrap 
@@ -20,11 +23,21 @@ function ListContainer({ recipes }) {
         justify-start 
         justify-items-center 
         space-x-5"
+      > */}
+      <StackGrid
+        columnWidth={250}
+        gutterWidth={15}
+        appear={scaleDown.appear}
+        appeared={scaleDown.appeared}
+        enter={scaleDown.enter}
+        entered={scaleDown.entered}
+        leaved={scaleDown.leaved}
       >
         {/* // header with sort features component */}
         {/* <RecipeList recipes={props.recipes} /> */}
         {recipeItems}
-      </div>
+      </StackGrid>
+      {/* </div> */}
     </section>
   );
 }
