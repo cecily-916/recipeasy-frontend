@@ -1,5 +1,5 @@
 import React from "react";
-import search from "/Users/cecily/Ada/capstone/recipeasy-frontend/src/assets/search.png";
+import search from "../../assets/search.png";
 
 function SearchButton({ setChange, trigger, setTrigger }) {
   const handleClick = () => {
