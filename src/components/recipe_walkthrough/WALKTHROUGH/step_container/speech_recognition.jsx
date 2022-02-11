@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 import "./microphone.css";
-import microphone from '/Users/cecily/Ada/capstone/recipeasy-frontend/src/assets/microphone.png'
+import microphone from '../../../../assets/microphone.png'
 
 function Speech({ currentStep, setCurrentStepNum})  {
     console.log(currentStep)
