@@ -6,10 +6,16 @@ function RecipeOverview(props) {
   return (
     <div>
       <h1>{props.recipe.title}</h1>
+      <br />
       <h2>{props.recipe.description}</h2>
+      <br />
       <p>
-        Rating: {props.recipe.rating} Prep Time: {props.recipe.prepTime} Cook
-        Time: {props.recipe.cookTime} Servings: {props.recipe.servings}
+        <p className="font-bold inline">Prep Time:</p>
+        {props.recipe.prepTime}&ensp;&ensp;
+        <p className="font-bold inline">Total Time:</p>
+        {props.recipe.cookTime}&ensp;&ensp;
+        <p className="font-bold inline-flex">Servings: </p>
+        {props.recipe.servings}&ensp;&ensp;
       </p>
       <br />
       <p className="text-xl font-bold">Steps:</p>

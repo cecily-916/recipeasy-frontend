@@ -11,7 +11,7 @@ const LogoutButton = Userfront.build({
 function Navigation() {
 
     return (
-        <div className="navigation sticky top-0">
+        <div className="navigation ">
             <nav className="navbar navbar-expand navbar-dark bg-dark ">
                 <div className="container ">
                     <NavLink className="navbar-brand" to="/home">

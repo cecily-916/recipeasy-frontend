@@ -25,7 +25,6 @@ const Recipe = (props) => {
           {props.recipe.title}
         </h3>
         <div className="text-base text-body-color leading-relaxed mb-7">
-          {props.recipe.description}
           <Rating rating={props.recipe.rating} />
         </div>
         <Link

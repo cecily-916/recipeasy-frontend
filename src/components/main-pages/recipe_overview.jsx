@@ -48,7 +48,7 @@ function CurrentRecipe() {
             </div>
             <div className="col-span-1 row-span-1 col-end-4">
             <img
-                className="rounded-sm max-h-60 max-w-fit content-center"
+                className=" rounded-md max-h-80 max-w-fit content-center drop-shadow-md "
                 src={recipeData.image}
                 alt=""
             />

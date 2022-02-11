@@ -19,7 +19,7 @@ function SidebarChecklist({ recipe, stepNum, setCurrentStepNum }) {
     if (num === stepNum) {
       return (
         <div key={num}>
-          <p className="text-xl font-extrabold text-emerald-900">Step {num}</p>
+          <p className="text-2xl font-extrabold text-emerald-900">Step {num}</p>
         </div>
       );
     } else {
@@ -39,7 +39,8 @@ function SidebarChecklist({ recipe, stepNum, setCurrentStepNum }) {
 
   return (
     <div>
-      <h1>{recipe.title}</h1>
+      <h1 className="drop-shadow-md rounded-xl w-full">{recipe.title}</h1>
+
       {/* <br />
       <img
         className="rounded-sm max-h-60 max-w-40 content-center"
@@ -47,14 +48,7 @@ function SidebarChecklist({ recipe, stepNum, setCurrentStepNum }) {
         alt=""
       /> */}
       <br />
-      <h2>{recipe.description}</h2>
-      <p>
-        Rating: {recipe.rating} Prep Time: {recipe.prepTime} Cook Time:{" "}
-        {recipe.cookTime} Servings: {recipe.servings}
-      </p>
-      <br />
-      <p className="text-lg font-bold">Steps:</p>
-      {stepList}
+      <div className=""> {stepList} </div>
     </div>
   );
 }

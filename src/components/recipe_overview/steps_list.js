@@ -5,10 +5,10 @@ function StepsList(props) {
   if (props.steps) {
     const steps = props.steps.map((step, index) => {
       return (
-        <div key={index}>
+        <div key={index + 1}>
           <br />
           <ul>
-            <Step step={step} />
+            <Step step={step} index={index + 1} />
           </ul>
         </div>
       );
