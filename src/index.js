@@ -26,7 +26,7 @@ function Routing() {
       <Router>
         <LoginNavigation />
         <Routes>
-          <Route path="/" element={<PublicHome />} />
+          <Route path="/" element={<UserLogin />} />
           <Route path="/login" element={<UserLogin />} />
           <Route path="/signup" element={<UserSignUp />} />
           <Route path="/reset" element={<PasswordReset />} />
