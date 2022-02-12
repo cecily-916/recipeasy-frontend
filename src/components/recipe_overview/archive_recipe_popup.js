@@ -6,7 +6,7 @@ function ArchiveRecipePopup({ recipe, setTrigger, trigger }) {
 
   const handleArchive = () => {
     axios
-      .delete(`http://localhost:8080/recipes/${recipe.ID}`)
+      .delete(`${process.env.REACT_APP_BACKEND_URL}/recipes/${recipe.ID}`)
       .then((response) => {
         console.log(response);
         alert(`${recipe.title} successfully archived`);

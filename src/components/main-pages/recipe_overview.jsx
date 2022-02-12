@@ -24,7 +24,7 @@ function CurrentRecipe() {
     // Calls GET endpoint for recipe information (id, title, description, preptime, cooktime, rating)
     useEffect(() => {
         axios
-            .get(`http://localhost:8080/recipes/${recipe.ID}`)
+            .get(`${process.env.REACT_APP_BACKEND_URL}/recipes/${recipe.ID}`)
             .then((response) => {
                 setRecipeData(response.data);
             })
@@ -37,7 +37,7 @@ function CurrentRecipe() {
 
     // const deleteRecipe=() => {
     //     axios
-    //         .delete(`http://localhost:8080/archive/${recipe.ID}`)
+    //         .delete(`${process.env.REACT_APP_BACKEND_URL}/archive/${recipe.ID}`)
     //         .then((response)=>{
     //             alert("Recipe successfully deleted")
     //         })

@@ -19,7 +19,7 @@ function Home() {
 
     useEffect(()=> {
         axios
-            .get(`http://localhost:8080/${user.userId}/recipes`)
+            .get(`${process.env.REACT_APP_BACKEND_URL}/${user.userId}/recipes`)
             .then((response) => {
             console.log(response);
             setRecipesData(response.data)

@@ -10,7 +10,7 @@ function ArchivePopup({ userID, trigger, setTrigger, setChange, change }) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/${userID}/archive`)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/${userID}/archive`)
       .then((response) => {
         console.log(response);
         setArchiveData(response.data);
@@ -22,7 +22,7 @@ function ArchivePopup({ userID, trigger, setTrigger, setChange, change }) {
 
   const handleRestore = (recipeID) => {
     axios
-      .put(`http://localhost:8080/archive/${recipeID}}`)
+      .put(`${process.env.REACT_APP_BACKEND_URL}/archive/${recipeID}}`)
       .then((response) => {
         console.log(response);
         alert(`Recipe successfully restored!`);

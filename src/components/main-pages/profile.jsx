@@ -15,7 +15,7 @@ function Profile() {
     
     useEffect(()=> {
         axios
-            .get(`http://localhost:8080/${user.userId}`)
+            .get(`${process.env.REACT_APP_BACKEND_URL}/${user.userId}`)
             .then((response) => {
             console.log(response);
             setUserData(response.data)
@@ -27,7 +27,7 @@ function Profile() {
 
     useEffect(()=> {
         axios
-            .get(`http://localhost:8080/${user.userId}/collections`)
+            .get(`${process.env.REACT_APP_BACKEND_URL}/${user.userId}/collections`)
             .then((response) => {
             console.log(response);
             setCollectionsData(response.data)

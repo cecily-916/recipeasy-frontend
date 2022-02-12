@@ -19,7 +19,7 @@ function CurrentCollection() {
 
     useEffect(()=> {
         axios
-            .get(`http://localhost:8080/collections/${collection.ID}`)
+            .get(`${process.env.REACT_APP_BACKEND_URL}/collections/${collection.ID}`)
             .then((response) => {
             console.log(response);
             setCollectionData(response.data)

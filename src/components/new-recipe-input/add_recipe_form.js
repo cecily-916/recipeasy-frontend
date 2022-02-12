@@ -30,7 +30,7 @@ function AddRecipeForm({ handleSubmit, newRecipe, setNewRecipe }) {
 
   //   console.log(newRecipe);
   //   axios
-  //     .post("http://localhost:8080/recipes", newRecipe)
+  //     .post("${process.env.REACT_APP_BACKEND_URL}/recipes", newRecipe)
   //     .then((response) => {
   //       console.log("Response:", response.data);
   //       // const recipe = [...recipesData];

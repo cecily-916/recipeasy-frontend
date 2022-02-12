@@ -17,7 +17,7 @@ function AddToCollectionPopup({ recipe, trigger, setTrigger }) {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8080/${user.userId}/collections`)
+      .get(`${process.env.REACT_APP_BACKEND_URL}/${user.userId}/collections`)
       .then((response) => {
         console.log(response);
         setCollectionsData(response.data);
@@ -36,7 +36,7 @@ function AddToCollectionPopup({ recipe, trigger, setTrigger }) {
       console.log(recipe.ID, collectionID);
       axios
         .patch(
-          `http://localhost:8080/recipes/${recipe.ID}/collections/${collectionID}`
+          `${process.env.REACT_APP_BACKEND_URL}/recipes/${recipe.ID}/collections/${collectionID}`
         )
         .then((response) => {
           console.log(response);

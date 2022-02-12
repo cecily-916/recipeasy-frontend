@@ -8,43 +8,37 @@ import React from 'react';
 function Speech({ currentStep, setCurrentStepNum})  {
     console.log(currentStep)
     const commands = [
-    // {
-    //     command: "recipe complete",
-    //     callback: (website) => {
-    //     window.open("http://" + website.split(" ").join(""));
-    //     },
-    // },
-    {
-        command: "next step",
-        callback: () => {
-            changeStep(currentStep + 1);
+        {
+            command: "next step",
+            callback: () => {
+                changeStep(currentStep + 1)
+            }
         },
-    },
-    {
-        command: "previous step",
-        callback: () => {
-            changeStep(currentStep - 1)
+        {
+            command: "previous step",
+            callback: () => {
+                changeStep(currentStep - 1)
+            }
         },
-    },
-// Trigger pop up with notes and rating
-    // {
-    //     command: "I'm done",
-    //     callback: () => {
-    //         handleReset();
-    //     },
-    // },
-    {
-        command: "recipe complete",
-        callback: () => {
-            stopHandle();
+    // Trigger pop up with notes and rating
+        // {
+        //     command: "I'm done",
+        //     callback: () => {
+        //         handleReset();
+        //     },
+        // },
+        {
+            command: "recipe complete",
+            callback: () => {
+                stopHandle();
+            },
         },
-    },
-    {
-        command: "stop listening",
-        callback: () => {
-            stopHandle();
+        {
+            command: "stop listening",
+            callback: () => {
+                stopHandle();
+            },
         },
-    },
     ];
     const { transcript, resetTranscript } = useSpeechRecognition({ commands });
     const [isListening, setIsListening] = useState(false);

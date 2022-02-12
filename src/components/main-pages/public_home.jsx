@@ -13,7 +13,7 @@ function PublicHome() {
     // trigger={newRecipeButton} setTrigger={setNewRecipeButton}
     useEffect(() => {
         axios
-            .get("http://localhost:8080/recipes")
+            .get("${process.env.REACT_APP_BACKEND_URL}/recipes")
             .then((response) => {
                 setRecipesData(response.data);
             })
@@ -24,7 +24,7 @@ function PublicHome() {
 
     // const createNewRecipe = (newRecipe) => {
     //     axios
-    //         .post('http://localhost:8080/recipes', newRecipe)
+    //         .post('${process.env.REACT_APP_BACKEND_URL}/recipes', newRecipe)
     //         .then((response) => {
     //             console.log("Response:", response.data);
     //             const recipe = [...recipesData];
