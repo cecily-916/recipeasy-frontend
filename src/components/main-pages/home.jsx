@@ -17,6 +17,7 @@ function Home() {
     const [searchBar, setSearchBar] = useState(false)
     const [foundRecipes, setFoundRecipes] = useState([]);
 
+    console.log( process.env)
     useEffect(()=> {
         axios
             .get(`${process.env.REACT_APP_BACKEND_URL}/${user.userId}/recipes`)

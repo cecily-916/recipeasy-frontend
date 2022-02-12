@@ -40,6 +40,7 @@ function Routing() {
       <Router>
         <Navigation />
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="recipe/:recipeID" element={<CurrentRecipe />} />
           <Route
