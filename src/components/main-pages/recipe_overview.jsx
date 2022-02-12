@@ -6,6 +6,8 @@ import RecipeOverview from '../recipe_overview/recipe_container';
 import AddToCalendarPopup from '../recipe_overview/calendar_popup';
 import AddToCollectionPopup from '../recipe_overview/collections_popup';
 import ArchiveRecipePopup from '../recipe_overview/archive_recipe_popup';
+import React from 'react';
+
 
 function CurrentRecipe() {
 
@@ -117,17 +119,3 @@ function CurrentRecipe() {
 
 export default CurrentRecipe;
 
-
-{/* <button            
-className="inline-block
-py-2
-px-7
-border border-[#E5E7EB]
-rounded-md 
-text-base text-body-color 
-font-medium 
-shadow-sm 
-m-3 
-p-3 
-bg-emerald-800 text-white"
-onClick={()=>{deleteRecipe()}}>Delete Recipe</button> */}

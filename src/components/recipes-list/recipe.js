@@ -2,6 +2,7 @@
 // an image(?), rating, note icon, servings, num of ingredients, time
 import { Link } from "react-router-dom";
 import Rating from "./rating";
+import React from "react";
 
 const Recipe = (props) => {
   return (

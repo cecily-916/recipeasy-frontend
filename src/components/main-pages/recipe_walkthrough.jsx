@@ -6,6 +6,7 @@ import StepsContainer from '../recipe_walkthrough/WALKTHROUGH/step_container/ste
 import IngredientsList from '../recipe_overview/ingredients_list';
 import SidebarChecklist from '../recipe_walkthrough/WALKTHROUGH/sidebar_checklist';
 import Speech from '../recipe_walkthrough/WALKTHROUGH/step_container/speech_recognition';
+import React from 'react';
 
 function RecipeWalkthrough() {
     const location = useLocation()
