@@ -13,7 +13,7 @@ function PublicHome() {
     // trigger={newRecipeButton} setTrigger={setNewRecipeButton}
     useEffect(() => {
         axios
-            .get("${process.env.REACT_APP_BACKEND_URL}/recipes")
+            .get(`${process.env.REACT_APP_BACKEND_URL}/recipes`)
             .then((response) => {
                 setRecipesData(response.data);
             })

@@ -1,6 +1,5 @@
 import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from "react";
-// import StepIngredients from './step_ingredients'
 import RecipeOverview from '../recipe_overview/recipe_container';
 import StepsContainer from '../recipe_walkthrough/WALKTHROUGH/step_container/steps_container';
 import IngredientsList from '../recipe_overview/ingredients_list';
@@ -24,7 +23,6 @@ function RecipeWalkthrough() {
                 <button onClick={()=>setSideBar(false)}>Hide sidebar</button>
                 <Speech currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
                 <br />
-                {/* <RecipeOverview recipe={recipeData}/> */}
                 <SidebarChecklist recipe={recipeData} stepNum={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
                 <br/>
                 <IngredientsList ingredients = {recipeData.ingredients} />

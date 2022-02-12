@@ -30,12 +30,9 @@ function NewRecipe(){
 
         console.log(newRecipe);
         axios
-            .post("${process.env.REACT_APP_BACKEND_URL}/recipes", newRecipe)
+            .post(`${process.env.REACT_APP_BACKEND_URL}/recipes`, newRecipe)
             .then((response) => {
             console.log("Response:", response.data);
-            // const recipe = [...recipesData];
-            // recipe.push(response.data);
-            // setRecipesData(recipe);
             })
             .catch((error) => {
             console.log("Error:", error);

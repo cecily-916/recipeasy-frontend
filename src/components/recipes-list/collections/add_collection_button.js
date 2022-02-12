@@ -13,7 +13,7 @@ function AddCollectionPopup({ userid, trigger, setTrigger, setPageUpdate }) {
     event.preventDefault();
     console.log(newCollection);
     axios
-      .post("http://localhost:8080/collections", newCollection)
+      .post(`${process.env.REACT_APP_BACKEND_URL}/collections`, newCollection)
       .then((response) => {
         console.log(response);
         alert("Success!");

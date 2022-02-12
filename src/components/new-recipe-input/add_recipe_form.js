@@ -2,7 +2,6 @@ import React from "react";
 import "./new-recipe.css";
 import "react-dropdown/style.css";
 import { useState } from "react";
-// import StepsList from "../main-pages/current_recipe/recipe_container/steps_list";
 import AddStepsForm from "./add_step";
 import axios from "axios";
 import { useEffect } from "react";
@@ -164,6 +163,3 @@ function AddRecipeForm({ handleSubmit, newRecipe, setNewRecipe }) {
 }
 
 export default AddRecipeForm;
-
-// value={newRecipe.steps}
-// onChange={handleChange}

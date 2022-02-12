@@ -34,7 +34,6 @@ function CurrentCollection() {
         <div className=" bg-fixed bg-top bg-coll-img bg-cover pb-3 ">
             <header className="scroll-smooth pt-3 text-8xl text-center text-emerald-900">{collection.name}</header>
             <p className= "mt-16 text-lg text-center text-white">
-                {/* Welcome to Recipeasy, where all your favorite recipes are just so easy peasy. */}
             </p>
             <div className="flex 
                 flex-wrap 

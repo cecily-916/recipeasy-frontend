@@ -33,8 +33,6 @@ function ListContainer({ recipes }) {
         entered={scaleDown.entered}
         leaved={scaleDown.leaved}
       >
-        {/* // header with sort features component */}
-        {/* <RecipeList recipes={props.recipes} /> */}
         {recipeItems}
       </StackGrid>
       {/* </div> */}

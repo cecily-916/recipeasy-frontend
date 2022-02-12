@@ -10,7 +10,9 @@ function Collection({ collection, setPageUpdate }) {
 
   const deleteCollection = () => {
     axios
-      .delete(`http://localhost:8080/collections/${collection.ID}`)
+      .delete(
+        `${process.env.REACT_APP_BACKEND_URL}/collections/${collection.ID}`
+      )
       .then((response) => {
         alert("Collection deleted");
         setPageUpdate(collection.ID, "deleted");

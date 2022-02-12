@@ -25,11 +25,6 @@ function Navigation() {
                             <span className="sr-only">(current)</span>
                             </NavLink>
                         </li>
-                        {/* <li className="nav-item">
-                            <NavLink className="nav-link" to="/about">
-                            About
-                            </NavLink>
-                        </li> */}
                         <li className="nav-item">
                             <NavLink className="nav-link" to="home/new_recipe">
                             Add Recipe
