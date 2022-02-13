@@ -31,7 +31,7 @@ function CurrentCollection() {
     }, [change]);
 
     return (
-        <div className=" bg-fixed bg-top bg-coll-img bg-cover pb-3 ">
+        <div className=" bg-fixed bg-top bg-coll-img bg-cover min-h-screen">
             <header className="scroll-smooth pt-3 text-8xl text-center text-emerald-900">{collection.name}</header>
             <p className= "mt-16 text-lg text-center text-white">
             </p>

@@ -33,7 +33,7 @@ function Home() {
 
 
     return (
-        <div className=" bg-fixed bg-top bg-bg-img bg-cover">
+        <div className=" bg-top bg-bg-img bg-cover min-h-screen">
             <header className="scroll-smooth pt-3 text-8xl pb-9 text-center text-white">Recipeasy</header>
             <div className="flex 
                 flex-wrap 
