@@ -21,6 +21,13 @@
     padding: 6px;
 
   }
-  
+
+  .link {
+    color: inherit;
+  }
+  .link:hover {
+    color: inherit;
+    text-decoration: none;
+  }
 }
 

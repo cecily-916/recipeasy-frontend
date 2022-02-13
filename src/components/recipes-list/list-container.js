@@ -14,7 +14,7 @@ function ListContainer({ recipes }) {
 
   return (
     // title
-    <section className="mx-12 mt-10 mb-20 bg-[#b3b5b8b0] rounded-md shadow-xl">
+    <section className="mx-12 mt-10 mb-20 bg-[#c4ceddb0] rounded-md shadow-xl">
       {/* <div
         className="
         flex 

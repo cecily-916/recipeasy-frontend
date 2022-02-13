@@ -13,10 +13,10 @@ function SearchButton({ setChange, trigger, setTrigger }) {
 
   return (
     <button
-      className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
+      className="transition ease-in-out focus:outline-none delay-150 hover:-translate-y-1 hover:scale-110 duration-300 border-opacity-100 "
       onClick={() => handleClick()}
     >
-      <img src={search} alt="search icon" className="h-9 " />
+      <img src={search} alt="search icon" className="h-9  " />
     </button>
   );
 }

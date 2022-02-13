@@ -6,11 +6,20 @@ import React from "react";
 
 const Recipe = (props) => {
   return (
-    <div className="bg-white rounded-lg overflow-hidden mx-auto m-4 max-w-xs shadow-lg">
-      <img src={props.recipe.image} alt="dish" className="w-auto h-fit" />
-      <div className="p-8 sm:p-9 md:p-7 xl:p-9 text-center">
-        <h3
-          className="
+    <Link
+      to={`/recipe/${props.recipe.ID}`}
+      state={props.recipe}
+      className="link"
+    >
+      <div className="bg-white hover:drop-shadow-xl rounded-xl overflow-hidden mx-auto m-4 max-w-xs shadow-lg transition  hover:-translate-y-0.5 ease-in-out hover:scale-105 duration-150 border-opacity-100">
+        <img
+          src={props.recipe.image}
+          alt="dish"
+          className="w-3xl border-b-4 h-auto shadow-md"
+        />
+        <div className="p-4 pb-2 text-center">
+          <h3
+            className="
               font-semibold
               text-dark text-xl
               sm:text-[22px]
@@ -18,20 +27,21 @@ const Recipe = (props) => {
               lg:text-[22px]
               xl:text-xl
               2xl:text-[22px]
-              mb-4
+              mb-2
               block
               hover:text-primary
               "
-        >
-          {props.recipe.title}
-        </h3>
-        <div className="text-base text-body-color leading-relaxed mb-7">
-          <Rating rating={props.recipe.rating} />
-        </div>
-        <Link
-          to={`/recipe/${props.recipe.ID}`}
-          state={props.recipe}
-          className="
+          >
+            {props.recipe.title}
+          </h3>
+          <div className="text-base text-body-color leading-relaxed mb-2">
+            Servings: {props.recipe.servings}
+            <br />
+            Time: {props.recipe.cookTime}
+            {/* <Rating rating={props.recipe.rating} /> */}
+          </div>
+
+          {/* className="
         inline-block
         py-2
         px-7
@@ -44,10 +54,10 @@ const Recipe = (props) => {
         transition
         "
         >
-          Go To Recipe
-        </Link>
+          Go To Recipe */}
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

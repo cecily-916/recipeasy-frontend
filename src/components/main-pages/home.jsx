@@ -31,18 +31,6 @@ function Home() {
             });
     }, [change]);
 
-    const noRecipesNotice = () =>{
-        if (recipesData === []) {
-        return (
-        <div className="popup">
-            <div className="popup-inner">
-                <h1>Click the Create Recipe button to add your first recipe!</h1>
-                <br />
-            </div>
-        </div>
-        )
-        };
-    }
 
     return (
         <div className=" bg-fixed bg-top bg-bg-img bg-cover pb-3 ">
@@ -52,25 +40,24 @@ function Home() {
                 flex-row 
                 justify-start mx-24 mt-4">
                 <div className="mx-auto my-2 h-8 w-fit">
-                    <Link to="./new_recipe" className="
-                            text-xl
-                            font-quicksand 
-                            align-center
-                            py-2
-                            px-7
-                            border border-[#E5E7EB]
-                            bg-white
-                            rounded-full
-                            text-black
-                            hover:border-primary 
-                            hover:bg-emerald-800 hover:text-emerald-800
-                            transition"
-                    >Create Recipe</Link>
+                        <Link to="./new_recipe" className="
+                                text-xl
+                                font-quicksand 
+                                align-center
+                                py-2
+                                px-7
+                                border border-[#E5E7EB]
+                                bg-white
+                                rounded-full
+                                text-emerald-900
+                                hover:border-primary 
+                                hover:bg-emerald-800 hover:text-emerald-800
+                                transition"
+                        >Create Recipe</Link>
                 </div>
                 <SearchButton trigger={searchBar} setChange={setChange} setTrigger={setSearchBar} />
                 <SearchBar setChange={setChange} trigger={searchBar} recipes={recipesData} setFoundRecipes={setFoundRecipes} />
             </div>
-            {noRecipesNotice()}
             <ListContainer recipes={foundRecipes}/>
             <button className="
                         text-xl

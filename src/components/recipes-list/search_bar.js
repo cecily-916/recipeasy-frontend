@@ -30,10 +30,11 @@ function SearchBar({ recipes, setFoundRecipes, setChange, trigger }) {
   }, [query]);
 
   return trigger ? (
-    <div>
+    <div className="my-auto mx-2">
       <input
+        className="rounded-sm focus:outline-amber-400"
         type="text"
-        placeholder="Enter recipe title"
+        placeholder="    Enter recipe title"
         onChange={(event) => setQuery(event.target.value)}
       />
     </div>
