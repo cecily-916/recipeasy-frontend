@@ -2,12 +2,13 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import Userfront from "@userfront/react";
+import DeleteRecipePopup from "./delete_recipe_confirmation";
 
 function ArchivePopup({ userID, trigger, setTrigger, setChange, change }) {
   // Opens a popup that allows user restore archived recipes
 
   const [archiveData, setArchiveData] = useState([]);
-
+  const [deleteButton, setDeleteButton] = useState(false);
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_BACKEND_URL}/${userID}/archive`)
@@ -34,20 +35,6 @@ function ArchivePopup({ userID, trigger, setTrigger, setChange, change }) {
     console.log(recipeID);
   };
 
-  const handleDelete = (recipeID) => {
-    axios
-      .delete(`${process.env.REACT_APP_BACKEND_URL}/archive/${recipeID}}`)
-      .then((response) => {
-        console.log(response);
-        alert(`Recipe successfully deleted!`);
-        setChange(recipeID);
-      })
-      .catch((error) => {
-        console.log("error: Deletion request failed.");
-      });
-    console.log(recipeID);
-  };
-
   const archivedRecipes = archiveData.map((recipe, index) => {
     return (
       <div key={index}>
@@ -62,14 +49,19 @@ function ArchivePopup({ userID, trigger, setTrigger, setChange, change }) {
           >
             Restore
           </button>
-          <button
+          {/* <button
             className="underline text-red-600 hover:font-bold hover:text-lg inline-block"
-            onClick={() => {
-              handleDelete(recipe.ID);
-            }}
+            onClick={() => setDeleteButton(true)}
           >
             Delete
           </button>
+          <DeleteRecipePopup
+            recipe={recipe.ID}
+            setTrigger={setDeleteButton}
+            trigger={deleteButton}
+            recipeID={recipe.ID}
+            setChange={setChange}
+          /> */}
         </section>
       </div>
     );

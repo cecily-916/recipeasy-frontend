@@ -7,6 +7,7 @@ import Userfront from '@userfront/react';
 import ArchivePopup from '../archive/archive_popup.js';
 import SearchBar from "../recipes-list/search_bar"
 import SearchButton from "../recipes-list/search_button"
+import FeedbackForm from "../archive/feedback";
 
 function Home() {
     const user=Userfront.user
@@ -16,6 +17,7 @@ function Home() {
     const [change, setChange] = useState();
     const [searchBar, setSearchBar] = useState(false)
     const [foundRecipes, setFoundRecipes] = useState([]);
+    const [feedbackForm, setFeedbackForm] = useState(false)
 
     console.log( process.env)
     useEffect(()=> {
@@ -76,6 +78,21 @@ function Home() {
                         hover:bg-slate-400 hover:text-white
                         transition" onClick={()=>setArchiveButton(true)}>Manage Archived Recipes</button>
             <ArchivePopup change={change} setChange={setChange} userID={user.userId} trigger={archiveButton} setTrigger={setArchiveButton}/>
+            <button className="
+                        text-md
+                        font-quicksand 
+                        align-center
+                        py-1.5
+                        px-3
+                        border border-slate-100
+                        bg-slate-200
+                        rounded-full
+                        text-slate-600
+                        hover:border-primary 
+                        mb-8 ml-14
+                        hover:bg-slate-400 hover:text-white
+                        transition" onClick={()=>setFeedbackForm(true)}>Submit Feedback</button>
+            <FeedbackForm trigger={feedbackForm} setTrigger={setFeedbackForm}/>
         </div>
     );
 }
