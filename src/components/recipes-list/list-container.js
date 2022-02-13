@@ -24,6 +24,18 @@ function ListContainer({ recipes }) {
         justify-items-center 
         space-x-5"
       > */}
+      {
+        {
+          0: (
+            <div className="max-w-lg  p-16 mx-auto">
+              <p className="text-center rounded-md text-emerald-900 text-lg p-12 bg-white">
+                Uh oh! No recipes found.
+                <br /> Go to "Add Recipe" to create one!
+              </p>
+            </div>
+          ),
+        }[recipes.length]
+      }
       <StackGrid
         columnWidth={250}
         gutterWidth={15}

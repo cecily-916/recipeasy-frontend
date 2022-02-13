@@ -31,6 +31,18 @@ function Home() {
             });
     }, [change]);
 
+    const noRecipesNotice = () =>{
+        if (recipesData === []) {
+        return (
+        <div className="popup">
+            <div className="popup-inner">
+                <h1>Click the Create Recipe button to add your first recipe!</h1>
+                <br />
+            </div>
+        </div>
+        )
+        };
+    }
 
     return (
         <div className=" bg-fixed bg-top bg-bg-img bg-cover pb-3 ">
@@ -58,6 +70,7 @@ function Home() {
                 <SearchButton trigger={searchBar} setChange={setChange} setTrigger={setSearchBar} />
                 <SearchBar setChange={setChange} trigger={searchBar} recipes={recipesData} setFoundRecipes={setFoundRecipes} />
             </div>
+            {noRecipesNotice()}
             <ListContainer recipes={foundRecipes}/>
             <button className="
                         text-xl
