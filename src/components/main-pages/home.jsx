@@ -33,7 +33,7 @@ function Home() {
 
 
     return (
-        <div className=" bg-fixed bg-top bg-bg-img bg-cover pb-3 ">
+        <div className=" bg-fixed bg-top bg-bg-img bg-cover">
             <header className="scroll-smooth pt-3 text-8xl pb-9 text-center text-white">Recipeasy</header>
             <div className="flex 
                 flex-wrap 
@@ -60,18 +60,18 @@ function Home() {
             </div>
             <ListContainer recipes={foundRecipes}/>
             <button className="
-                        text-xl
+                        text-lg
                         font-quicksand 
                         align-center
-                        py-2
-                        px-7
-                        border border-[#E5E7EB]
-                        bg-white
+                        py-1.5
+                        px-3
+                        border border-white
+                        bg-slate-100
                         rounded-full
                         text-black
                         hover:border-primary 
-                        
-                        hover:bg-emerald-800 hover:text-emerald-800
+                        mb-8 ml-14
+                        hover:bg-emerald-800 hover:text-white
                         transition" onClick={()=>setArchiveButton(true)}>Archive</button>
             <ArchivePopup change={change} setChange={setChange} userID={user.userId} trigger={archiveButton} setTrigger={setArchiveButton}/>
         </div>

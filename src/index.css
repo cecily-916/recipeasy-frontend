@@ -6,6 +6,7 @@
 @tailwind utilities;
 
 @layer base {
+  
   h1 {
     font-family: 'Quicksand', sans-serif;
     font-size: 50px;
