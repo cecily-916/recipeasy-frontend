@@ -34,33 +34,65 @@ function ArchivePopup({ userID, trigger, setTrigger, setChange, change }) {
     console.log(recipeID);
   };
 
+  const handleDelete = (recipeID) => {
+    axios
+      .delete(`${process.env.REACT_APP_BACKEND_URL}/archive/${recipeID}}`)
+      .then((response) => {
+        console.log(response);
+        alert(`Recipe successfully deleted!`);
+        setChange(recipeID);
+      })
+      .catch((error) => {
+        console.log("error: Deletion request failed.");
+      });
+    console.log(recipeID);
+  };
+
   const archivedRecipes = archiveData.map((recipe, index) => {
     return (
       <div key={index}>
         <br />
-        <p className="font-bold inline">{recipe.title}&ensp;</p>
-        <button
-          className="underline"
-          onClick={() => {
-            handleRestore(recipe.ID);
-          }}
-        >
-          Restore
-        </button>
+        <p className="font-bold inline">{recipe.title}</p>
+        <section className="space-x-14">
+          <button
+            className="text-green-700 hover:text-lg hover:font-bold underline"
+            onClick={() => {
+              handleRestore(recipe.ID);
+            }}
+          >
+            Restore
+          </button>
+          <button
+            className="underline text-red-600 hover:font-bold hover:text-lg inline-block"
+            onClick={() => {
+              handleDelete(recipe.ID);
+            }}
+          >
+            Delete
+          </button>
+        </section>
       </div>
     );
   });
 
   return trigger ? (
     <div className="popup z-50">
-      <div className="popup-inner">
+      <div className="popup-inner text-center rounded-md">
+        <button
+          className="font-bold absolute top-8 right-16 close-btn"
+          onClick={() => setTrigger(false)}
+        >
+          X
+        </button>
         <h1>Archived Recipes</h1>
         <br />
+        {
+          {
+            0: <p>You have no archived recipes.</p>,
+          }[archiveData.length]
+        }
         {archivedRecipes}
         <br />
-        <button className="close-btn" onClick={() => setTrigger(false)}>
-          Close
-        </button>
       </div>
     </div>
   ) : (

@@ -58,21 +58,23 @@ function Home() {
                 <SearchButton trigger={searchBar} setChange={setChange} setTrigger={setSearchBar} />
                 <SearchBar setChange={setChange} trigger={searchBar} recipes={recipesData} setFoundRecipes={setFoundRecipes} />
             </div>
+            <div className="h-5/6">
             <ListContainer recipes={foundRecipes}/>
+            </div>
             <button className="
-                        text-lg
+                        text-md
                         font-quicksand 
                         align-center
                         py-1.5
                         px-3
-                        border border-white
-                        bg-slate-100
+                        border border-slate-100
+                        bg-slate-200
                         rounded-full
-                        text-black
+                        text-slate-600
                         hover:border-primary 
                         mb-8 ml-14
-                        hover:bg-emerald-800 hover:text-white
-                        transition" onClick={()=>setArchiveButton(true)}>Archive</button>
+                        hover:bg-slate-400 hover:text-white
+                        transition" onClick={()=>setArchiveButton(true)}>Manage Archived Recipes</button>
             <ArchivePopup change={change} setChange={setChange} userID={user.userId} trigger={archiveButton} setTrigger={setArchiveButton}/>
         </div>
     );
