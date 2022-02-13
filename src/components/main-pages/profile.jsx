@@ -42,7 +42,7 @@ function Profile() {
     <div className="profile">
         <div className="container">
         <div className="row align-items-center my-5">
-            <h1>Welcome {userData.name}</h1>
+            <h1>{userData.name}'s Collections</h1>
             <br />
             <button 
                         onClick={() => setCollectionButton(true)}

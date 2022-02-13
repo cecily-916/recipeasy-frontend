@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 
-function ArchiveRecipePopup({ recipeID, setTrigger, trigger, setChange }) {
+function DeleteRecipePopup({ recipeID, setTrigger, trigger, setChange }) {
   // Opens a popup that allows user to soft delete (archive) the recipe
 
   const handleDelete = (recipeID) => {
@@ -52,4 +52,4 @@ function ArchiveRecipePopup({ recipeID, setTrigger, trigger, setChange }) {
   );
 }
 
-export default ArchiveRecipePopup;
+export default DeleteRecipePopup;

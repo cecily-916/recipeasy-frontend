@@ -32,7 +32,7 @@ function Navigation() {
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link" to="home/profile">
-                            Profile
+                            Collections
                             </NavLink>
                         </li>
                         <li className="nav-item">
