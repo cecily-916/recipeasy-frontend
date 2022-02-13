@@ -1,15 +1,19 @@
 import React from "react";
 import IngredientsList from "./ingredients_list";
 import StepsList from "./steps_list";
+import { Link } from "react-router-dom";
 
 function RecipeOverview(props) {
   return (
-    <div>
+    <div className="align-center">
       <h1>{props.recipe.title}</h1>
       <br />
+
       <p className="font-bold text-emerald-900">
         By: {props.recipe.originalcreator}
       </p>
+      <br />
+
       <br />
       <p>
         <p className="font-bold inline">Prep Time:</p>

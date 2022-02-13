@@ -37,8 +37,8 @@ function ListContainer({ recipes }) {
         }[recipes.length]
       }
       <StackGrid
-        columnWidth={250}
-        gutterWidth={15}
+        columnWidth={230}
+        gutterWidth={14}
         appear={scaleDown.appear}
         appeared={scaleDown.appeared}
         enter={scaleDown.enter}
