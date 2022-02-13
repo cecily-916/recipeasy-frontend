@@ -5,7 +5,7 @@ import microphone from '../../../../assets/microphone.png'
 import React from 'react';
 
 
-function Speech({ currentStep, setCurrentStepNum})  {
+function Speech({ currentStep, setCurrentStepNum, setSideBar, setConversionPopup})  {
     console.log(currentStep)
     const commands = [
         {
@@ -37,6 +37,30 @@ function Speech({ currentStep, setCurrentStepNum})  {
             command: "stop listening",
             callback: () => {
                 stopHandle();
+            },
+        },
+        {
+            command: "show conversions",
+            callback: () => {
+                setConversionPopup(true);
+            },
+        },
+        {
+            command: "hide conversions",
+            callback: () => {
+                setConversionPopup(false);
+            },
+        },
+        {
+            command: "show sidebar",
+            callback: () => {
+                setSideBar(true);
+            },
+        },
+        {
+            command: "hide sidebar",
+            callback: () => {
+                setSideBar(false);
             },
         },
     ];

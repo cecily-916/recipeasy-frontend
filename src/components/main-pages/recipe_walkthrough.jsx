@@ -16,7 +16,6 @@ function RecipeWalkthrough() {
     
     const [sideBar, setSideBar] = useState(true)
     const [conversionPopup, setConversionPopup] = useState(false)
-
     const [currentStepNum, setCurrentStepNum] = useState(1)
     console.log(currentStepNum)
 
@@ -45,7 +44,7 @@ function RecipeWalkthrough() {
                     ml-14
                     hover:bg-emerald-800 hover:text-white
                     transition" onClick={()=>setSideBar(false)}>Hide sidebar</button>
-                <Speech currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
+                <Speech setSideBar={setSideBar} setConversionPopup={setConversionPopup}  currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
                 <br />
                 <button className="
                     text-lg
@@ -85,12 +84,12 @@ function RecipeWalkthrough() {
     <div>
         <div className="sticky top-8 m-5 h-8 inline">
             <button onClick={()=>setSideBar(true)}>Show sidebar</button>
-            <Speech currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
+            <Speech setSideBar={setSideBar} setConversionPopup={setConversionPopup} currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
             <br />
 
         </div> 
         <div className="col-end-6 col-span-4">
-            <StepsContainer recipe={recipeData} currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
+            <StepsContainer  recipe={recipeData} currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
             <button onClick={()=>document.body.scrollTop = document.documentElement.scrollTop = 0}>Back to top</button>
         </div>
     </div>
