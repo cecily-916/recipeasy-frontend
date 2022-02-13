@@ -5,7 +5,7 @@ function Step(props) {
     <div>
       {/* <Link to={`recipe/${props.recipe.ID}`} state={props.recipe}> */}
       <p>
-        <p className="text-emerald-800 text-lg font-bold inline">
+        <p className="text-emerald-800 text-xl font-bold inline">
           {props.index}
         </p>
         &ensp;

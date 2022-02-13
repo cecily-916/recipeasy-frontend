@@ -19,23 +19,28 @@ function ArchiveRecipePopup({ recipe, setTrigger, trigger }) {
 
   return trigger ? (
     <div className="popup">
-      <div className="popup-inner">
+      <div className="popup-inner text-center rounded-md">
+        <button
+          className="absolute top-8 right-16 close-btn"
+          onClick={() => setTrigger(false)}
+        >
+          X
+        </button>
         <h1>Archive Recipe</h1>
         <br />
-        <br />
-        <p>Are you sure you want to archive this recipe?</p>
+        <p className="text-lg">Are you sure you want to archive this recipe?</p>
         <button
           onClick={() => {
             handleArchive();
             setTrigger(false);
           }}
         >
-          <p className="text-lg font-extrabold">Confirm</p>
+          <br />
+          <p className="text-lg text-red-700 font-extrabold border rounded-lg p-2 hover:bg-slate-200 drop-shadow-md">
+            Confirm
+          </p>
         </button>
         <br />
-        <button className="close-btn" onClick={() => setTrigger(false)}>
-          Cancel
-        </button>
       </div>
     </div>
   ) : (

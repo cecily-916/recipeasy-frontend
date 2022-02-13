@@ -15,14 +15,14 @@ function RecipeOverview(props) {
       <br />
 
       <br />
-      <p>
+      <section>
         <p className="font-bold inline">Prep Time:</p>
         {props.recipe.prepTime}&ensp;&ensp;
         <p className="font-bold inline">Total Time:</p>
         {props.recipe.cookTime}&ensp;&ensp;
         <p className="font-bold inline-flex">Servings: </p>
         {props.recipe.servings}&ensp;&ensp;
-      </p>
+      </section>
       <br />
 
       <h2>{props.recipe.description}</h2>
