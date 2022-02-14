@@ -9,9 +9,9 @@ const UploadAndDisplayImage = () => {
       method: "post",
       url: "https://api.imgur.com/3/image",
       headers: {
-        Authorization: "15bebad96249efe",
-        image: { selectedImage },
+        Authorization: "Client-ID 15bebad96249efe",
       },
+      image: selectedImage,
     };
     console.log(selectedImage);
 
