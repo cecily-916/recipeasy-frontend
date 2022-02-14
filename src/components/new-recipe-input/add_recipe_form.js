@@ -7,43 +7,6 @@ import axios from "axios";
 import { useEffect } from "react";
 
 function AddRecipeForm({ handleSubmit, newRecipe, setNewRecipe }) {
-  // Form allows users to input a new recipe.
-  // Each recipe has 1 + steps
-  // Each step has 0+ ingredients
-
-  // const [newRecipe, setNewRecipe] = useState({
-  //   title: "",
-  //   description: "",
-  //   prepTime: "",
-  //   cookTime: "",
-  //   image: "",
-  //   servings: "",
-  //   steps: [],
-  // });
-
-  // // const [steps, setSteps] = useState([])
-
-  // const handleSubmit = (event) => {
-  //   // setNewRecipe({ title, description, prepTime, cookTime, image, servings, steps })
-  //   event.preventDefault();
-
-  //   console.log(newRecipe);
-  //   axios
-  //     .post("${process.env.REACT_APP_BACKEND_URL}/recipes", newRecipe)
-  //     .then((response) => {
-  //       console.log("Response:", response.data);
-  //       // const recipe = [...recipesData];
-  //       // recipe.push(response.data);
-  //       // setRecipesData(recipe);
-  //     })
-  //     .catch((error) => {
-  //       console.log("Error:", error);
-  //       alert("Couldn't create a new recipe.");
-  //     });
-
-  //   alert("You've created a new recipe!");
-  // };
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     setNewRecipe((prevState) => ({
@@ -67,98 +30,79 @@ function AddRecipeForm({ handleSubmit, newRecipe, setNewRecipe }) {
     }));
   }, [newSteps]);
 
-  // Add step pop up button
-  const [newStepButton, setNewStepButton] = useState(false);
-
   return (
-    <div className="overscroll-auto bg-scroll bg-cover pb-24 ">
-      <div className="m-auto max-w-lg max-h-fit bg-[#85878ad1] rounded-md shadow-xl">
-        <h1 className="mt-16 pt-4 font-extrabold text-center text-white">
+    // <div className="overscroll-auto bg-scroll  bg-[#C9B9AC]">
+    <div className="max-w-lg max-h-fit min-w-full rounded-md mt-8 mx-auto pb-24 bg-opacity-60 p-2 shadow-xl">
+      <div className="bg-white p-4">
+        <h1 className="pt-2.5 font-extrabold text-center text-[#512C24]">
           Add New Recipe
         </h1>
-        {/* <div className='p-8 grid grid-cols-3'>     */}
-        <br />
-        <form
-          className=" mx-auto h-fit justify-self-auto w-60"
-          onSubmit={handleSubmit}
-        >
+        <form>
+          <label className="font-bold mt-3">Recipe Details</label>
           <input
+            className="w-full mt-1 rounded-sm"
+            type="text"
             placeholder="Title"
             name="title"
             value={newRecipe.title}
             onChange={handleChange}
           />
-          <br />
-          <br />
           <textarea
+            className="w-full mt-2 rounded-sm"
             placeholder="Description"
             name="description"
             value={newRecipe.description}
             onChange={handleChange}
           />
-          <br />
           <input
+            className="w-full mt-2 rounded-sm"
             type="url"
             placeholder="Enter Image URL"
             name="image"
             value={newRecipe.image}
             onChange={handleChange}
           />
-          <br />
-          <br />
-
           <input
-            placeholder="Servings"
+            className=" mt-2 rounded-sm"
+            type="number"
+            placeholder="Number of servings"
             name="servings"
             value={newRecipe.servings}
             onChange={handleChange}
           />
           <br />
-          <br />
-
           <input
+            className=" mt-2 rounded-sm"
             placeholder="Prep Time"
             name="prepTime"
+            type="text"
             value={newRecipe.prepTime}
             onChange={handleChange}
           />
           <br />
-          <br />
-
           <input
+            className="mt-1.5 rounded-sm"
             placeholder="Cook Time"
             name="cookTime"
+            type="text"
             value={newRecipe.cookTime}
             onChange={handleChange}
           />
           <br />
           <br />
-
-          <button
-            type="button"
-            className="inline-block
-        py-2
-        border border-[#E5E7EB]
-        rounded-md 
-        text-base text-body-color 
-        font-medium 
-        shadow-sm 
-        bg-emerald-800 text-white"
-            onClick={() => setNewStepButton(true)}
-          >
-            Add Step to Recipe
-          </button>
-          <AddStepsForm
-            trigger={newStepButton}
-            setTrigger={setNewStepButton}
-            addStep={addStep}
-          />
+          <AddStepsForm addStep={addStep} />
           <br />
-          <input type="submit" />
+          <button
+            className="border-2 mt-2 text-xl px-5 hover:bg-white-500 hover:text-emerald-900 p-2 drop-shadow-md rounded-sm text-white bg-yellow-500 font-semibold"
+            onClick={() => {
+              handleSubmit();
+            }}
+          >
+            Submit
+          </button>
         </form>
       </div>
     </div>
-    // </div>
   );
 }
 

@@ -46,11 +46,11 @@ function CurrentRecipe() {
     // }
 
     return (
-        <div className="grid grid-cols-4 gap-24 grid-rows-2 mt-11 mx-11 ">
-            <div className="col-span-2 row-span-2 ">
+        <div className="grid grid-cols-4  bg-[##FEF1CB] bg-cover bg-bottom min-h-screen ">
+            <div className="col-span-2 row-span-2 mt-11 mx-11">
                 <RecipeOverview recipe={recipeData} />
             </div>
-            <div className="col-span-1 col-end-4">
+            <div className="col-span-1 col-end-4 mt-11 mx-11">
                 <img
                     className=" row-span-1  rounded-md max-h-96 max-w-fit content-center drop-shadow-md "
                     src={recipeData.image}

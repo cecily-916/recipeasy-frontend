@@ -39,7 +39,7 @@ function Profile() {
     console.log(collectionsData)
 
     return (
-    <div className="profile">
+    <div className="profile bg-bowls-img bg-cover min-h-screen bg-bottom">
         <div className="container">
         <div className="row align-items-center my-5">
             <h1>{userData.name}'s Collections</h1>

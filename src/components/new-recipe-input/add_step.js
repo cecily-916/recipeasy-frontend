@@ -1,5 +1,5 @@
-import React from "react";
-import AddIngredientsForm from "./add_ingredient";
+import React, { useEffect } from "react";
+import AddIngredientsForm from "./ingredients";
 import { useState } from "react";
 
 function AddStepsForm(props) {
@@ -12,12 +12,16 @@ function AddStepsForm(props) {
     details: "",
     extradetails: "",
     ingredients: [],
-    order: "",
+    image: "",
   });
 
   const handleSubmit = () => {
-    props.addStep(newStep);
-    resetNewStep();
+    if (newStep.details === "") {
+      alert("Input instruction details before saving the step.");
+    } else {
+      props.addStep(newStep);
+      resetNewStep();
+    }
   };
 
   const resetNewStep = () => {
@@ -25,7 +29,7 @@ function AddStepsForm(props) {
       details: "",
       extradetails: "",
       ingredients: [],
-      order: "",
+      image: "",
     });
   };
 
@@ -44,12 +48,11 @@ function AddStepsForm(props) {
     }));
   };
 
-  const [newIngredientButton, setNewIngredientButton] = useState(false);
-
-  return props.trigger ? (
+  return (
     <div>
       <p className="font-extrabold">Add Step</p>
       <textarea
+        className="w-full mt-2 rounded-sm"
         placeholder="Details"
         name="details"
         value={newStep.details}
@@ -57,36 +60,30 @@ function AddStepsForm(props) {
       />
       <br />
       <textarea
+        className="w-full mt-2 rounded-sm"
         placeholder="Extra Details"
         name="extradetails"
         value={newStep.extradetails}
         onChange={handleChange}
       />
       <br />
-
-      <button
-        type="button"
-        className="inline-block
-        py-2
-        px-7
-        border border-[#E5E7EB]
-        rounded-md 
-        text-base text-body-color 
-        font-medium 
-        shadow-sm 
-        m-3 
-        p-3 
-        bg-emerald-800 text-white"
-        onClick={() => setNewIngredientButton(true)}
-      >
-        Add Ingredient to Step
-      </button>
+      <input
+        className="w-full mt-2 rounded-sm"
+        type="url"
+        placeholder="Enter Image URL"
+        name="image"
+        value={newStep.image}
+        onChange={handleChange}
+      />
+      <br />
+      <p className="font-bold mt-3">Step Ingredients</p>
+      <br />
       <AddIngredientsForm
-        trigger={newIngredientButton}
-        setTrigger={setNewIngredientButton}
+        ingredientsList={newStep.ingredients}
         addIngredient={addIngredient}
       />
       <button
+        className="border-2 mt-2 hover:bg-yellow-500 hover:text-white p-2 drop-shadow-md rounded-sm text-emerald-900 font-semibold"
         type="button"
         onClick={() => {
           handleSubmit();
@@ -95,8 +92,6 @@ function AddStepsForm(props) {
         Save step
       </button>
     </div>
-  ) : (
-    ""
   );
 }
 

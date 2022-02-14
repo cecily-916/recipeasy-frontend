@@ -9,8 +9,11 @@ module.exports = {
         "bg-img": "url('/src/assets/lemons.jpeg')",
         "home-img": "url('/src/assets/lemon-m.jpeg')",
         "coll-img": "url('/src/assets/lemons_public.jpeg')",
+        "newreci-img": "url('/src/assets/recipe.jpeg')",
+        "plain-img": "url('/src/assets/plain.jpeg')",
+        "bowls-img": "url('/src/assets/bowls.jpeg')",
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };

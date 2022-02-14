@@ -28,56 +28,59 @@ function RecipeWalkthrough() {
     }
     console.log(conversionPopup)
     return sideBar ? (
-        <div className=" grid grid-col-5">
-            <div className="sticky top-8 m-5 h-8 z-10">
-            <button className="
-                    text-lg
-                    font-quicksand 
-                    align-center
-                    py-1.5
-                    px-3
-                    border border-white
-                    bg-slate-100
-                    rounded-full
-                    text-black
-                    hover:border-primary 
-                    ml-14
-                    hover:bg-emerald-800 hover:text-white
-                    transition" onClick={()=>setSideBar(false)}>Hide sidebar</button>
-                <Speech setSideBar={setSideBar} setConversionPopup={setConversionPopup}  currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
-                <br />
-                <button className="
-                    text-lg
-                    font-quicksand 
-                    align-center
-                    py-1.5
-                    px-3
-                    border border-white
-                    bg-slate-100
-                    rounded-full
-                    text-black
-                    hover:border-primary 
-                    ml-14
-                    hover:bg-emerald-800 hover:text-white
-                    transition" onClick={()=>setConversionPopup(flip())}>Conversion Chart</button>
-                {
-                    {true: (
-                        <div className="max-w-full py-4 mx-auto">
-                            <img
-                                className=""
-                                src="https://www.tablespoon.com/-/media/Images/Articles/Images-for-Posts-PrePandoNext/2009/09/week2/Tbsp_conversion_Updated2.jpg"
-                                alt="conversionchart"
-                            />
-                        </div>),
-                    }[conversionPopup]}
-                <SidebarChecklist recipe={recipeData} stepNum={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
-                <br/>
-                <IngredientsList ingredients = {recipeData.ingredients} />
+        <div className=" grid grid-col-5 bg-newreci-img bg-right bg-fixed">
+            <div className="sticky top-1 mx-3 h-2">
+                <div className=" min-h-content bg-[#67704C] bg-opacity-60 rounded-md">
+                    <section className='bg-white p-2 m-5'>
+                        <button className="
+                            text-lg
+                            font-quicksand 
+                            align-center
+                            py-1.5
+                            px-3
+                            border border-white
+                            bg-slate-100
+                            rounded-full
+                            text-black
+                            hover:border-primary 
+                            ml-14
+                            hover:bg-emerald-800 hover:text-white
+                            transition" onClick={()=>setSideBar(false)}>Hide sidebar</button>
+                        <Speech currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
+                        <br />
+                        <button className="
+                            text-lg
+                            font-quicksand 
+                            align-center
+                            py-1.5
+                            px-3
+                            border border-white
+                            bg-slate-100
+                            rounded-full
+                            text-black
+                            hover:border-primary 
+                            ml-14
+                            hover:bg-emerald-800 hover:text-white
+                            transition" onClick={()=>setConversionPopup(flip())}>Conversion Chart</button>
+                        {
+                            {true: (
+                                <div className="max-w-full py-4 mx-auto">
+                                    <img
+                                        className=""
+                                        src="https://www.tablespoon.com/-/media/Images/Articles/Images-for-Posts-PrePandoNext/2009/09/week2/Tbsp_conversion_Updated2.jpg"
+                                        alt="conversionchart"
+                                    />
+                                </div>),
+                            }[conversionPopup]}
+                        <SidebarChecklist recipe={recipeData} stepNum={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
+                        <br/>
+                        <IngredientsList ingredients = {recipeData.ingredients} />
+                </section>
+            </div>
             </div>
             <div className="col-end-6 col-span-4">
                 <StepsContainer recipe={recipeData} currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
             </div>
-
         </div>
     ):(
         // <div className=" grid grid-col-5">
