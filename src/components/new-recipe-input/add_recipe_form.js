@@ -7,7 +7,12 @@ import axios from "axios";
 import { useEffect } from "react";
 import UploadAndDisplayImage from "./image_upload";
 
-function AddRecipeForm({ handleSubmit, newRecipe, setNewRecipe }) {
+function AddRecipeForm({
+  handleSubmit,
+  newRecipe,
+  setNewRecipe,
+  setMainImage,
+}) {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setNewRecipe((prevState) => ({
@@ -71,27 +76,15 @@ function AddRecipeForm({ handleSubmit, newRecipe, setNewRecipe }) {
             value={newRecipe.description}
             onChange={handleChange}
           />
-          <p className="text-sm">
-            To add an image, drop the URL below. You can easily upload your
-            image to the web using&nbsp;
-            <a
-              href="https://imgur.com/upload"
-              target="_blank"
-              rel="noreferrer noopener"
-              className="font-bold underline"
-            >
-              Imgur
-            </a>
-          </p>
-          <UploadAndDisplayImage />
-          <input
+          <UploadAndDisplayImage setImage={setMainImage} />
+          {/* <input
             className="w-full mt-2 rounded-sm"
             type="url"
             placeholder="Enter Image URL"
             name="image"
             value={newRecipe.image}
             onChange={handleChange}
-          />
+          /> */}
           <input
             className=" mt-2 rounded-sm"
             type="number"

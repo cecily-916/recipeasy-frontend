@@ -3,8 +3,9 @@ import StepsList from "../recipe_overview/steps_list";
 import RecipeOverview from "../recipe_overview/recipe_container";
 import StepCard from "./step_card";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import DisplayImgPreview from "./image";
 
-function NewRecipePreview({ newRecipe }) {
+function NewRecipePreview({ newRecipe, mainImage }) {
   const [steps, setSteps] = useState([]);
   useEffect(() => {
     setSteps(newRecipe.steps);
@@ -53,19 +54,15 @@ function NewRecipePreview({ newRecipe }) {
         <div className="align-center">
           <h1>{newRecipe.title}</h1>
           <br />
-
-          <p className="font-bold text-emerald-900">
-            By: {newRecipe.originalcreator}
-          </p>
-          <br />
-
+          <DisplayImgPreview image={mainImage} />
+          <p className="font-bold text-emerald-900">By: {newRecipe.author}</p>
           <br />
           <section>
-            <p className="font-bold inline">Prep Time:</p>
+            <p className="font-bold inline">Prep Time:&nbsp;</p>
             {newRecipe.prepTime}&ensp;&ensp;
-            <p className="font-bold inline">Total Time:</p>
+            <p className="font-bold inline">Total Time:&nbsp;</p>
             {newRecipe.cookTime}&ensp;&ensp;
-            <p className="font-bold inline-flex">Servings: </p>
+            <p className="font-bold inline-flex">Servings:&nbsp; </p>
             {newRecipe.servings}&ensp;&ensp;
           </section>
           <br />

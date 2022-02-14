@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import AddIngredientsForm from "./ingredients";
 import { useState } from "react";
+import UploadAndDisplayImage from "./image_upload";
+import axios from "axios";
 
-function AddStepsForm(props) {
+function AddStepsForm({ addStep }) {
   //Internal form in the new recipe form
   //at least one step
   //able to add more steps
@@ -16,11 +18,15 @@ function AddStepsForm(props) {
     category: "",
   });
 
+  const [stepImage, setStepImage] = useState(null);
+  const [imageLink, setImageLink] = useState(null);
+
   const handleSubmit = () => {
     if (newStep.details === "") {
       alert("Input instruction details before saving the step.");
     } else {
-      props.addStep(newStep);
+      handleImage();
+      addStep(newStep);
       resetNewStep();
     }
   };
@@ -33,6 +39,35 @@ function AddStepsForm(props) {
       image: "",
       category: "",
     });
+  };
+
+  const handleImage = () => {
+    postImageImgur();
+    setNewStep((prevState) => ({
+      ...prevState,
+      image: imageLink,
+    }));
+  };
+
+  const postImageImgur = () => {
+    let FormData = require("form-data");
+    const data = new FormData();
+    data.append("image", stepImage);
+    const config = {
+      headers: {
+        Authorization: "Client-ID 15bebad96249efe",
+      },
+    };
+
+    axios
+      .post("https://api.imgur.com/3/image", data, config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        setImageLink(response.data.link);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   const handleChange = (event) => {
@@ -69,14 +104,7 @@ function AddStepsForm(props) {
         onChange={handleChange}
       />
       <br />
-      <input
-        className="w-full mt-2 rounded-sm"
-        type="url"
-        placeholder="Enter Image URL"
-        name="image"
-        value={newStep.image}
-        onChange={handleChange}
-      />
+      <UploadAndDisplayImage setImage={setStepImage} />
       <br />
       <p className="font-bold mt-3">Step Ingredients</p>
       <br />
