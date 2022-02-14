@@ -18,14 +18,10 @@ function AddStepsForm({ addStep }) {
     category: "",
   });
 
-  const [stepImage, setStepImage] = useState(null);
-  const [imageLink, setImageLink] = useState(null);
-
   const handleSubmit = () => {
     if (newStep.details === "") {
       alert("Input instruction details before saving the step.");
     } else {
-      handleImage();
       addStep(newStep);
       resetNewStep();
     }
@@ -41,33 +37,11 @@ function AddStepsForm({ addStep }) {
     });
   };
 
-  const handleImage = () => {
-    postImageImgur();
+  const addImage = (imageUrl) => {
     setNewStep((prevState) => ({
       ...prevState,
-      image: imageLink,
+      image: imageUrl,
     }));
-  };
-
-  const postImageImgur = () => {
-    let FormData = require("form-data");
-    const data = new FormData();
-    data.append("image", stepImage);
-    const config = {
-      headers: {
-        Authorization: "Client-ID 15bebad96249efe",
-      },
-    };
-
-    axios
-      .post("https://api.imgur.com/3/image", data, config)
-      .then(function (response) {
-        console.log(JSON.stringify(response.data));
-        setImageLink(response.data.link);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
   };
 
   const handleChange = (event) => {
@@ -104,7 +78,7 @@ function AddStepsForm({ addStep }) {
         onChange={handleChange}
       />
       <br />
-      <UploadAndDisplayImage setImage={setStepImage} />
+      <UploadAndDisplayImage setImage={addImage} />
       <br />
       <p className="font-bold mt-3">Step Ingredients</p>
       <br />

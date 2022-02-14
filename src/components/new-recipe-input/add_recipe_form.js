@@ -7,12 +7,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import UploadAndDisplayImage from "./image_upload";
 
-function AddRecipeForm({
-  handleSubmit,
-  newRecipe,
-  setNewRecipe,
-  setMainImage,
-}) {
+function AddRecipeForm({ handleSubmit, newRecipe, setNewRecipe }) {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setNewRecipe((prevState) => ({
@@ -22,6 +17,13 @@ function AddRecipeForm({
   };
 
   const [newSteps, setNewSteps] = useState([]);
+
+  const addImage = (imageUrl) => {
+    setNewRecipe((prevState) => ({
+      ...prevState,
+      image: imageUrl,
+    }));
+  };
 
   const addStep = (newStep) => {
     setNewSteps((prevState) => [...prevState, newStep]);
@@ -76,7 +78,7 @@ function AddRecipeForm({
             value={newRecipe.description}
             onChange={handleChange}
           />
-          <UploadAndDisplayImage setImage={setMainImage} />
+          <UploadAndDisplayImage addImage={addImage} />
           {/* <input
             className="w-full mt-2 rounded-sm"
             type="url"

@@ -22,16 +22,11 @@ function NewRecipe(){
     user: "",
     });
 
-    const [mainImage, setMainImage] =useState(null)
-    const [mainImageLink, setMainImageLink]=useState(null)
-
     const handleSubmit = (event) => {
         event.preventDefault();
-        postImageImgur()
-
+        console.log("accessed", user.userId)
         setNewRecipe((prevState) => ({
             ...prevState,
-            image: mainImageLink,
             user: user.userId,
             }));
         
@@ -51,35 +46,13 @@ function NewRecipe(){
     };
     console.log(newRecipe);
 
-    const postImageImgur =()=>{
-        let FormData = require("form-data");
-        const data = new FormData();
-        data.append("image", mainImage);
-        const config = {
-            headers: {
-            Authorization: "Client-ID 15bebad96249efe",
-            },
-        };
-
-        axios
-            .post("https://api.imgur.com/3/image", data, config)
-            .then(function (response) {
-            console.log(JSON.stringify(response.data));
-            setMainImageLink(response.data.link);
-            })
-            .catch(function (error) {
-            console.log(error);
-            });
-    }
-
-
     return(
         <div className="grid grid-cols-2 bg-newreci-img bg-cover min-h-screen bg-right">
             <div className="col-span-1 mx-auto ">
-                <AddRecipeForm handleSubmit={handleSubmit} newRecipe={newRecipe} setMainImage={setMainImage} setNewRecipe={setNewRecipe}/>
+                <AddRecipeForm handleSubmit={handleSubmit} newRecipe={newRecipe} setNewRecipe={setNewRecipe}/>
             </div>
             <div className="col-span-1 cols-end-3">
-                <NewRecipePreview newRecipe={newRecipe} mainImage={mainImage}/>
+                <NewRecipePreview newRecipe={newRecipe}/>
             </div>
 
         </div>
