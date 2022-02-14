@@ -16,7 +16,7 @@ const UploadAndDisplayImage = () => {
         },
       };
 
-      axios(config)
+      axios
         .post("https://api.imgur.com/3/image", data, config)
         .then(function (response) {
           console.log(JSON.stringify(response.data));
