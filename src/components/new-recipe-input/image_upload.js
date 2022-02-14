@@ -8,7 +8,7 @@ const UploadAndDisplayImage = () => {
     if (selectedImage) {
       let FormData = require("form-data");
       let data = new FormData();
-      data.append("img", "selectedImage");
+      data.append("image", "selectedImage");
       // let url = URL.createObjectURL(selectedImage);
       let config = {
         method: "post",
@@ -19,7 +19,6 @@ const UploadAndDisplayImage = () => {
         },
         data: data,
       };
-      console.log(config.image);
 
       axios(config)
         .then(function (response) {
@@ -51,6 +50,7 @@ const UploadAndDisplayImage = () => {
       <input
         type="file"
         name="myImage"
+        inputProps={{ accept: "image/*" }}
         onChange={(event) => {
           console.log(event.target.files[0]);
           setSelectedImage(event.target.files[0]);
