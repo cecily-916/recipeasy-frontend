@@ -48,7 +48,7 @@ function NewRecipePreview({ newRecipe }) {
   });
 
   return (
-    <div className="max-w-lg max-h-fit rounded-md mt-16 pb-24 bg-[#D19C6B] p-3 shadow-lg">
+    <div className="max-w-lg  max-h-fit rounded-md mx-auto mt-8 pb-24  bg-[#67704C] bg-opacity-60 p-2 shadow-xl">
       <div className="bg-white p-4">
         <p className="text-lg font-bold text-emerald-900 italic">Preview:</p>
         <div className="align-center">
@@ -73,7 +73,9 @@ function NewRecipePreview({ newRecipe }) {
 
           <h2>{newRecipe.description}</h2>
           <br />
-          <p className="font-bold">Saved Steps:</p>
+          <hr />
+          <br />
+          {/* <p className="font-bold">Saved Steps:</p> */}
           <DragDropContext onDragEnd={handleOnDragEnd}>
             <Droppable droppableId="steps">
               {(provided) => (

@@ -48,10 +48,11 @@ function AddStepsForm(props) {
     }));
   };
 
-  return props.trigger ? (
+  return (
     <div>
       <p className="font-extrabold">Add Step</p>
       <textarea
+        className="w-full mt-2 rounded-sm"
         placeholder="Details"
         name="details"
         value={newStep.details}
@@ -59,6 +60,7 @@ function AddStepsForm(props) {
       />
       <br />
       <textarea
+        className="w-full mt-2 rounded-sm"
         placeholder="Extra Details"
         name="extradetails"
         value={newStep.extradetails}
@@ -66,6 +68,7 @@ function AddStepsForm(props) {
       />
       <br />
       <input
+        className="w-full mt-2 rounded-sm"
         type="url"
         placeholder="Enter Image URL"
         name="image"
@@ -73,7 +76,8 @@ function AddStepsForm(props) {
         onChange={handleChange}
       />
       <br />
-      <p className="font-bold">Step Ingredients</p>
+      <p className="font-bold mt-3">Step Ingredients</p>
+      <br />
       <AddIngredientsForm
         ingredientsList={newStep.ingredients}
         addIngredient={addIngredient}
@@ -87,8 +91,6 @@ function AddStepsForm(props) {
         Save step
       </button>
     </div>
-  ) : (
-    ""
   );
 }
 

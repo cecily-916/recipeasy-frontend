@@ -6,7 +6,7 @@ function AddIngredientsForm({ ingredientsList, addIngredient }) {
   //each step has 0+ ingredients
   const savedIngredients = ingredientsList.map((ingredient, index) => {
     return (
-      <tr key={index}>
+      <tr className="text-center border-b-2" key={index}>
         <td>{ingredient.amount}</td>
         <td>{ingredient.unit}</td>
         <td>{ingredient.ingredient}</td>
@@ -77,9 +77,9 @@ function AddIngredientsForm({ ingredientsList, addIngredient }) {
 
   return (
     <div>
-      <table className="table-fixed">
+      <table className="table-auto">
         <thead>
-          <tr>
+          <tr className="text-center border-b-2">
             <th>Amount</th>
             <th>Unit</th>
             <th>Ingredient</th>
@@ -87,9 +87,11 @@ function AddIngredientsForm({ ingredientsList, addIngredient }) {
         </thead>
         <tbody>
           {savedIngredients}
+          <br />
           <tr>
             <td>
               <input
+                className="w-24 text-center rounded-sm mr-1"
                 type="number"
                 step=".1"
                 placeholder="Amount"
@@ -100,6 +102,7 @@ function AddIngredientsForm({ ingredientsList, addIngredient }) {
             </td>
             <td>
               <select
+                className="w-40 text-center rounded-sm mr-1"
                 name="unit"
                 value={newIngredient.unit}
                 onChange={handleChange}
@@ -110,6 +113,7 @@ function AddIngredientsForm({ ingredientsList, addIngredient }) {
             </td>
             <td>
               <input
+                className=" text-center rounded-sm mr-1"
                 type="text"
                 placeholder="Ingredient"
                 name="ingredient"

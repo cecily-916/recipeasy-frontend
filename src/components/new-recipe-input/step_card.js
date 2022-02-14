@@ -14,7 +14,7 @@ function StepCard({ step, order }) {
 
   console.log(step.image);
   return (
-    <div className="bg-amber-100 rounded-md p-4">
+    <div className="bg-amber-100 rounded-md p-4 drop-shadow-sm">
       <p className="text-emerald-900 text-2xl font-bold">Step {order}</p>
       <br />
       {
@@ -29,7 +29,7 @@ function StepCard({ step, order }) {
         }[image]
       }
 
-      <p>Details: {step.details}</p>
+      <p>{step.details}</p>
       <br />
       <IngredientsList ingredients={step.ingredients} />
     </div>

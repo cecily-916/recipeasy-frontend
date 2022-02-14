@@ -46,7 +46,7 @@ function CurrentRecipe() {
     // }
 
     return (
-        <div className="grid grid-cols-4  bg-plain-img bg-cover bg-bottom min-h-screen ">
+        <div className="grid grid-cols-4  bg-[##FEF1CB] bg-cover bg-bottom min-h-screen ">
             <div className="col-span-2 row-span-2 mt-11 mx-11">
                 <RecipeOverview recipe={recipeData} />
             </div>

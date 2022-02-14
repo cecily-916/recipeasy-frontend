@@ -38,7 +38,7 @@ function SidebarChecklist({ recipe, stepNum, setCurrentStepNum }) {
   });
 
   return (
-    <div className="bg-white m-4">
+    <div className="bg-white">
       <Link
         className="hover:text-emerald-900"
         to={`/recipe/${recipe.ID}`}

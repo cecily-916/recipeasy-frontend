@@ -46,7 +46,7 @@ function NewRecipe(){
 
     return(
         <div className="grid grid-cols-2 bg-newreci-img bg-cover min-h-screen bg-right">
-            <div className="col-span-1">
+            <div className="col-span-1 mx-auto">
                 <AddRecipeForm handleSubmit={handleSubmit} newRecipe={newRecipe} setNewRecipe={setNewRecipe}/>
             </div>
             <div className="col-span-1 cols-end-3">
@@ -54,8 +54,6 @@ function NewRecipe(){
             </div>
 
         </div>
-
-
     )
 
 
