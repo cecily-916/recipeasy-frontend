@@ -7,43 +7,6 @@ import axios from "axios";
 import { useEffect } from "react";
 
 function AddRecipeForm({ handleSubmit, newRecipe, setNewRecipe }) {
-  // Form allows users to input a new recipe.
-  // Each recipe has 1 + steps
-  // Each step has 0+ ingredients
-
-  // const [newRecipe, setNewRecipe] = useState({
-  //   title: "",
-  //   description: "",
-  //   prepTime: "",
-  //   cookTime: "",
-  //   image: "",
-  //   servings: "",
-  //   steps: [],
-  // });
-
-  // // const [steps, setSteps] = useState([])
-
-  // const handleSubmit = (event) => {
-  //   // setNewRecipe({ title, description, prepTime, cookTime, image, servings, steps })
-  //   event.preventDefault();
-
-  //   console.log(newRecipe);
-  //   axios
-  //     .post("${process.env.REACT_APP_BACKEND_URL}/recipes", newRecipe)
-  //     .then((response) => {
-  //       console.log("Response:", response.data);
-  //       // const recipe = [...recipesData];
-  //       // recipe.push(response.data);
-  //       // setRecipesData(recipe);
-  //     })
-  //     .catch((error) => {
-  //       console.log("Error:", error);
-  //       alert("Couldn't create a new recipe.");
-  //     });
-
-  //   alert("You've created a new recipe!");
-  // };
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     setNewRecipe((prevState) => ({
@@ -72,8 +35,8 @@ function AddRecipeForm({ handleSubmit, newRecipe, setNewRecipe }) {
 
   return (
     <div className="overscroll-auto bg-scroll bg-cover pb-24 ">
-      <div className="m-auto max-w-lg max-h-fit bg-[#85878ad1] rounded-md shadow-xl">
-        <h1 className="mt-16 pt-4 font-extrabold text-center text-white">
+      <div className="m-auto max-w-lg max-h-fit rounded-md shadow-xl">
+        <h1 className="mt-16 pt-4 font-extrabold text-center text-black">
           Add New Recipe
         </h1>
         {/* <div className='p-8 grid grid-cols-3'>     */}

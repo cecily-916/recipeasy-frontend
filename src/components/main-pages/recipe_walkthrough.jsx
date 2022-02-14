@@ -29,9 +29,10 @@ function RecipeWalkthrough() {
     }
     console.log(conversionPopup)
     return sideBar ? (
-        <div className=" grid grid-col-5">
-            <div className="sticky top-8 m-5 h-8 z-10">
-            <button className="
+        <div className=" grid grid-col-5 bg-newreci-img bg-right bg-fixed">
+            <div className="sticky top-8 m-5 h-8 z-10  ">
+                <div className=" min-h-content rounded-md">
+                <button className="
                     text-lg
                     font-quicksand 
                     align-center
@@ -75,10 +76,10 @@ function RecipeWalkthrough() {
                 <br/>
                 <IngredientsList ingredients = {recipeData.ingredients} />
             </div>
+            </div>
             <div className="col-end-6 col-span-4">
                 <StepsContainer recipe={recipeData} currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
             </div>
-
         </div>
     ):(
         // <div className=" grid grid-col-5">

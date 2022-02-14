@@ -39,10 +39,10 @@ function Profile() {
     console.log(collectionsData)
 
     return (
-    <div className="profile">
+    <div className="profile bg-bowls-img bg-cover min-h-screen bg-bottom">
         <div className="container">
-        <div className="row align-items-center my-5">
-            <h1>Welcome {userData.name}</h1>
+        <div className="row align-items-center">
+            <h1 className="my-5">Welcome {userData.name}</h1>
             <br />
             <button 
                         onClick={() => setCollectionButton(true)}
