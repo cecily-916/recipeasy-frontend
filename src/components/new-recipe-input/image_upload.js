@@ -6,14 +6,18 @@ const UploadAndDisplayImage = () => {
 
   useEffect(() => {
     if (selectedImage) {
-      let url = URL.createObjectURL(selectedImage);
+      let FormData = require("form-data");
+      let data = new FormData();
+      data.append("img", "selectedImage");
+      // let url = URL.createObjectURL(selectedImage);
       let config = {
         method: "post",
         url: "https://api.imgur.com/3/image",
         headers: {
           Authorization: "Client-ID 15bebad96249efe",
+          ...data.getHeaders,
         },
-        image: url,
+        data: data,
       };
       console.log(config.image);
 
