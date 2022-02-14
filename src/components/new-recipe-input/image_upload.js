@@ -7,20 +7,17 @@ const UploadAndDisplayImage = () => {
   useEffect(() => {
     if (selectedImage) {
       let FormData = require("form-data");
-      let data = new FormData();
-      data.append("image", "selectedImage");
+      const data = new FormData();
+      data.append("image", selectedImage);
       // let url = URL.createObjectURL(selectedImage);
-      let config = {
-        method: "post",
-        url: "https://api.imgur.com/3/image",
+      const config = {
         headers: {
           Authorization: "Client-ID 15bebad96249efe",
-          ...data.getHeaders,
         },
-        data: data,
       };
 
       axios(config)
+        .post("https://api.imgur.com/3/image", data, config)
         .then(function (response) {
           console.log(JSON.stringify(response.data));
         })
