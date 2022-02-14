@@ -12,37 +12,39 @@ function NewRecipe(){
     const [newRecipe, setNewRecipe] = useState({
     title: "",
     description: "",
+    source: "",
+    author: "",
     prepTime: "",
     cookTime: "",
     image: "",
-    servings: "",
+    servings: 0,
     steps: [],
     user: "",
     });
 
-    const [stepPreview, setStepPreview] =useState([])
-
     const handleSubmit = (event) => {
         event.preventDefault();
-
+        console.log("accessed", user.userId)
         setNewRecipe((prevState) => ({
             ...prevState,
             user: user.userId,
             }));
-
+        
         console.log(newRecipe);
+
         axios
             .post(`${process.env.REACT_APP_BACKEND_URL}/recipes`, newRecipe)
             .then((response) => {
             console.log("Response:", response.data);
+            alert("You've created a new recipe!");
             })
             .catch((error) => {
             console.log("Error:", error);
             alert("Couldn't create a new recipe.");
             });
 
-        alert("You've created a new recipe!");
     };
+    console.log(newRecipe);
 
     return(
         <div className="grid grid-cols-2 bg-newreci-img bg-cover min-h-screen bg-right">

@@ -13,6 +13,7 @@ function AddStepsForm(props) {
     extradetails: "",
     ingredients: [],
     image: "",
+    category: "",
   });
 
   const handleSubmit = () => {
@@ -30,6 +31,7 @@ function AddStepsForm(props) {
       extradetails: "",
       ingredients: [],
       image: "",
+      category: "",
     });
   };
 

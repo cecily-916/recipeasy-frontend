@@ -1,0 +1,56 @@
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
+const UploadAndDisplayImage = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  useEffect(() => {
+    let config = {
+      method: "post",
+      url: "https://api.imgur.com/3/image",
+      headers: {
+        Authorization: "15bebad96249efe",
+        image: { selectedImage },
+      },
+    };
+    console.log(selectedImage);
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, [selectedImage]);
+
+  console.log(selectedImage);
+  return (
+    <div>
+      <p>Upload recipe main image</p>
+      {selectedImage && (
+        <div>
+          <img
+            alt="not fount"
+            width={"250px"}
+            src={URL.createObjectURL(selectedImage)}
+          />
+          <br />
+          <button onClick={() => setSelectedImage(null)}>Remove</button>
+        </div>
+      )}
+      <br />
+      <br />
+      <input
+        type="file"
+        name="myImage"
+        onChange={(event) => {
+          console.log(event.target.files[0]);
+          setSelectedImage(event.target.files[0]);
+        }}
+      />
+    </div>
+  );
+};
+
+export default UploadAndDisplayImage;

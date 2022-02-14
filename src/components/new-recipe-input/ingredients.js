@@ -88,6 +88,11 @@ function AddIngredientsForm({ ingredientsList, addIngredient }) {
         <tbody>
           {savedIngredients}
           <tr>
+            <th>&nbsp; </th>
+            <th>&nbsp; </th>
+            <th>&nbsp; </th>
+          </tr>
+          <tr>
             <td>
               <input
                 className="w-24 text-center rounded-sm mr-1"

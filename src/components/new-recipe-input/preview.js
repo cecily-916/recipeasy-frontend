@@ -9,8 +9,7 @@ function NewRecipePreview({ newRecipe }) {
   useEffect(() => {
     setSteps(newRecipe.steps);
   }, [newRecipe]);
-  console.log(steps);
-
+  console.log(newRecipe.steps);
   const handleOnDragEnd = (result) => {
     const items = Array.from(steps);
     const [recordedItem] = items.splice(result.source.index, 1);
