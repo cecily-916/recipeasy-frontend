@@ -5,24 +5,28 @@ const UploadAndDisplayImage = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
-    let config = {
-      method: "post",
-      url: "https://api.imgur.com/3/image",
-      headers: {
-        Authorization: "Client-ID 15bebad96249efe",
-      },
-      image: selectedImage,
-    };
-    console.log(selectedImage);
+    if (selectedImage) {
+      let url = URL.createObjectURL(selectedImage);
+      let config = {
+        method: "post",
+        url: "https://api.imgur.com/3/image",
+        headers: {
+          Authorization: "Client-ID 15bebad96249efe",
+        },
+        image: url,
+      };
+      console.log(config.image);
+    }
+  });
 
-    axios(config)
-      .then(function (response) {
-        console.log(JSON.stringify(response.data));
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }, [selectedImage]);
+  //   axios(config)
+  //     .then(function (response) {
+  //       console.log(JSON.stringify(response.data));
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+  // }, [selectedImage]);
 
   console.log(selectedImage);
   return (
