@@ -2,10 +2,7 @@ import React, { useEffect, useState } from "react";
 import StepsList from "../recipe_overview/steps_list";
 import RecipeOverview from "../recipe_overview/recipe_container";
 import StepCard from "./step_card";
-<<<<<<< HEAD
-=======
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
->>>>>>> input
 
 function NewRecipePreview({ newRecipe }) {
   const [steps, setSteps] = useState([]);
@@ -78,7 +75,9 @@ function NewRecipePreview({ newRecipe }) {
           <br />
           <hr />
           <br />
-          {/* <p className="font-bold">Saved Steps:</p> */}
+          <p className="italic text-sm mb-2">
+            Drag and drop the step cards to change the order
+          </p>
           <DragDropContext onDragEnd={handleOnDragEnd}>
             <Droppable droppableId="steps">
               {(provided) => (

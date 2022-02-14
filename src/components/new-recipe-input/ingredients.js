@@ -87,7 +87,6 @@ function AddIngredientsForm({ ingredientsList, addIngredient }) {
         </thead>
         <tbody>
           {savedIngredients}
-          <br />
           <tr>
             <td>
               <input
@@ -124,9 +123,8 @@ function AddIngredientsForm({ ingredientsList, addIngredient }) {
           </tr>
         </tbody>
       </table>
-      <br />
       <button
-        className="border-2 mt-2 hover:bg-yellow-500 hover:text-white p-2 drop-shadow-md rounded-sm text-emerald-900 font-semibold"
+        className="border-2 mt-2 hover:bg-yellow-500 hover:text-white py-1 px-2 text-md drop-shadow-md rounded-sm text-emerald-900 font-semibold"
         type="button"
         onClick={() => {
           handleSubmit();
