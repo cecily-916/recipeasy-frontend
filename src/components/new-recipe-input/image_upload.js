@@ -16,17 +16,16 @@ const UploadAndDisplayImage = () => {
         image: url,
       };
       console.log(config.image);
-    }
-  });
 
-  //   axios(config)
-  //     .then(function (response) {
-  //       console.log(JSON.stringify(response.data));
-  //     })
-  //     .catch(function (error) {
-  //       console.log(error);
-  //     });
-  // }, [selectedImage]);
+      axios(config)
+        .then(function (response) {
+          console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+  }, [selectedImage]);
 
   console.log(selectedImage);
   return (
