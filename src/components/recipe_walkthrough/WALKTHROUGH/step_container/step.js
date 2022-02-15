@@ -151,7 +151,7 @@ function Step({
               Fullscreen */}
             </p>
           </button>
-          )
+
           {isFirst ? (
             ""
           ) : (
