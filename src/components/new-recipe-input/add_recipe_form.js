@@ -24,6 +24,7 @@ function AddRecipeForm({ handleSubmit, newRecipe, setNewRecipe }) {
       image: imageUrl,
     }));
   };
+  console.log(newRecipe.image);
 
   const setImageDelete = (deleteHash) => {
     setNewRecipe((prevState) => ({
