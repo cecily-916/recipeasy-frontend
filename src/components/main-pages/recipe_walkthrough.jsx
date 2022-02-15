@@ -32,44 +32,61 @@ function RecipeWalkthrough() {
     return sideBar ? (
         <div className=" grid grid-col-5 bg-newreci-img bg-right bg-fixed">
             <div className="sticky top-1 mx-3 h-2">
-                <div className=" min-h-content bg-[#67704C] bg-opacity-60 rounded-md">
-                    <section className='bg-white p-2 m-5'>
+                    {/* <section className='bg-white p-2 m-5'> */}
+                        <div className='top-0 grid grid-cols-3 grid-rows-1 gap-1 mr-5'>
                         <button className="
-                            text-lg
-                            font-quicksand 
-                            align-center
-                            py-1.5
-                            px-3
-                            border border-white
-                            bg-slate-100
-                            rounded-full
-                            text-black
-                            hover:border-primary 
-                            ml-14
-                            hover:bg-emerald-800 hover:text-white
-                            transition" onClick={()=>setSideBar(false)}>
+                            row-start-1 col-start-1
+                            border border-[#E5E7EB]
+                            w-full
+                            rounded-md 
+                            text-base text-body-color 
+                            font-medium 
+                            shadow-sm 
+                            // m-3 
+                            cursor-pointer
+                            bg-white
+                            p-3
+                            text-emerald-800 hover:text-amber-500 hover:bg-emerald-800"
+                            onClick={()=>setSideBar(false)}>
                             <span className="text-4xl material-icons-outlined">
                             all_out
                             </span>
                             <br/>
-                                Fullscreen
+                                fullscreen
                         </button>
-                        <Speech currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum} isListening={isListening} setIsListening={setIsListening}/>
-                        <br />
+                        <button
+                            className="
+                        border border-[#E5E7EB]
+                        rounded-md 
+                        row-start-1 col-start-2
+                        w-full
+                        bg-white
+                        text-base text-body-color 
+                        font-medium 
+                        shadow-sm 
+                        m-3 
+                        cursor-pointer
+                        p-3
+                        text-emerald-800 hover:text-white hover:bg-emerald-800"
+                        >
+                        <Speech currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum} isListening={isListening} setIsListening={setIsListening}/>          
+                        </button>
                         <button className="
-                            text-lg
-                            font-quicksand 
-                            align-center
-                            py-1.5
-                            px-3
-                            border border-white
-                            bg-slate-100
-                            rounded-full
-                            text-black
-                            hover:border-primary 
-                            ml-14
-                            hover:bg-emerald-800 hover:text-white
-                            transition" onClick={()=>setConversionPopup(flip())}>Conversion Chart</button>
+                            border border-[#E5E7EB]
+                            row-start-1 col-start-3
+                            rounded-md 
+                            text-base text-body-color 
+                            w-full
+                            font-medium 
+                            shadow-sm 
+                            bg-white
+                            m-3 
+                            cursor-pointer
+                            p-3
+                            text-emerald-800 hover:text-white hover:bg-emerald-800" onClick={()=>setConversionPopup(flip())}>
+                            <span class="text-4xl material-icons-outlined">sync_alt</span>
+                            <br />
+                            <p className="text-sm ">conversions</p></button>
                         {
                             {true: (
                                 <div className="max-w-full py-4 mx-auto">
@@ -80,10 +97,13 @@ function RecipeWalkthrough() {
                                     />
                                 </div>),
                             }[conversionPopup]}
+                        </div>
+                        <div className=" min-h-content bg-white rounded-md p-4 m-3">
+
                         <SidebarChecklist recipe={recipeData} stepNum={currentStepNum} setCurrentStepNum={setCurrentStepNum} />
                         <br/>
                         <IngredientsList ingredients = {recipeData.ingredients} />
-                </section>
+                {/* </section> */}
             </div>
             </div>
             <div className="col-end-6 col-span-4">
