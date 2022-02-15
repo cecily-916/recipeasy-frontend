@@ -20,10 +20,10 @@ const UploadAndDisplayImage = ({ setImage, setImageDelete, setImageId }) => {
         .post("https://api.imgur.com/3/image", data, config)
         .then(function (response) {
           console.log(JSON.stringify(response.data));
-          console.log(response.data["link"]);
-          setImage(response.data["link"]);
-          setImageDelete(response.data["deletehash"]);
-          setImageId(response.data["id"]);
+          console.log(response.data);
+          setImage(response.data.data.link);
+          setImageDelete(response.data.data.deletehash);
+          setImageId(response.data.data.id);
         })
         .catch(function (error) {
           console.log(error);
