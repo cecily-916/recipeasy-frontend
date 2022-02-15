@@ -4,12 +4,7 @@ function DisplayImgPreview({ image }) {
   if (image) {
     return (
       <div>
-        <img
-          className="rounded-sm"
-          alt="main"
-          width={"250px"}
-          src={URL.createObjectURL(image)}
-        />
+        <img className="rounded-sm" alt="main" width={"250px"} src={image} />
       </div>
     );
   } else {
