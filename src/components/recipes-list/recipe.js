@@ -12,11 +12,15 @@ const Recipe = (props) => {
       className="link"
     >
       <div className="bg-white hover:drop-shadow-xl rounded-xl overflow-hidden mx-auto m-4 max-w-xs shadow-lg transition  hover:-translate-y-0.5 ease-in-out hover:scale-105 duration-150 border-opacity-100">
-        <img
-          src={props.recipe.image}
-          alt="dish"
-          className="w-3xl border-b-4 h-auto shadow-md"
-        />
+        {props.recipe.image ? (
+          <img
+            src={props.recipe.image}
+            alt="dish"
+            className="w-3xl border-b-4 h-auto shadow-md"
+          />
+        ) : (
+          ""
+        )}
         <div className="p-4 pb-2 text-center">
           <h3
             className="

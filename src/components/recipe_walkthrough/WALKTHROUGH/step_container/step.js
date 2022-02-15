@@ -195,22 +195,28 @@ function Step({
     >
       <div
         id={num}
-        className=" p-9 bg-{bg} rounded-md shadow-2xl h-screen  w-full"
+        className=" p-9 bg-{bg} relative rounded-md shadow-2xl h-screen  w-full"
       >
         <h1 className="text-emerald-900">
           {num}
           {step.description}
         </h1>
         <br />
-        <img
-          className="float-center mt-16 mr-12 rounded-md max-h-60 max-w-fit drop-shadow-md "
-          src={step.image}
-          alt="stepimage"
-        />
+        {step.image ? (
+          <img
+            className="rounded-md ml-24 -mt-20 max-h-60 mx- max-w-fit drop-shadow-md "
+            src={step.image}
+            alt="stepimage"
+          />
+        ) : (
+          ""
+        )}
         <br />
-        {renderDetails()}
-        <StepIngredients ingredients={step.ingredients} />
-
+        <br />
+        <div className="pl-20">
+          {renderDetails()}
+          <StepIngredients ingredients={step.ingredients} />
+        </div>
         {withoutSideBar()}
 
         {isLast ? (
