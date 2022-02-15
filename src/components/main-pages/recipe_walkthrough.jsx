@@ -31,9 +31,9 @@ function RecipeWalkthrough() {
     console.log(conversionPopup)
     return sideBar ? (
         <div className=" grid grid-col-5 bg-newreci-img bg-right bg-fixed">
-            <div className="sticky top-1 mx-3 h-2">
+            <div className="sticky top-1 mx-3 h-2 min-w-fit">
                     {/* <section className='bg-white p-2 m-5'> */}
-                        <div className='top-0 grid grid-cols-3 grid-rows-1 gap-1 mr-5'>
+                        <div className=' grid grid-cols-3 grid-rows-1 gap-1 -ml-3 mr-3 '>
                         <button className="
                             row-start-1 col-start-1
                             border border-[#E5E7EB]
@@ -46,7 +46,7 @@ function RecipeWalkthrough() {
                             cursor-pointer
                             bg-white
                             p-3
-                            text-emerald-800 hover:text-amber-500 hover:bg-emerald-800"
+                            text-emerald-800 hover:text-amber-500 "
                             onClick={()=>setSideBar(false)}>
                             <span className="text-4xl material-icons-outlined">
                             all_out
@@ -67,7 +67,7 @@ function RecipeWalkthrough() {
                         m-3 
                         cursor-pointer
                         p-3
-                        text-emerald-800 hover:text-white hover:bg-emerald-800"
+                        text-emerald-800 hover:text-amber-500 "
                         >
                         <Speech currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum} isListening={isListening} setIsListening={setIsListening}/>          
                         </button>
@@ -76,17 +76,21 @@ function RecipeWalkthrough() {
                             row-start-1 col-start-3
                             rounded-md 
                             text-base text-body-color 
-                            w-full
+                            min-w-fit
+                            overflow
                             font-medium 
                             shadow-sm 
                             bg-white
                             m-3 
                             cursor-pointer
                             p-3
-                            text-emerald-800 hover:text-white hover:bg-emerald-800" onClick={()=>setConversionPopup(flip())}>
+                            text-emerald-800 hover:text-amber-500" onClick={()=>setConversionPopup(flip())}>
                             <span class="text-4xl material-icons-outlined">sync_alt</span>
                             <br />
                             <p className="text-sm ">conversions</p></button>
+                        
+                        </div>
+                        <div className=" min-h-content bg-white rounded-md p-4 ">
                         {
                             {true: (
                                 <div className="max-w-full py-4 mx-auto">
@@ -97,9 +101,6 @@ function RecipeWalkthrough() {
                                     />
                                 </div>),
                             }[conversionPopup]}
-                        </div>
-                        <div className=" min-h-content bg-white rounded-md p-4 m-3">
-
                         <SidebarChecklist recipe={recipeData} stepNum={currentStepNum} setCurrentStepNum={setCurrentStepNum} />
                         <br/>
                         <IngredientsList ingredients = {recipeData.ingredients} />
