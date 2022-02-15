@@ -5,7 +5,7 @@ import StepCard from "./step_card";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import DisplayImgPreview from "./image";
 
-function NewRecipePreview({ newRecipe, mainImage, setFinalStepOrder }) {
+function NewRecipePreview({ newRecipe, setFinalStepOrder }) {
   const [steps, setSteps] = useState([]);
   useEffect(() => {
     setSteps(newRecipe.steps);
@@ -55,7 +55,7 @@ function NewRecipePreview({ newRecipe, mainImage, setFinalStepOrder }) {
         <div className="align-center">
           <h1>{newRecipe.title}</h1>
           <br />
-          <DisplayImgPreview image={mainImage} />
+          <DisplayImgPreview image={newRecipe.image} />
           <p className="font-bold text-emerald-900">By: {newRecipe.author}</p>
           <br />
           <section>

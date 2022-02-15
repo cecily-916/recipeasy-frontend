@@ -117,6 +117,19 @@ function CurrentRecipe() {
                     bg-white text-emerald-800"
                     onClick={() => setArchiveRecipeButton(true)}>Archive Recipe</button>
                     <ArchiveRecipePopup recipe={recipeData} trigger={archiveRecipeButton} setTrigger={setArchiveRecipeButton}/>
+                    <button            
+                    className="
+                    py-2
+                    px-7
+                    border border-[#E5E7EB]
+                    rounded-md 
+                    text-base text-body-color 
+                    font-medium 
+                    shadow-sm 
+                    m-3 
+                    p-3 
+                    bg-white text-emerald-800"
+                    onClick={() => window.print()}>Print Recipe</button>
                 </div>
         </div>
         </div>

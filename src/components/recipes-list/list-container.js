@@ -15,7 +15,7 @@ function ListContainer({ recipes }) {
   return (
     // title
     <section className="mx-12 mt-10 mb-10 bg-[#c4ceddb0] min-h-full rounded-md shadow-xl">
-      {/* <div
+      <div
         className="
         flex 
         flex-wrap 
@@ -23,20 +23,20 @@ function ListContainer({ recipes }) {
         justify-start 
         justify-items-center 
         space-x-5"
-      > */}
-      {
+      >
         {
-          0: (
-            <div className="max-w-lg  p-16 mx-auto">
-              <p className="text-center rounded-md text-emerald-900 text-lg p-12 bg-white">
-                Uh oh! No recipes found.
-                <br /> Go to "Add Recipe" to create one!
-              </p>
-            </div>
-          ),
-        }[recipes.length]
-      }
-      <StackGrid
+          {
+            0: (
+              <div className="max-w-lg  p-16 mx-auto">
+                <p className="text-center rounded-md text-emerald-900 text-lg p-12 bg-white">
+                  Uh oh! No recipes found.
+                  <br /> Go to "Add Recipe" to create one!
+                </p>
+              </div>
+            ),
+          }[recipes.length]
+        }
+        {/* <StackGrid
         columnWidth={230}
         gutterWidth={14}
         appear={scaleDown.appear}
@@ -44,10 +44,10 @@ function ListContainer({ recipes }) {
         enter={scaleDown.enter}
         entered={scaleDown.entered}
         leaved={scaleDown.leaved}
-      >
+      > */}
         {recipeItems}
-      </StackGrid>
-      {/* </div> */}
+        {/* </StackGrid> */}
+      </div>
     </section>
   );
 }

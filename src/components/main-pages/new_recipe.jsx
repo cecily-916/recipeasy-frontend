@@ -43,11 +43,15 @@ function NewRecipe(){
             .then((response) => {
             console.log("Response:", response.data);
             alert("You've created a new recipe!");
+            console.log(response.data.ID)
+            // window.location = `/recipe/${response.data.ID}`;
             })
             .catch((error) => {
             console.log("Error:", error);
             alert("Couldn't create a new recipe.");
             });
+
+        
     };
 
     return(
