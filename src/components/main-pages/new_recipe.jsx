@@ -38,20 +38,21 @@ function NewRecipe(){
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        axios
-            .post(`${process.env.REACT_APP_BACKEND_URL}/recipes`, newRecipe)
-            .then((response) => {
-            console.log("Response:", response.data);
-            alert("You've created a new recipe!");
-            console.log(response.data.ID)
-            // window.location = `/recipe/${response.data.ID}`;
-            })
-            .catch((error) => {
-            console.log("Error:", error);
-            alert("Couldn't create a new recipe.");
-            });
-
-        
+        if (newRecipe.steps.length === 0){
+            alert("Minimum one step required to create recipe.")
+        } else {
+            axios
+                .post(`${process.env.REACT_APP_BACKEND_URL}/recipes`, newRecipe)
+                .then((response) => {
+                console.log("Response:", response.data);
+                alert("You've created a new recipe!");
+                window.location = "/Home";
+                })
+                .catch((error) => {
+                console.log("Error:", error);
+                alert("Couldn't create a new recipe.");
+                });
+            }
     };
 
     return(

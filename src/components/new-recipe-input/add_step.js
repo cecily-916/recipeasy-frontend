@@ -22,7 +22,16 @@ function AddStepsForm({ addStep }) {
 
   const handleSubmit = () => {
     if (newStep.details === "") {
-      alert("Input instruction details before saving the step.");
+      alert("Enter instruction details before saving the step.");
+    } else if (newStep.ingredients.length === 0) {
+      if (
+        window.confirm(
+          "This step does not have any ingredients saved. Proceed?"
+        )
+      ) {
+        addStep(newStep);
+        resetNewStep();
+      }
     } else {
       addStep(newStep);
       resetNewStep();
