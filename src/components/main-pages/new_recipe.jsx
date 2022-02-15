@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import AddRecipeForm from "../new-recipe-input/add_recipe_form"
 import NewRecipePreview from '../new-recipe-input/preview';
 import { useState } from "react";
@@ -19,20 +19,24 @@ function NewRecipe(){
     image: "",
     imagedelete:"",
     imageid:"",
-    servings: 0,
+    servings: null,
     steps: [],
-    user: "",
+    user: user.userId,
     });
+
+    const [finalStepOrder, setFinalStepOrder] = useState([])
+    console.log(finalStepOrder)
+
+    useEffect(()=>{
+        setNewRecipe((prevState) => ({
+            ...prevState,
+            steps: finalStepOrder,
+            }));
+    }, [finalStepOrder])
+    console.log(newRecipe);
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log("accessed", user.userId)
-        setNewRecipe((prevState) => ({
-            ...prevState,
-            user: user.userId,
-            }));
-        
-        console.log(newRecipe);
 
         axios
             .post(`${process.env.REACT_APP_BACKEND_URL}/recipes`, newRecipe)
@@ -44,7 +48,6 @@ function NewRecipe(){
             console.log("Error:", error);
             alert("Couldn't create a new recipe.");
             });
-
     };
 
     return(
@@ -53,13 +56,10 @@ function NewRecipe(){
                 <AddRecipeForm handleSubmit={handleSubmit} newRecipe={newRecipe} setNewRecipe={setNewRecipe}/>
             </div>
             <div className="col-span-1 cols-end-3">
-                <NewRecipePreview newRecipe={newRecipe} />
+                <NewRecipePreview newRecipe={newRecipe} setFinalStepOrder={setFinalStepOrder} />
             </div>
-
         </div>
     )
-
-
 }
 
 export default NewRecipe

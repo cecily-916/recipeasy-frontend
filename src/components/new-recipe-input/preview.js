@@ -5,7 +5,7 @@ import StepCard from "./step_card";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import DisplayImgPreview from "./image";
 
-function NewRecipePreview({ newRecipe, mainImage }) {
+function NewRecipePreview({ newRecipe, mainImage, setFinalStepOrder }) {
   const [steps, setSteps] = useState([]);
   useEffect(() => {
     setSteps(newRecipe.steps);
@@ -16,6 +16,7 @@ function NewRecipePreview({ newRecipe, mainImage }) {
     const [recordedItem] = items.splice(result.source.index, 1);
     items.splice(result.destination.index, 0, recordedItem);
     setSteps(items);
+    setFinalStepOrder(items);
   };
 
   const stepDisplay = steps.map((displayStep, index) => {

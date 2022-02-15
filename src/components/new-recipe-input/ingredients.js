@@ -17,7 +17,7 @@ function AddIngredientsForm({ ingredientsList, addIngredient }) {
   const [newIngredient, setNewIngredient] = useState({
     ingredient: "",
     unit: "",
-    amount: 0.0,
+    amount: null,
   });
 
   const handleSubmit = () => {
@@ -38,7 +38,7 @@ function AddIngredientsForm({ ingredientsList, addIngredient }) {
     setNewIngredient({
       ingredient: "",
       unit: "",
-      amount: 0.0,
+      amount: null,
     });
   };
 
