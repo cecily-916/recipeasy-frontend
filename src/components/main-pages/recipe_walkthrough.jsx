@@ -17,6 +17,8 @@ function RecipeWalkthrough() {
     const [sideBar, setSideBar] = useState(true)
     const [conversionPopup, setConversionPopup] = useState(false)
     const [currentStepNum, setCurrentStepNum] = useState(1)
+    const [isListening, setIsListening] = useState(false);
+
     console.log(currentStepNum)
 
     const flip = () => {
@@ -46,13 +48,13 @@ function RecipeWalkthrough() {
                             ml-14
                             hover:bg-emerald-800 hover:text-white
                             transition" onClick={()=>setSideBar(false)}>
-                                <span class="text-4xl material-icons-outlined">
+                            <span className="text-4xl material-icons-outlined">
                             all_out
                             </span>
                             <br/>
                                 Fullscreen
-                            </button>
-                        <Speech currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
+                        </button>
+                        <Speech currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum} isListening={isListening} setIsListening={setIsListening}/>
                         <br />
                         <button className="
                             text-lg
@@ -85,23 +87,13 @@ function RecipeWalkthrough() {
             </div>
             </div>
             <div className="col-end-6 col-span-4">
-                <StepsContainer recipe={recipeData} currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum} sideBar={sideBar}/>
+                <StepsContainer  recipe={recipeData} currentStep={currentStepNum} setSideBar={setSideBar} setCurrentStepNum={setCurrentStepNum} sideBar={sideBar} setConversionPopup={setConversionPopup}/>
             </div>
         </div>
     ):(
-        // <div className=" grid grid-col-5">
     <div>
-        <div className="sticky top-8 m-5 h-8 inline">
-            <button onClick={()=>setSideBar(true)}><span class="text-2xl material-icons-outlined">
-                close_fullscreen
-                </span>
-                <br/>Close Fullscreen</button>
-            <Speech setSideBar={setSideBar} setConversionPopup={setConversionPopup} sideBar={sideBar} currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
-            <br />
-
-        </div> 
         <div className="col-end-6 col-span-4">
-            <StepsContainer  recipe={recipeData} currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum} sideBar={sideBar}/>
+            <StepsContainer  recipe={recipeData} currentStep={currentStepNum} setSideBar={setSideBar} setIsListening={setIsListening} isListening={isListening} setCurrentStepNum={setCurrentStepNum} sideBar={sideBar} setConversionPopup={setConversionPopup}/>
             <button onClick={()=>document.body.scrollTop = document.documentElement.scrollTop = 0}>Back to top</button>
         </div>
     </div>

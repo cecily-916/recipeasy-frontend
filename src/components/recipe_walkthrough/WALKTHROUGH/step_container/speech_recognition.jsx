@@ -5,19 +5,23 @@ import microphone from '../../../../assets/microphone.png'
 import React from 'react';
 
 
-function Speech({ currentStep, setCurrentStepNum, setSideBar, sideBar, setConversionPopup})  {
+function Speech({ currentStep, setCurrentStepNum, isListening,setIsListening, setSideBar, sideBar, setConversionPopup})  {
     console.log(currentStep)
+    const [nextStep, setNextStep] =useState(currentStep + 1)
+    const [previousStep, setPreviousStep]=useState(currentStep)
     const commands = [
         {
             command: "next step",
             callback: () => {
-                changeStep(currentStep + 1)
+                setNextStep(nextStep+1)
+                changeStep(nextStep)
             }
         },
         {
             command: "previous step",
             callback: () => {
-                changeStep(currentStep - 1)
+                setPreviousStep(currentStep-1)
+                changeStep(previousStep)
             }
         },
     // Trigger pop up with notes and rating
@@ -28,15 +32,9 @@ function Speech({ currentStep, setCurrentStepNum, setSideBar, sideBar, setConver
         //     },
         // },
         {
-            command: "recipe complete",
-            callback: () => {
-                stopHandle();
-            },
-        },
-        {
             command: "stop listening",
             callback: () => {
-                stopHandle();
+                handleListening(false);
             },
         },
         {
@@ -65,100 +63,83 @@ function Speech({ currentStep, setCurrentStepNum, setSideBar, sideBar, setConver
         },
     ];
     const { transcript, resetTranscript } = useSpeechRecognition({ commands });
-    const [isListening, setIsListening] = useState(false);
+    // const [isListening, setIsListening] = useState(false);
     const microphoneRef = useRef(null);
     if (!SpeechRecognition.browserSupportsSpeechRecognition()) {
     return (
         <div className="mircophone-container">
-        Browser is not Support Speech Recognition.
+        Browser does not Support Speech Recognition.
         </div>
     );
     }
     const handleListening = () => {
-    setIsListening(true);
-    microphoneRef.current.classList.add("listening");
-    SpeechRecognition.startListening({
-        continuous: true,
-    });
-    };
+        setIsListening(true);
+        microphoneRef.current.classList.add("listening");
+        SpeechRecognition.startListening({
+            continuous: true,
+        });
+        };
+
     const stopHandle = () => {
     setIsListening(false);
     microphoneRef.current.classList.remove("listening");
     SpeechRecognition.stopListening();
     };
-    const handleReset = () => {
-    stopHandle();
-    resetTranscript();
-    };
+    // const handleReset = () => {
+    // stopHandle();
+    // resetTranscript();
+    // };
 
-    const changeStep = (nextNum) => {
-        console.log(nextNum)
+    const changeStep = (stepChange) => {
+        // console.log(nextStep)
         // window.scroll(`./steps#${nextNum}`)
-        document.getElementById(`${nextNum}`).scrollIntoView({behavior: 'smooth'});
-        setCurrentStepNum(nextNum)
+        document.getElementById(`${stepChange}`).scrollIntoView({behavior: 'smooth'});
+        setCurrentStepNum(stepChange)
     }
-    return sideBar ? (
-    <div className="microphone-wrapper">
-        <div className="mircophone-container">
-        <div
-            ref={microphoneRef}
-            onClick={handleListening}
-        >
-        {isListening ? (<span class="text-4xl material-icons">
-        record_voice_over
-        </span>)  : (<span class="text-4xl material-icons">
-        voice_over_off
-        </span> )}
+
+    const listeningButton =() =>{
+        return (
+            <div className="microphone-wrapper">
+                <div className="mircophone-container">
+                    <div
+                        ref={microphoneRef}
+                        onClick={stopHandle}
+                    >
+                    <span class="text-4xl material-icons">
+                    record_voice_over
+                    </span>
+                    </div>
+                    <div className="microphone-status">
+                        "Listening........."
+                    </div>
+            </div>
+        </div>)
+    }
+
+    const notListeningButton = () =>{
+        return (
+            <div className="microphone-wrapper">
+                <div className="mircophone-container">
+                <div
+                    ref={microphoneRef}
+                    onClick={handleListening}
+                >
+                    <span class="text-4xl material-icons">
+                    voice_over_off
+                    </span> 
+                    </div>
+                    <div className="microphone-status">
+                    "Click to start Listening"
+                    </div>
+                </div>
+        </div>)
+    }
+    return (
+        <div>
+            {isListening ? listeningButton() :
+            notListeningButton()
+            }
         </div>
-        <div className="microphone-status">
-            {isListening ? "Listening........." : "Click to start Listening"}
-        </div>
-        {isListening && (
-            <button className="microphone-stop btn" onClick={stopHandle}>
-            Stop
-            </button>
-        )}
-        </div>
-        {/* {transcript && (
-        <div className="microphone-result-container">
-            <div className="microphone-result-text">{transcript}</div>
-            <button className="microphone-reset btn" onClick={handleReset}>
-            Reset
-            </button>
-        </div>
-        )} */}
-    </div>
-    ) : (
-        <div className="microphone-wrapper">
-        <div className="mircophone-container">
-        <div
-            ref={microphoneRef}
-            onClick={handleListening}
-        >
-        {isListening ? <span class="text-4xl material-icons">
-        record_voice_over
-        </span>  : <span class="text-4xl material-icons">
-        voice_over_off
-        </span> }
-        </div>
-        <div className="microphone-status">
-            {isListening ? "Listening........." : "Click to start Listening"}
-        </div>
-        {isListening && (
-            <button className="microphone-stop btn" onClick={stopHandle}>
-            Stop
-            </button>
-        )}
-        </div>
-        {/* {transcript && (
-        <div className="microphone-result-container">
-            <div className="microphone-result-text">{transcript}</div>
-            <button className="microphone-reset btn" onClick={handleReset}>
-            Reset
-            </button>
-        </div>
-        )} */}
-    </div>
     )
 }
 export default Speech;

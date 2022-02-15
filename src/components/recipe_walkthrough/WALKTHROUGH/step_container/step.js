@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import StepIngredients from "./step_ingredients";
 import { HashLink as Link } from "react-router-hash-link";
 import { InView, useInView } from "react-intersection-observer";
+import Speech from "./speech_recognition";
 
 function Step({
   num,
@@ -12,6 +13,11 @@ function Step({
   sideBar,
   isLast,
   isFirst,
+  setSideBar,
+  setConversionPopup,
+  currentStep,
+  isListening,
+  setIsListening,
 }) {
   const { ref, inView } = useInView({
     threshold: 1,
@@ -65,6 +71,99 @@ function Step({
     setCurrentStepNum(nextStepNum - 2);
   };
 
+  const handleFinished = () => {
+    //pop up add notes and rate?
+  };
+
+  const withoutSideBar = () => {
+    return !sideBar ? (
+      <div>
+        <p className="absolute bottom-5 right-5 text-slate-400">
+          {num} / {recipe.steps.length}
+        </p>
+        <div>
+          <button
+            className="
+          absolute top-8 right-80
+          border border-[#E5E7EB]
+          rounded-md 
+          text-base text-body-color 
+          font-medium 
+          shadow-sm 
+          m-3 
+          cursor-pointer
+          p-3
+          text-emerald-800 hover:text-white hover:bg-emerald-800"
+          >
+            <Speech
+              setSideBar={setSideBar}
+              setConversionPopup={setConversionPopup}
+              sideBar={sideBar}
+              currentStep={currentStep}
+              setCurrentStepNum={setCurrentStepNum}
+              isListening={isListening}
+              setIsListening={setIsListening}
+            />
+          </button>
+          <button
+            className="
+            absolute top-8 right-40
+            border border-[#E5E7EB]
+            rounded-md 
+            text-base text-body-color 
+            font-medium 
+            shadow-sm 
+            m-3 
+            cursor-pointer
+            p-3
+            text-emerald-800 hover:text-white hover:bg-emerald-800"
+            onClick={() => setSideBar(true)}
+          >
+            <span className="text-6xl material-icons-outlined">
+              close_fullscreen
+            </span>
+            <br />
+            <p className="text-sm">
+              close fullscreen
+              {/* <br />
+              Fullscreen */}
+            </p>
+          </button>
+          )
+          {isFirst ? (
+            ""
+          ) : (
+            <button
+              className="
+            absolute
+            top-8 right-8
+            py-2
+            border border-[#E5E7EB]
+            rounded-md 
+            text-base text-body-color 
+            font-medium 
+            shadow-sm 
+            m-3 
+            cursor-pointer
+            p-3 
+            text-emerald-800 hover:text-white hover:bg-emerald-800"
+              onClick={() => {
+                window.scrollTo(0, 0);
+              }}
+            >
+              <span className="material-icons-outlined text-6xl">
+                keyboard_double_arrow_up
+              </span>
+              <p className="text-sm">scroll to top</p>
+            </button>
+          )}
+        </div>
+      </div>
+    ) : (
+      ""
+    );
+  };
+
   return (
     <div
       className="bg-orange-50 snap-center border-b-4 gap-y-1 rounded-md relative"
@@ -82,22 +181,39 @@ function Step({
         </h1>
         <br />
         <img
-          className="float-right rounded-md max-h-60 max-w-fit content-center drop-shadow-md "
+          className="float-center mt-16 mr-12 rounded-md max-h-60 max-w-fit drop-shadow-md "
           src={step.image}
           alt="stepimage"
         />
         <br />
         {renderDetails()}
         <StepIngredients ingredients={step.ingredients} />
-        {sideBar ? (
-          ""
-        ) : (
-          <p className="absolute bottom-5 right-5 text-slate-400">
-            {num} / {recipe.steps.length}
-          </p>
-        )}
+
+        {withoutSideBar()}
+
         {isLast ? (
-          ""
+          <button
+            className="
+        py-2
+        border border-[#E5E7EB]
+        rounded-md 
+        text-base text-body-color 
+        font-medium 
+        shadow-sm 
+        m-3 
+        cursor-pointer
+        p-3 
+        float-right
+        absolute bottom-8 right-8
+        text-emerald-800 hover:text-white hover:bg-amber-300"
+            onClick={() => {
+              handleFinished();
+            }}
+          >
+            <span className="material-icons-outlined text-6xl">
+              check_circle
+            </span>
+          </button>
         ) : (
           <button
             className="
@@ -117,7 +233,9 @@ function Step({
               handleNext();
             }}
           >
-            <span class="material-icons-outlined text-8xl">expand_more</span>
+            <span className="material-icons-outlined text-6xl">
+              expand_more
+            </span>
           </button>
         )}
 
@@ -143,29 +261,8 @@ function Step({
                 handlePrevious();
               }}
             >
-              <span class="material-icons-outlined text-8xl ">expand_less</span>
-            </button>
-            <button
-              className="
-            
-            py-2
-            border border-[#E5E7EB]
-            rounded-md 
-            text-base text-body-color 
-            font-medium 
-            shadow-sm 
-            m-3 
-            cursor-pointer
-            p-3 
-            float-left
-            absolute bottom-8 left-48
-            text-emerald-800 hover:text-white hover:bg-emerald-800"
-              onClick={() => {
-                window.scrollTo(0, 0);
-              }}
-            >
-              <span class="material-icons-outlined text-8xl">
-                keyboard_double_arrow_up
+              <span className="material-icons-outlined text-6xl ">
+                expand_less
               </span>
             </button>
           </div>

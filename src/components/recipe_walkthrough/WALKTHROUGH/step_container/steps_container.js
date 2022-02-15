@@ -1,7 +1,17 @@
 import React from "react";
 import Step from "./step";
+import Speech from "./speech_recognition";
 
-function StepsContainer({ currentStep, recipe, setCurrentStepNum, sideBar }) {
+function StepsContainer({
+  currentStep,
+  recipe,
+  setCurrentStepNum,
+  sideBar,
+  setSideBar,
+  setConversionPopup,
+  isListening,
+  setIsListening,
+}) {
   const steps = recipe.steps;
 
   const stepDisplay = steps.map((displayStep, index) => {
@@ -25,17 +35,24 @@ function StepsContainer({ currentStep, recipe, setCurrentStepNum, sideBar }) {
     }
 
     return (
-      <Step
-        key={index}
-        recipe={recipe}
-        num={num}
-        step={displayStep}
-        setCurrentStepNum={setCurrentStepNum}
-        bg={bg}
-        sideBar={sideBar}
-        isLast={isLast}
-        isFirst={isFirst}
-      />
+      <div>
+        <Step
+          key={index}
+          recipe={recipe}
+          num={num}
+          step={displayStep}
+          setCurrentStepNum={setCurrentStepNum}
+          bg={bg}
+          sideBar={sideBar}
+          isLast={isLast}
+          isFirst={isFirst}
+          setSideBar={setSideBar}
+          setConversionPopup={setConversionPopup}
+          currentStep={currentStep}
+          isListening={isListening}
+          setIsListening={setIsListening}
+        />
+      </div>
     );
   });
 
