@@ -16,6 +16,8 @@ function AddStepsForm({ addStep }) {
     ingredients: [],
     image: "",
     category: "",
+    imagedelete: "",
+    imageid: "",
   });
 
   const handleSubmit = () => {
@@ -34,13 +36,29 @@ function AddStepsForm({ addStep }) {
       ingredients: [],
       image: "",
       category: "",
+      imagedelete: "",
+      imageid: "",
     });
   };
 
-  const addImage = (imageUrl) => {
+  const setImage = (imageUrl) => {
     setNewStep((prevState) => ({
       ...prevState,
       image: imageUrl,
+    }));
+  };
+
+  const setImageDelete = (deleteHash) => {
+    setNewStep((prevState) => ({
+      ...prevState,
+      imagedelete: deleteHash,
+    }));
+  };
+
+  const setImageId = (imageId) => {
+    setNewStep((prevState) => ({
+      ...prevState,
+      imageid: imageId,
     }));
   };
 
@@ -78,7 +96,11 @@ function AddStepsForm({ addStep }) {
         onChange={handleChange}
       />
       <br />
-      <UploadAndDisplayImage setImage={addImage} />
+      <UploadAndDisplayImage
+        setImageDelete={setImageDelete}
+        setImageId={setImageId}
+        setImage={setImage}
+      />
       <br />
       <p className="font-bold mt-3">Step Ingredients</p>
       <br />

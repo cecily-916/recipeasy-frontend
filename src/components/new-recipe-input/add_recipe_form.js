@@ -18,10 +18,24 @@ function AddRecipeForm({ handleSubmit, newRecipe, setNewRecipe }) {
 
   const [newSteps, setNewSteps] = useState([]);
 
-  const addImage = (imageUrl) => {
+  const setImage = (imageUrl) => {
     setNewRecipe((prevState) => ({
       ...prevState,
       image: imageUrl,
+    }));
+  };
+
+  const setImageDelete = (deleteHash) => {
+    setNewRecipe((prevState) => ({
+      ...prevState,
+      imagedelete: deleteHash,
+    }));
+  };
+
+  const setImageId = (imageId) => {
+    setNewRecipe((prevState) => ({
+      ...prevState,
+      imageid: imageId,
     }));
   };
 
@@ -78,7 +92,11 @@ function AddRecipeForm({ handleSubmit, newRecipe, setNewRecipe }) {
             value={newRecipe.description}
             onChange={handleChange}
           />
-          <UploadAndDisplayImage addImage={addImage} />
+          <UploadAndDisplayImage
+            setImageDelete={setImageDelete}
+            setImageId={setImageId}
+            setImage={setImage}
+          />
           {/* <input
             className="w-full mt-2 rounded-sm"
             type="url"

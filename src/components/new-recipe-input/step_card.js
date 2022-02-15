@@ -3,15 +3,32 @@ import { Draggable } from "react-beautiful-dnd";
 import IngredientsList from "./ingredients_list";
 import { useState } from "react";
 import DisplayImgPreview from "./image";
+import axios from "axios";
 
 function StepCard({ step, order }) {
-  // const [image, setImage] = useState(false);
+  // const handleImageDelete = () => {
+  //   const imageDeleteHash = step.imagedelete;
 
-  // useEffect(() => {
-  //   if (step.image !== "") {
-  //     setImage(true);
-  //   }
-  // }, [step.image]);
+  //   let FormData = require("form-data");
+  //   const data = new FormData();
+  //   // let url = URL.createObjectURL(selectedImage);
+  //   const config = {
+  //     headers: {
+  //       Authorization: "Client-ID 15bebad96249efe",
+  //     },
+  //   };
+
+  //   axios
+  //     .delete(`https://api.imgur.com/3/image/${imageDeleteHash}`, data, config)
+  //     .then(function (response) {
+  //       console.log(JSON.stringify(response.data));
+  //     })
+  //     .catch(function (error) {
+  //       console.log(error);
+  //     });
+
+  //   resetImageInfo(step);
+  // };
 
   console.log(step.image);
   return (

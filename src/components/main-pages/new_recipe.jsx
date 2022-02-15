@@ -17,6 +17,8 @@ function NewRecipe(){
     prepTime: "",
     cookTime: "",
     image: "",
+    imagedelete:"",
+    imageid:"",
     servings: 0,
     steps: [],
     user: "",
@@ -44,7 +46,6 @@ function NewRecipe(){
             });
 
     };
-    console.log(newRecipe);
 
     return(
         <div className="grid grid-cols-2 bg-newreci-img bg-cover min-h-screen bg-right">
@@ -52,7 +53,7 @@ function NewRecipe(){
                 <AddRecipeForm handleSubmit={handleSubmit} newRecipe={newRecipe} setNewRecipe={setNewRecipe}/>
             </div>
             <div className="col-span-1 cols-end-3">
-                <NewRecipePreview newRecipe={newRecipe}/>
+                <NewRecipePreview newRecipe={newRecipe} />
             </div>
 
         </div>

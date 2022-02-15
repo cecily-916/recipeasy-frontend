@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const UploadAndDisplayImage = ({ setImage }) => {
+const UploadAndDisplayImage = ({ setImage, setImageDelete, setImageId }) => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
@@ -21,6 +21,8 @@ const UploadAndDisplayImage = ({ setImage }) => {
         .then(function (response) {
           console.log(JSON.stringify(response.data));
           setImage(response.data.link);
+          setImageDelete(response.data.deletehash);
+          setImageId(response.data.id);
         })
         .catch(function (error) {
           console.log(error);

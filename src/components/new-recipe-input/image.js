@@ -10,8 +10,6 @@ function DisplayImgPreview({ image }) {
           width={"250px"}
           src={URL.createObjectURL(image)}
         />
-        <br />
-        {/* <button onClick={() => setImage(null)}>Remove Image</button> */}
       </div>
     );
   } else {
