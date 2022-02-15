@@ -24,7 +24,7 @@ function ArchiveRecipePopup({ recipe, setTrigger, trigger }) {
           className="absolute top-8 right-16 close-btn"
           onClick={() => setTrigger(false)}
         >
-          X
+          <span class="material-icons">highlight_off</span>
         </button>
         <h1>Archive Recipe</h1>
         <br />

@@ -39,6 +39,9 @@ function AddToCalendarPopup(props) {
       date: formattedDate,
     });
     console.log(formData);
+
+    window.open(html_url, "_blank");
+    props.setTrigger(false);
   };
 
   const handleMealChange = (event) => {
@@ -55,13 +58,16 @@ function AddToCalendarPopup(props) {
 
   return props.trigger ? (
     <div className="popup">
-      <div className="popup-inner">
+      <div className="popup-inner text-center">
         <h1>Add Meal to Calendar</h1>
+        <br />
         <form onSubmit={handleSubmit}>
-          <label>Recipe: {props.recipe.title}</label>
+          <label className="italic">Recipe: {props.recipe.title}</label>
+          <br />
           <br />
           <TextField
             id="date"
+            className="p-2 mr-5"
             value={date}
             label="Select a date"
             type="date"
@@ -78,20 +84,18 @@ function AddToCalendarPopup(props) {
             <option value="Snack">Snack</option>
           </select>
           <br />
-          <input type="Submit" />
+          <br />
+          <input
+            className="font-bold text-xl border p-3 rounded-md shadow-sm text-emerald-900"
+            type="Submit"
+          />
         </form>
         <br />
         <button
-          onClick={() => {
-            window.open(html_url, "_blank");
-            props.setTrigger(false);
-          }}
+          className="font-bold absolute top-6 right-8 close-btn"
+          onClick={() => props.setTrigger(false)}
         >
-          Add to Calendar
-        </button>
-        <br />
-        <button className="close-btn" onClick={() => props.setTrigger(false)}>
-          Close Form
+          <span class="material-icons">highlight_off</span>
         </button>
       </div>
     </div>

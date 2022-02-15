@@ -45,7 +45,13 @@ function RecipeWalkthrough() {
                             hover:border-primary 
                             ml-14
                             hover:bg-emerald-800 hover:text-white
-                            transition" onClick={()=>setSideBar(false)}>Hide sidebar</button>
+                            transition" onClick={()=>setSideBar(false)}>
+                                <span class="text-4xl material-icons-outlined">
+                            all_out
+                            </span>
+                            <br/>
+                                Fullscreen
+                            </button>
                         <Speech currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
                         <br />
                         <button className="
@@ -86,7 +92,10 @@ function RecipeWalkthrough() {
         // <div className=" grid grid-col-5">
     <div>
         <div className="sticky top-8 m-5 h-8 inline">
-            <button onClick={()=>setSideBar(true)}>Show sidebar</button>
+            <button onClick={()=>setSideBar(true)}><span class="text-2xl material-icons-outlined">
+                close_fullscreen
+                </span>
+                <br/>Close Fullscreen</button>
             <Speech setSideBar={setSideBar} setConversionPopup={setConversionPopup} currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
             <br />
 

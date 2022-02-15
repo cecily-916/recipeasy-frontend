@@ -52,31 +52,34 @@ function CurrentRecipe() {
             </div>
             <div className="col-span-1 col-end-4 mt-11 mx-11">
                 <img
-                    className=" row-span-1  rounded-md max-h-96 max-w-fit content-center drop-shadow-md "
+                    className=" row-span-1rounded-md max-h-96 max-w-fit content-center drop-shadow-md "
                     src={recipeData.image}
                     alt=""
                 />
                 <div className="row-start-2 col-span-1 col-end-4 content-top">
                     <Link
                         className="flow-root
-                        transition duration-500 ease-in-out hover:-translate-y-1 hover:scale-125
+                        transition duration-500 ease-in-out hover:-translate-y-1 hover:scale-110
                         link
                         text-center
                         shadow-md
-                        w-full
+                        w-80
                         py-2
                         px-7
                         border border-[#E5E7EB]
                         rounded-md 
                         font-bold
-                        text-3xl 
+                        text-2xl 
                         m-3 
                         p-3 
                         bg-white text-emerald-900 "
                         to={`./steps`}
                         state={recipeData}
                         >
-                        Begin Recipe
+                        Begin Recipe &nbsp;
+                        <span class="material-icons text-3xl">
+                        start
+                        </span>
                     </Link>
                     <button            
                     className="

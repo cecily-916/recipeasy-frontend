@@ -80,7 +80,7 @@ function ArchivePopup({ userID, trigger, setTrigger, setChange, change }) {
           className="font-bold absolute top-8 right-16 close-btn"
           onClick={() => setTrigger(false)}
         >
-          X
+          <span class="material-icons">highlight_off</span>
         </button>
         <h1>Archived Recipes</h1>
         <br />

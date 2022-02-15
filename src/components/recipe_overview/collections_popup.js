@@ -64,7 +64,7 @@ function AddToCollectionPopup({ recipe, trigger, setTrigger }) {
 
   return trigger ? (
     <div className="popup">
-      <div className="popup-inner">
+      <div className="popup-inner text-center">
         <h1>Add to Collection</h1>
         <form onSubmit={handleSubmit}>
           <br />
@@ -81,7 +81,10 @@ function AddToCollectionPopup({ recipe, trigger, setTrigger }) {
           <br />
 
           <br />
-          <input className="font-bold" type="Submit" />
+          <input
+            className="font-bold text-xl border p-3 rounded-md shadow-sm text-emerald-900"
+            type="Submit"
+          />
         </form>
         <AddCollectionPopup
           userid={user.userId}
@@ -90,8 +93,11 @@ function AddToCollectionPopup({ recipe, trigger, setTrigger }) {
           setPageUpdate={setPageUpdate}
         ></AddCollectionPopup>
         <br />
-        <button className="close-btn" onClick={() => setTrigger(false)}>
-          Close Form
+        <button
+          className="font-bold absolute top-8 right-16 close-btn"
+          onClick={() => setTrigger(false)}
+        >
+          <span class="material-icons">highlight_off</span>
         </button>
       </div>
     </div>

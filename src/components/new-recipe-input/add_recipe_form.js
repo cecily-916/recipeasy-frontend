@@ -61,7 +61,7 @@ function AddRecipeForm({ handleSubmit, newRecipe, setNewRecipe }) {
         <form onSubmit={handleSubmit}>
           <label className="font-bold mt-3">Recipe Details</label>
           <input
-            className="w-full mt-1 rounded-sm"
+            className="w-full mt-1 rounded-sm border-1 hover:border-rose-600"
             type="text"
             placeholder="Title"
             name="title"
@@ -70,7 +70,7 @@ function AddRecipeForm({ handleSubmit, newRecipe, setNewRecipe }) {
             onChange={handleChange}
           />
           <input
-            className="w-full mt-1 rounded-sm"
+            className="w-full mt-1 rounded-sm border-1 hover:border-rose-600"
             type="text"
             placeholder="Author"
             name="author"
@@ -79,7 +79,7 @@ function AddRecipeForm({ handleSubmit, newRecipe, setNewRecipe }) {
             onChange={handleChange}
           />
           <input
-            className="w-full mt-1 rounded-sm"
+            className="w-full mt-1 rounded-sm "
             type="text"
             placeholder="Source"
             name="source"
@@ -107,7 +107,7 @@ function AddRecipeForm({ handleSubmit, newRecipe, setNewRecipe }) {
             onChange={handleChange}
           /> */}
           <input
-            className=" mt-2 rounded-sm"
+            className=" mt-2 rounded-sm border-1 hover:border-rose-600"
             type="number"
             placeholder="Number of servings"
             name="servings"
@@ -139,7 +139,8 @@ function AddRecipeForm({ handleSubmit, newRecipe, setNewRecipe }) {
           <br />
           <button
             type="submit"
-            className="border-2 mt-2 text-xl px-5 hover:bg-white-500 hover:text-emerald-900 p-2 drop-shadow-md rounded-sm text-white bg-yellow-500 font-semibold"
+            className="transition duration-200 ease-in-out hover:-translate-y-1 hover:scale-110
+            border-2 mt-2 text-2xl px-5 hover:bg-white-500 hover:text-emerald-900 p-2 drop-shadow-md rounded-sm text-white bg-yellow-500 font-semibold"
             // onClick={() => {
             //   handleSubmit();
             // }}

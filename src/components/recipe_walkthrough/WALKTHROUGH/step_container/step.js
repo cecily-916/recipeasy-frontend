@@ -47,6 +47,12 @@ function Step({ num, step, recipe, setCurrentStepNum, bg }) {
       .scrollIntoView({ behavior: "smooth" });
     setCurrentStepNum(nextStepNum);
   };
+  const handlePrevious = () => {
+    document
+      .getElementById(`${nextStepNum - 2}`)
+      .scrollIntoView({ behavior: "smooth" });
+    setCurrentStepNum(nextStepNum - 2);
+  };
   return (
     <div
       className="bg-orange-50 snap-center border-b-4 gap-y-1 rounded-md relative"
@@ -89,7 +95,27 @@ function Step({ num, step, recipe, setCurrentStepNum, bg }) {
             handleNext();
           }}
         >
-          next step
+          <span class="material-icons-outlined">arrow_forward_ios</span>
+        </button>
+        <button
+          className="
+        py-2
+        border border-[#E5E7EB]
+        rounded-md 
+        text-base text-body-color 
+        font-medium 
+        shadow-sm 
+        m-3 
+        cursor-pointer
+        p-3 
+        float-left
+        absolute bottom-8 left-8
+        bg-emerald-800 text-white hover:bg-emerald-600"
+          onClick={() => {
+            handlePrevious();
+          }}
+        >
+          <span class="material-icons-outlined">arrow_back_ios_new</span>
         </button>
       </div>
     </div>

@@ -90,7 +90,7 @@ function AddStepsForm({ addStep }) {
     <div>
       <p className="font-extrabold">Add Step</p>
       <textarea
-        className="w-full mt-2 rounded-sm"
+        className="w-full mt-2 rounded-sm border-1 hover:border-rose-600"
         placeholder="Details"
         name="details"
         value={newStep.details}

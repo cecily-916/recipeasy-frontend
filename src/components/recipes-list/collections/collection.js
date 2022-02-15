@@ -51,7 +51,7 @@ function Collection({ collection, setPageUpdate }) {
             deleteCollection();
           }}
         >
-          🗑
+          <span class="material-icons">delete_outline</span>
         </button>
         <br />
       </div>

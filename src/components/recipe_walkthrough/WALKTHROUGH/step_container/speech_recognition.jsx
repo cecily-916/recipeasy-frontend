@@ -101,11 +101,14 @@ function Speech({ currentStep, setCurrentStepNum, setSideBar, setConversionPopup
     <div className="microphone-wrapper">
         <div className="mircophone-container">
         <div
-            className="microphone-icon-container"
             ref={microphoneRef}
             onClick={handleListening}
         >
-            <img src={microphone} className="microphone-icon" alt="microphone"/>
+        {isListening ? <span class="text-4xl material-icons">
+        record_voice_over
+        </span>  : <span class="text-4xl material-icons">
+        voice_over_off
+        </span> }
         </div>
         <div className="microphone-status">
             {isListening ? "Listening........." : "Click to start Listening"}
