@@ -44,14 +44,22 @@ const UploadAndDisplayImage = ({ setImage, setImageDelete, setImageId }) => {
           <button onClick={() => setSelectedImage(null)}>Remove</button>
         </div>
       )} */}
-      <input
-        type="file"
-        name="myImage"
-        onChange={(event) => {
-          console.log(event.target.files[0]);
-          setSelectedImage(event.target.files[0]);
-        }}
-      />
+      {selectedImage ? (
+        <p className="italic text-slate-500">
+          Image file: {selectedImage.name}
+        </p>
+      ) : (
+        <input
+          type="file"
+          className="rounded-sm disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+        "
+          name="myImage"
+          onChange={(event) => {
+            console.log(event.target.files[0]);
+            setSelectedImage(event.target.files[0]);
+          }}
+        />
+      )}
     </div>
   );
 };

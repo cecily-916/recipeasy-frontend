@@ -5,7 +5,7 @@ import microphone from '../../../../assets/microphone.png'
 import React from 'react';
 
 
-function Speech({ currentStep, setCurrentStepNum, setSideBar, setConversionPopup})  {
+function Speech({ currentStep, setCurrentStepNum, setSideBar, sideBar, setConversionPopup})  {
     console.log(currentStep)
     const commands = [
         {
@@ -97,8 +97,39 @@ function Speech({ currentStep, setCurrentStepNum, setSideBar, setConversionPopup
         document.getElementById(`${nextNum}`).scrollIntoView({behavior: 'smooth'});
         setCurrentStepNum(nextNum)
     }
-    return (
+    return sideBar ? (
     <div className="microphone-wrapper">
+        <div className="mircophone-container">
+        <div
+            ref={microphoneRef}
+            onClick={handleListening}
+        >
+        {isListening ? (<span class="text-4xl material-icons">
+        record_voice_over
+        </span>)  : (<span class="text-4xl material-icons">
+        voice_over_off
+        </span> )}
+        </div>
+        <div className="microphone-status">
+            {isListening ? "Listening........." : "Click to start Listening"}
+        </div>
+        {isListening && (
+            <button className="microphone-stop btn" onClick={stopHandle}>
+            Stop
+            </button>
+        )}
+        </div>
+        {/* {transcript && (
+        <div className="microphone-result-container">
+            <div className="microphone-result-text">{transcript}</div>
+            <button className="microphone-reset btn" onClick={handleReset}>
+            Reset
+            </button>
+        </div>
+        )} */}
+    </div>
+    ) : (
+        <div className="microphone-wrapper">
         <div className="mircophone-container">
         <div
             ref={microphoneRef}
@@ -128,6 +159,6 @@ function Speech({ currentStep, setCurrentStepNum, setSideBar, setConversionPopup
         </div>
         )} */}
     </div>
-    );
+    )
 }
 export default Speech;

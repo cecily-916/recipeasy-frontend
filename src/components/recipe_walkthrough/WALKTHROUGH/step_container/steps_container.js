@@ -1,7 +1,7 @@
 import React from "react";
 import Step from "./step";
 
-function StepsContainer({ currentStep, recipe, setCurrentStepNum }) {
+function StepsContainer({ currentStep, recipe, setCurrentStepNum, sideBar }) {
   const steps = recipe.steps;
 
   const stepDisplay = steps.map((displayStep, index) => {
@@ -18,6 +18,7 @@ function StepsContainer({ currentStep, recipe, setCurrentStepNum }) {
         step={displayStep}
         setCurrentStepNum={setCurrentStepNum}
         bg={bg}
+        sideBar={sideBar}
       />
     );
   });

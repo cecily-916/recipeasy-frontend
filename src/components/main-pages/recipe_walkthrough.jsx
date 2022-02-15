@@ -78,14 +78,14 @@ function RecipeWalkthrough() {
                                     />
                                 </div>),
                             }[conversionPopup]}
-                        <SidebarChecklist recipe={recipeData} stepNum={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
+                        <SidebarChecklist recipe={recipeData} stepNum={currentStepNum} setCurrentStepNum={setCurrentStepNum} />
                         <br/>
                         <IngredientsList ingredients = {recipeData.ingredients} />
                 </section>
             </div>
             </div>
             <div className="col-end-6 col-span-4">
-                <StepsContainer recipe={recipeData} currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
+                <StepsContainer recipe={recipeData} currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum} sideBar={sideBar}/>
             </div>
         </div>
     ):(
@@ -96,12 +96,12 @@ function RecipeWalkthrough() {
                 close_fullscreen
                 </span>
                 <br/>Close Fullscreen</button>
-            <Speech setSideBar={setSideBar} setConversionPopup={setConversionPopup} currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
+            <Speech setSideBar={setSideBar} setConversionPopup={setConversionPopup} sideBar={sideBar} currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
             <br />
 
         </div> 
         <div className="col-end-6 col-span-4">
-            <StepsContainer  recipe={recipeData} currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum}/>
+            <StepsContainer  recipe={recipeData} currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum} sideBar={sideBar}/>
             <button onClick={()=>document.body.scrollTop = document.documentElement.scrollTop = 0}>Back to top</button>
         </div>
     </div>

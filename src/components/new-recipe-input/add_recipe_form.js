@@ -61,7 +61,7 @@ function AddRecipeForm({ handleSubmit, newRecipe, setNewRecipe }) {
         <form onSubmit={handleSubmit}>
           <label className="font-bold mt-3">Recipe Details</label>
           <input
-            className="w-full mt-1 rounded-sm border-1 hover:border-rose-600"
+            className="w-full mt-1 rounded-sm focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
             type="text"
             placeholder="Title"
             name="title"
@@ -70,7 +70,7 @@ function AddRecipeForm({ handleSubmit, newRecipe, setNewRecipe }) {
             onChange={handleChange}
           />
           <input
-            className="w-full mt-1 rounded-sm border-1 hover:border-rose-600"
+            className="w-full mt-1 rounded-sm focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
             type="text"
             placeholder="Author"
             name="author"
@@ -107,7 +107,8 @@ function AddRecipeForm({ handleSubmit, newRecipe, setNewRecipe }) {
             onChange={handleChange}
           /> */}
           <input
-            className=" mt-2 rounded-sm border-1 hover:border-rose-600"
+            className=" mt-2 rounded-sm border-1 
+            focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
             type="number"
             placeholder="Number of servings"
             name="servings"

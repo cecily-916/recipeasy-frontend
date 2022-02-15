@@ -3,11 +3,11 @@ import StepIngredients from "./step_ingredients";
 import { HashLink as Link } from "react-router-hash-link";
 import { InView, useInView } from "react-intersection-observer";
 
-function Step({ num, step, recipe, setCurrentStepNum, bg }) {
+function Step({ num, step, recipe, setCurrentStepNum, bg, sideBar }) {
   const { ref, inView } = useInView({
     threshold: 1,
   });
-
+  console.log(sideBar);
   const [onScreen, setOnScreen] = useState(false);
 
   useEffect(() => {
@@ -77,6 +77,14 @@ function Step({ num, step, recipe, setCurrentStepNum, bg }) {
         <br />
         {renderDetails()}
         <StepIngredients ingredients={step.ingredients} />
+        {sideBar ? (
+          ""
+        ) : (
+          <p className="absolute bottom-5 right-5 text-slate-400">
+            {num} / {recipe.steps.length}
+          </p>
+        )}
+
         <button
           className="
         py-2
@@ -90,13 +98,34 @@ function Step({ num, step, recipe, setCurrentStepNum, bg }) {
         p-3 
         float-right
         absolute bottom-8 right-8
-        bg-emerald-800 text-white hover:bg-emerald-600"
+        text-emerald-800 hover:text-white hover:bg-amber-300"
           onClick={() => {
             handleNext();
           }}
         >
-          <span class="material-icons-outlined">arrow_forward_ios</span>
+          <span class="material-icons-outlined text-8xl">expand_more</span>
         </button>
+
+        {/* <button
+          className="
+        py-2
+        border border-[#E5E7EB]
+        rounded-md 
+        text-base text-body-color 
+        font-medium 
+        shadow-sm 
+        m-3 
+        cursor-pointer
+        p-3 
+        float-right
+        absolute bottom-8 inset-x-0
+        text-emerald-800 hover:text-white hover:bg-amber-300"
+          onClick={() => {
+            window.location(0.0);
+          }}
+        >
+          <span class="material-icons-outlined text-8xl">expand_less</span>
+        </button> */}
         <button
           className="
         py-2
@@ -110,12 +139,12 @@ function Step({ num, step, recipe, setCurrentStepNum, bg }) {
         p-3 
         float-left
         absolute bottom-8 left-8
-        bg-emerald-800 text-white hover:bg-emerald-600"
+        text-emerald-800 hover:text-white hover:bg-emerald-800"
           onClick={() => {
             handlePrevious();
           }}
         >
-          <span class="material-icons-outlined">arrow_back_ios_new</span>
+          <span class="material-icons-outlined text-8xl ">expand_less</span>
         </button>
       </div>
     </div>
