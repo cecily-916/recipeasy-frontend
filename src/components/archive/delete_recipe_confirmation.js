@@ -3,10 +3,9 @@ import React from "react";
 
 function DeleteRecipePopup({ recipeID, setTrigger, trigger, setChange }) {
   // Opens a popup that allows user to soft delete (archive) the recipe
-
-  const handleDelete = (recipeID) => {
+  const handleDelete = () => {
     axios
-      .delete(`${process.env.REACT_APP_BACKEND_URL}/archive/${recipeID}}`)
+      .delete(`${process.env.REACT_APP_BACKEND_URL}/archive/${recipeID}`)
       .then((response) => {
         console.log(response);
         alert(`Recipe successfully deleted!`);
@@ -15,7 +14,6 @@ function DeleteRecipePopup({ recipeID, setTrigger, trigger, setChange }) {
       .catch((error) => {
         console.log("error: Deletion request failed.");
       });
-    console.log(recipeID);
   };
 
   return trigger ? (
