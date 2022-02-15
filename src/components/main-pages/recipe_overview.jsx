@@ -59,14 +59,17 @@ function CurrentRecipe() {
                 <div className="row-start-2 col-span-1 col-end-4 content-top">
                     <Link
                         className="flow-root
+                        transition duration-500 ease-in-out hover:-translate-y-1 hover:scale-125
                         link
                         text-center
                         shadow-md
+                        w-full
                         py-2
                         px-7
                         border border-[#E5E7EB]
                         rounded-md 
-                        text-2xl 
+                        font-bold
+                        text-3xl 
                         m-3 
                         p-3 
                         bg-white text-emerald-900 "
@@ -77,6 +80,8 @@ function CurrentRecipe() {
                     </Link>
                     <button            
                     className="
+                    transition duration-600 ease-in-out hover:-translate-y-1 hover:scale-110
+                    w-52
                     py-2
                     px-7
                     border border-[#E5E7EB]
@@ -87,10 +92,15 @@ function CurrentRecipe() {
                     m-3 
                     p-3 
                     bg-emerald-800 text-white"
-                    onClick={() => setCalendarButton(true)}>Add to Google Calendar</button>
+                    onClick={() => setCalendarButton(true)}>
+                        <span className='text-5xl material-icons-outlined'>event_available</span>
+                        <br />
+                        Add to Google Calendar</button>
                     <AddToCalendarPopup recipe={recipeData} trigger={calendarButton} setTrigger={setCalendarButton}/>
                     <button            
                     className="
+                    transition duration-600 ease-in-out hover:-translate-y-1 hover:scale-110
+                    w-52
                     py-2
                     px-7
                     border border-[#E5E7EB]
@@ -101,10 +111,15 @@ function CurrentRecipe() {
                     m-3 
                     p-3 
                     bg-emerald-800 text-white"
-                    onClick={() => setCollectionsButton(true)}>Add to Collection</button>
+                    onClick={() => setCollectionsButton(true)}>
+                        <span className='text-5xl material-icons-outlined'>library_add</span>
+                        <br />
+                        Add to Collection</button>
                     <AddToCollectionPopup recipe={recipeData} trigger={collectionsButton} setTrigger={setCollectionsButton}/>
                     <button            
                     className="
+                    transition duration-600 ease-in-out hover:-translate-y-1 hover:scale-110
+                    w-36
                     py-2
                     px-7
                     border border-[#E5E7EB]
@@ -115,10 +130,15 @@ function CurrentRecipe() {
                     m-3 
                     p-3 
                     bg-white text-emerald-800"
-                    onClick={() => setArchiveRecipeButton(true)}>Archive Recipe</button>
+                    onClick={() => setArchiveRecipeButton(true)}>
+                        <span className='text-5xl material-icons'>archive</span>
+                        <br/>
+                        Archive</button>
                     <ArchiveRecipePopup recipe={recipeData} trigger={archiveRecipeButton} setTrigger={setArchiveRecipeButton}/>
                     <button            
                     className="
+                    transition duration-600 ease-in-out hover:-translate-y-1 hover:scale-110
+                    w-36
                     py-2
                     px-7
                     border border-[#E5E7EB]
@@ -129,7 +149,11 @@ function CurrentRecipe() {
                     m-3 
                     p-3 
                     bg-white text-emerald-800"
-                    onClick={() => window.print()}>Print Recipe</button>
+                    onClick={() => window.print()}>
+                        <span className='text-5xl material-icons'>print</span>
+                        <br />
+
+                        Print</button>
                 </div>
         </div>
         </div>

@@ -3,6 +3,8 @@ module.exports = {
   theme: {
     fontFamily: {
       quicksand: "quicksand, bold",
+      pacifico: "Pacifico",
+      icons: "material icons",
     },
     extend: {
       backgroundImage: {

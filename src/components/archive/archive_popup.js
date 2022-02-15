@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import Userfront from "@userfront/react";
-import DeleteRecipePopup from "./delete_recipe_confirmation";
 
 function ArchivePopup({ userID, trigger, setTrigger, setChange, change }) {
   // Opens a popup that allows user restore archived recipes
@@ -75,8 +74,8 @@ function ArchivePopup({ userID, trigger, setTrigger, setChange, change }) {
   });
 
   return trigger ? (
-    <div className="popup z-50">
-      <div className="popup-inner text-center rounded-md">
+    <div className="popup z-50 overflow-auto">
+      <div className="popup-inner overflow-auto text-center rounded-md">
         <button
           className="font-bold absolute top-8 right-16 close-btn"
           onClick={() => setTrigger(false)}
