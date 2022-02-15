@@ -10,6 +10,20 @@ function StepsContainer({ currentStep, recipe, setCurrentStepNum, sideBar }) {
     if (num % 2 === 0) {
       bg = "grey";
     }
+    let isLast;
+    if (num === recipe.steps.length) {
+      isLast = true;
+    } else {
+      isLast = false;
+    }
+
+    let isFirst;
+    if (num === 1) {
+      isFirst = true;
+    } else {
+      isFirst = false;
+    }
+
     return (
       <Step
         key={index}
@@ -19,6 +33,8 @@ function StepsContainer({ currentStep, recipe, setCurrentStepNum, sideBar }) {
         setCurrentStepNum={setCurrentStepNum}
         bg={bg}
         sideBar={sideBar}
+        isLast={isLast}
+        isFirst={isFirst}
       />
     );
   });
