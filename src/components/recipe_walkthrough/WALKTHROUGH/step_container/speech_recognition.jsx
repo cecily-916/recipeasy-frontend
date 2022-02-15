@@ -34,7 +34,7 @@ function Speech({ currentStep, setCurrentStepNum, isListening,setIsListening, se
         {
             command: "stop listening",
             callback: () => {
-                handleListening(false);
+                stopHandle(false);
             },
         },
         {
@@ -100,7 +100,6 @@ function Speech({ currentStep, setCurrentStepNum, isListening,setIsListening, se
     const listeningButton =() =>{
         return (
             <div className="microphone-wrapper">
-                <div className="mircophone-container">
                     <div
                         ref={microphoneRef}
                         onClick={stopHandle}
@@ -109,30 +108,31 @@ function Speech({ currentStep, setCurrentStepNum, isListening,setIsListening, se
                     record_voice_over
                     </span>
                     </div>
-                    <div className="microphone-status">
-                        "Listening........."
+                    <div className="microphone-status text-center">
+                        "Listening....."
                     </div>
-            </div>
         </div>)
     }
 
     const notListeningButton = () =>{
         return (
             <div className="microphone-wrapper">
-                <div className="mircophone-container">
+                {/* <div className="mircophone-container"> */}
                 <div
                     ref={microphoneRef}
                     onClick={handleListening}
+                    
                 >
                     <span class="text-4xl material-icons">
                     voice_over_off
                     </span> 
                     </div>
-                    <div className="microphone-status">
-                    "Click to start Listening"
+                    <div className="microphone-status text-sm" >
+                    start listening
                     </div>
                 </div>
-        </div>)
+        // </div>
+        )
     }
     return (
         <div>

@@ -82,6 +82,28 @@ function Step({
           {num} / {recipe.steps.length}
         </p>
         <div>
+          {/* <button
+            className="
+            text-center
+            absolute top-8 right-96
+            border border-[#E5E7EB]
+            rounded-md 
+            text-base text-body-color 
+            font-medium 
+            shadow-sm 
+            m-3 
+            cursor-pointer
+            p-3
+            text-emerald-800 hover:text-white hover:bg-emerald-800"
+            onClick={() => {
+              setSideBar(true);
+              setConversionPopup(true);
+            }}
+          >
+            <span class="text-4xl material-icons-outlined">sync_alt</span>
+            <br />
+            <p className="text-sm ">conversions</p>
+          </button> */}
           <button
             className="
           absolute top-8 right-80
@@ -119,7 +141,7 @@ function Step({
             text-emerald-800 hover:text-white hover:bg-emerald-800"
             onClick={() => setSideBar(true)}
           >
-            <span className="text-6xl material-icons-outlined">
+            <span className="text-4xl material-icons-outlined">
               close_fullscreen
             </span>
             <br />
@@ -151,7 +173,7 @@ function Step({
                 window.scrollTo(0, 0);
               }}
             >
-              <span className="material-icons-outlined text-6xl">
+              <span className="material-icons-outlined text-4xl">
                 keyboard_double_arrow_up
               </span>
               <p className="text-sm">scroll to top</p>

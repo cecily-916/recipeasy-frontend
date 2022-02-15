@@ -87,7 +87,7 @@ function RecipeWalkthrough() {
             </div>
             </div>
             <div className="col-end-6 col-span-4">
-                <StepsContainer  recipe={recipeData} currentStep={currentStepNum} setSideBar={setSideBar} setCurrentStepNum={setCurrentStepNum} sideBar={sideBar} setConversionPopup={setConversionPopup}/>
+            <StepsContainer  recipe={recipeData} currentStep={currentStepNum} setSideBar={setSideBar} setIsListening={setIsListening} isListening={isListening} setCurrentStepNum={setCurrentStepNum} sideBar={sideBar} setConversionPopup={setConversionPopup}/>
             </div>
         </div>
     ):(

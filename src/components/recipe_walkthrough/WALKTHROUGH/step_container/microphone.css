@@ -4,19 +4,16 @@
     box-sizing: border-box;
 }
 .microphone-icon-container {
-    width: 60px;
-    height: 60px;
+
     border-radius: 50%;
     background-image: linear-gradient(128deg, #ffffff, #647c88);
-    padding: 12px;
-    margin-right: 10px;
+
     position: relative;
     cursor: pointer;
 }
 .microphone-icon-container.listening::before {
     content: "";
-    width: 100px;
-    height: 100px;
+
     background-color: #ffffff81;
     position: absolute;
     top: 50%;
@@ -34,14 +31,6 @@
         opacity: 0;
         transform: translate(-50%, -50%) scale(1.4);
     }
-}
-.microphone-icon {
-    width: 100%;
-    height: 100%;
-}
-.microphone-status {
-    margin-right: 20px;
-    min-width: 215px;
 }
 .btn {
     border: none;
