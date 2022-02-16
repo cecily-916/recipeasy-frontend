@@ -5,7 +5,8 @@ function IngredientsList({ ingredients }) {
     const ingredientsList = ingredients.map((ingredient, index) => {
       return (
         <div key={index}>
-          {ingredient.amount} {ingredient.unit} of {ingredient.ingredient}
+          {ingredient.amountWhole}&nbsp;
+          {ingredient.amountFrac} {ingredient.unit} of {ingredient.ingredient}
         </div>
       );
     });

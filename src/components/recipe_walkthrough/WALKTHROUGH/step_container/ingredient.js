@@ -21,14 +21,18 @@ function Ingredient({ ingredient }) {
         <p className="m-3 text-xl font-semibold self-center text-center grid-row-1 ">
           {ingredient.ingredient}
         </p>
-        {ingredient.amount ? (
+        {ingredient.amount > 0 ? (
           <p className="m-3 text-2xl self-center font-bold text-center  grid-row-1">
             {ingredient.amount}{" "}
           </p>
-        ) : (
+        ) : ingredient.amountwhole === 0 ? (
           <p className="m-3 text-2xl self-center font-bold text-center  grid-row-1">
-            {ingredient.amountWhole}
-            {ingredient.amountFrac}
+            {ingredient.amountfrac}
+          </p>
+        ) : (
+          <p className="m-3 text-xl self-center font-bold text-center  grid-row-1">
+            {ingredient.amountwhole} &nbsp;and&nbsp;
+            {ingredient.amountfrac}
           </p>
         )}
         <p className="m-3 text-2xl self-center font-bold text-center grid-row-1">
