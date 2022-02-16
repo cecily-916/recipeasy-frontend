@@ -17,6 +17,7 @@ function NewRecipe(){
     prepTime: "",
     cookTime: "",
     image: "",
+    ingredients:"",
     imagedelete:"",
     imageid:"",
     servings: null,

@@ -91,6 +91,13 @@ function AddRecipeForm({ handleSubmit, newRecipe, setNewRecipe }) {
             value={newRecipe.description}
             onChange={handleChange}
           />
+          <textarea
+            className="w-full mt-2 rounded-sm"
+            placeholder="Ingredients. Use a period or asterisk to indicate a line break."
+            name="ingredients"
+            value={newRecipe.ingredients}
+            onChange={handleChange}
+          />
           <UploadAndDisplayImage
             setImageDelete={setImageDelete}
             setImageId={setImageId}

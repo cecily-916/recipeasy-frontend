@@ -4,6 +4,7 @@ import RecipeOverview from "../recipe_overview/recipe_container";
 import StepCard from "./step_card";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import DisplayImgPreview from "./image";
+import Parser from "./parser";
 
 function NewRecipePreview({ newRecipe, setFinalStepOrder }) {
   const [steps, setSteps] = useState([]);
@@ -86,8 +87,14 @@ function NewRecipePreview({ newRecipe, setFinalStepOrder }) {
             )}
           </section>
           <br />
-
           <h2>{newRecipe.description}</h2>
+          <br />
+          {newRecipe.ingredients ? (
+            <p className="font-bold">Ingredients:</p>
+          ) : (
+            ""
+          )}
+          <Parser ingredients={newRecipe.ingredients} />
           <br />
           <hr />
           <br />
