@@ -15,7 +15,7 @@ const UploadAndDisplayImage = ({ setImage, setImageDelete, setImageId }) => {
           Authorization: `Client-ID ${process.env.REACT_APP_CLIENT_ID}`,
         },
       };
-
+      console.log(`Client-ID ${process.env.REACT_APP_CLIENT_ID}`);
       axios
         .post("https://api.imgur.com/3/image", data, config)
         .then(function (response) {
