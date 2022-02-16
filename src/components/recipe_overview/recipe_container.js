@@ -33,7 +33,7 @@ function RecipeOverview(props) {
       <p className="text-xl font-bold">Steps:</p>
       <StepsList steps={props.recipe.steps} />
       <br />
-      {/* <IngredientsList ingredients={props.recipe.steps.ingredients} /> */}
+      {/* <IngredientsList steps={props.recipe.steps} /> */}
       {/* <StepIngredients ingredients={ingredients}/> */}
     </div>
   );
