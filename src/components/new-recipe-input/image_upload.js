@@ -12,7 +12,7 @@ const UploadAndDisplayImage = ({ setImage, setImageDelete, setImageId }) => {
       // let url = URL.createObjectURL(selectedImage);
       const config = {
         headers: {
-          Authorization: `Client-ID ${process.env.CLIENT_ID}`,
+          Authorization: `Client-ID ${process.env.REACT_APP_CLIENT_ID}`,
         },
       };
 
