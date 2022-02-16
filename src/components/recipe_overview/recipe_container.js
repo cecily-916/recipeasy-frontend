@@ -9,9 +9,11 @@ function RecipeOverview(props) {
       <h1>{props.recipe.title}</h1>
       <br />
 
-      <p className="font-bold text-emerald-900">
-        By: {props.recipe.originalcreator}
-      </p>
+      {props.recipe.author ? (
+        <p className="font-bold text-emerald-900">By: {props.recipe.author}</p>
+      ) : (
+        ""
+      )}
       <br />
 
       <br />

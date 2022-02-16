@@ -16,7 +16,7 @@ function CollectionsListContainer({ collections, setPageUpdate }) {
 
   return (
     // title
-    <section className="mx-12 mt-10 mb-20 bg-[#b3b5b8b0] rounded-md shadow-xl">
+    <section className="mx-12 mt-10 mb-20 rounded-md shadow-xl bg-bg-img bg-bottom bg-cover bg-h-full">
       <div
         className="
                 flex 
@@ -24,7 +24,8 @@ function CollectionsListContainer({ collections, setPageUpdate }) {
                 flex-row 
                 justify-start 
                 justify-items-center 
-                space-x-5"
+                space-x-5
+                "
       >
         {collectionItems}
       </div>

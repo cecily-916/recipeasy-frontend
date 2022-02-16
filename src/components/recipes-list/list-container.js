@@ -17,12 +17,14 @@ function ListContainer({ recipes }) {
     <section className="mx-12 mt-10 mb-10 bg-[#c4ceddb0] min-h-full rounded-md shadow-xl">
       <div
         className="
+        px-8
         flex 
-        flex-wrap 
-        flex-row 
+        // flex-wrap 
+        // flex-row 
         justify-start 
         justify-items-center 
         space-x-5"
+        // flex-auto
       >
         {
           {

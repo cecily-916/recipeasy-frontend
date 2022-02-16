@@ -56,15 +56,34 @@ function NewRecipePreview({ newRecipe, setFinalStepOrder }) {
           <h1>{newRecipe.title}</h1>
           <br />
           <DisplayImgPreview image={newRecipe.image} />
-          <p className="font-bold text-emerald-900">By: {newRecipe.author}</p>
+          {newRecipe.author ? (
+            <p className="font-bold text-emerald-900">By: {newRecipe.author}</p>
+          ) : (
+            ""
+          )}
           <br />
           <section>
-            <p className="font-bold inline">Prep Time:&nbsp;</p>
-            {newRecipe.prepTime}&ensp;&ensp;
-            <p className="font-bold inline">Total Time:&nbsp;</p>
-            {newRecipe.cookTime}&ensp;&ensp;
-            <p className="font-bold inline-flex">Servings:&nbsp; </p>
-            {newRecipe.servings}&ensp;&ensp;
+            {newRecipe.prepTime ? (
+              <p className="font-bold inline">
+                Prep Time:&nbsp;{newRecipe.prepTime}&ensp;&ensp;{" "}
+              </p>
+            ) : (
+              ""
+            )}
+            {newRecipe.cookTime ? (
+              <p className="font-bold inline">
+                Total Time:&nbsp;{newRecipe.cookTime}&ensp;&ensp;
+              </p>
+            ) : (
+              ""
+            )}
+            {newRecipe.servings ? (
+              <p className="font-bold inline-flex">
+                Servings:&nbsp; {newRecipe.servings}&ensp;&ensp;
+              </p>
+            ) : (
+              ""
+            )}
           </section>
           <br />
 
@@ -72,9 +91,13 @@ function NewRecipePreview({ newRecipe, setFinalStepOrder }) {
           <br />
           <hr />
           <br />
-          <p className="italic text-sm mb-2">
-            Drag and drop the step cards to change the order
-          </p>
+          {newRecipe.steps.length >= 1 ? (
+            <p className="italic text-sm mb-2">
+              Drag and drop the step cards to change the order
+            </p>
+          ) : (
+            ""
+          )}
           <DragDropContext onDragEnd={handleOnDragEnd}>
             <Droppable droppableId="steps">
               {(provided) => (

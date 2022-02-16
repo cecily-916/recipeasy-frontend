@@ -60,9 +60,9 @@ function Home() {
                 <SearchButton trigger={searchBar} setChange={setChange} setTrigger={setSearchBar} />
                 <SearchBar setChange={setChange} trigger={searchBar} recipes={recipesData} setFoundRecipes={setFoundRecipes} />
             </div>
-            <div className="h-5/6">
+            {/* <div className="h-5/6"> */}
             <ListContainer recipes={foundRecipes}/>
-            </div>
+            {/* </div> */}
             <button className="
                         text-md
                         font-quicksand 

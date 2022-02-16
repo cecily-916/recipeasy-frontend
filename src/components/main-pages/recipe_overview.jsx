@@ -52,7 +52,7 @@ function CurrentRecipe() {
             </div>
             <div className="col-span-1 col-end-4 mt-11 mx-11">
                 <img
-                    className=" row-span-1rounded-md max-h-96 max-w-fit content-center drop-shadow-md "
+                    className=" row-span-1 rounded-md max-h-96 max-w-md content-center drop-shadow-md "
                     src={recipeData.image}
                     alt=""
                 />
@@ -61,6 +61,8 @@ function CurrentRecipe() {
                         className="flow-root
                         transition duration-500 ease-in-out hover:-translate-y-1 hover:scale-110
                         link
+                        font-extrabold
+                        font-quicksand
                         text-center
                         shadow-md
                         w-80
@@ -68,33 +70,29 @@ function CurrentRecipe() {
                         px-7
                         border border-[#E5E7EB]
                         rounded-md 
-                        font-bold
                         text-2xl 
                         m-3 
                         p-3 
-                        bg-white text-emerald-900 "
+                        bg-emerald-900 text-white "
                         to={`./steps`}
                         state={recipeData}
                         >
                         Begin Recipe &nbsp;
-                        <span class="material-icons text-3xl">
-                        start
-                        </span>
                     </Link>
-                    <button            
+                        <button            
                     className="
                     transition duration-600 ease-in-out hover:-translate-y-1 hover:scale-110
-                    w-52
+                    w-36
                     py-2
                     px-7
-                    border border-[#E5E7EB]
+                    border-2 border-emerald-900
                     rounded-md 
                     text-base text-body-color 
                     font-medium 
                     shadow-sm 
                     m-3 
                     p-3 
-                    bg-emerald-800 text-white"
+                    bg-white text-emerald-900"
                     onClick={() => setCalendarButton(true)}>
                         <span className='text-5xl material-icons-outlined'>event_available</span>
                         <br />
@@ -103,17 +101,17 @@ function CurrentRecipe() {
                     <button            
                     className="
                     transition duration-600 ease-in-out hover:-translate-y-1 hover:scale-110
-                    w-52
+                    w-36
                     py-2
                     px-7
-                    border border-[#E5E7EB]
+                    border-2 border-emerald-900
                     rounded-md 
                     text-base text-body-color 
                     font-medium 
                     shadow-sm 
                     m-3 
                     p-3 
-                    bg-emerald-800 text-white"
+                    bg-white text-emerald-900"
                     onClick={() => setCollectionsButton(true)}>
                         <span className='text-5xl material-icons-outlined'>library_add</span>
                         <br />

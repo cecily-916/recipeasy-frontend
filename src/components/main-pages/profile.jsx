@@ -39,16 +39,17 @@ function Profile() {
     console.log(collectionsData)
 
     return (
-    <div className="profile">
+    <div className="profile ">
         <div className="container">
-        <div className="row align-items-center my-5">
-            <h1>{userData.name}'s Collections</h1>
+        <div className=" align-items-center my-5">
+            <h1 className="text-emerald-900">{userData.name}'s Collections</h1>
             <br />
             <button 
                         onClick={() => setCollectionButton(true)}
                         className="
                         text-xl
                         font-quicksand 
+                        transition  hover:-translate-y-0.5 ease-in-out hover:scale-105 duration-150
                         align-center
                         py-2
                         px-7
@@ -59,7 +60,9 @@ function Profile() {
                         hover:border-primary 
                         hover:bg-emerald-800 hover:text-emerald-800
                         transition"
-                >New Collection</button>
+                ><span class="material-icons-outlined">
+                add_to_photos
+                </span> &nbsp;&nbsp;New Collection</button>
             <AddCollectionPopup userid={user.userId} setPageUpdate={setPageUpdate} trigger={collectionButton} setTrigger={setCollectionButton}></AddCollectionPopup>
         </div>
         {/* <Collection>Something</Collection> */}

@@ -38,11 +38,10 @@ function AddCollectionPopup({ userid, trigger, setTrigger, setPageUpdate }) {
 
   return trigger ? (
     <div className="popup">
-      <div className="popup-inner">
+      <div className="popup-inner text-center">
         <h1>Add Collection</h1>
+        <br />
         <form onSubmit={handleSubmit}>
-          <label>Name:</label>
-          <br />
           <input
             id="name"
             value={newCollection.name}
@@ -50,11 +49,19 @@ function AddCollectionPopup({ userid, trigger, setTrigger, setPageUpdate }) {
             type="text"
             onChange={handleChange}
           />
-          <input type="Submit" />
+          <br />
+          <br />
+          <input
+            type="Submit"
+            className="font-bold text-xl border p-3 rounded-md shadow-sm text-emerald-900"
+          />
         </form>
         <br />
-        <button className="close-btn" onClick={() => setTrigger(false)}>
-          Close
+        <button
+          className="absolute top-8 right-16 close-btn"
+          onClick={() => setTrigger(false)}
+        >
+          <span class="material-icons">highlight_off</span>
         </button>
       </div>
     </div>
