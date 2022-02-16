@@ -7,9 +7,27 @@ import cup from "../../../../assets/cup.png";
 function Ingredient({ ingredient }) {
   const unitImage = () => {
     if (ingredient.unit === "tbsp" || ingredient.unit === "tablespoon") {
-      return <img src={tbsp} className="h-8" alt="tbsp" />;
+      return (
+        <span>
+          <span class="material-icons-outlined absolute right-28 text-teal-800 text-3xl bottom-4">
+            table_bar
+          </span>
+          <img
+            src={tbsp}
+            className="h-8 absolute right-20 bottom-4"
+            alt="tbsp"
+          />
+        </span>
+      );
     } else if (ingredient.unit === "tsp" || ingredient.unit === "teaspoon") {
-      return <img src={tsp} className="h-8" alt="tsp" />;
+      return (
+        <span>
+          <img src={tsp} className="h-9 absolute right-20 bottom-4" alt="tsp" />
+          <span class="material-icons-outlined absolute right-28 text-amber-700 text-2xl bottom-4">
+            emoji_food_beverage
+          </span>
+        </span>
+      );
     } else if (ingredient.unit === "cup" || ingredient.unit === "cups") {
       return <img src={cup} className="h-8" alt="cup" />;
     }
