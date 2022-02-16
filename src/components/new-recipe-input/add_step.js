@@ -92,7 +92,6 @@ function AddStepsForm({ addStep }) {
       <textarea
         className="w-full mt-2 rounded-sm focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
         placeholder="Details"
-        required
         name="details"
         value={newStep.details}
         onChange={handleChange}
