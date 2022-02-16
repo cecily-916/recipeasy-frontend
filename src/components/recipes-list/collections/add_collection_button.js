@@ -37,7 +37,7 @@ function AddCollectionPopup({ userid, trigger, setTrigger, setPageUpdate }) {
   };
 
   return trigger ? (
-    <div className="popup">
+    <div className="popup z-50">
       <div className="popup-inner text-center">
         <h1>Add Collection</h1>
         <br />
