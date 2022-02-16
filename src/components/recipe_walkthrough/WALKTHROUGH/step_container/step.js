@@ -3,6 +3,7 @@ import StepIngredients from "./step_ingredients";
 import { HashLink as Link } from "react-router-hash-link";
 import { InView, useInView } from "react-intersection-observer";
 import Speech from "./speech_recognition";
+import Confetti from "react-dom-confetti";
 
 function Step({
   num,
@@ -71,13 +72,30 @@ function Step({
     setCurrentStepNum(nextStepNum - 2);
   };
 
-  const handleFinished = () => {
-    //pop up add notes and rate?
+  const config = {
+    angle: "11",
+    spread: 360,
+    startVelocity: "25",
+    elementCount: 70,
+    dragFriction: 0.12,
+    duration: "3590",
+    stagger: "8",
+    width: "10px",
+    height: "37px",
+    perspective: "761px",
+    colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"],
   };
+  const [confetti, setConfetti] = useState(false);
+
+  useEffect(() => {
+    setConfetti(false);
+  }, [confetti]);
 
   const withoutSideBar = () => {
     return !sideBar ? (
       <div>
+        <Confetti active={confetti} config={config} />
+
         <p className="absolute bottom-5 right-5 text-slate-400">
           {num} / {recipe.steps.length}
         </p>
@@ -216,7 +234,9 @@ function Step({
         <div className="pl-20">
           {renderDetails()}
           <StepIngredients ingredients={step.ingredients} />
+          <Confetti active={confetti} config={config} />
         </div>
+
         {withoutSideBar()}
 
         {isLast ? (
@@ -235,7 +255,7 @@ function Step({
         absolute bottom-8 right-8
         text-emerald-800 hover:text-white hover:bg-amber-300"
             onClick={() => {
-              handleFinished();
+              setConfetti(true);
             }}
           >
             <span className="material-icons-outlined text-6xl">
