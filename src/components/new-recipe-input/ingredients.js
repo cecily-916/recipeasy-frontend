@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 
 function AddIngredientsForm({ ingredientsList, addIngredient }) {
@@ -7,7 +7,11 @@ function AddIngredientsForm({ ingredientsList, addIngredient }) {
   const savedIngredients = ingredientsList.map((ingredient, index) => {
     return (
       <tr className="text-center border-b-2" key={index}>
-        <td>{ingredient.amount}</td>
+        <td>
+          {ingredient.amountWhole}
+          &nbsp;
+          {ingredient.amountFrac}
+        </td>
         <td>{ingredient.unit}</td>
         <td>{ingredient.ingredient}</td>
       </tr>
@@ -17,12 +21,14 @@ function AddIngredientsForm({ ingredientsList, addIngredient }) {
   const [newIngredient, setNewIngredient] = useState({
     ingredient: "",
     unit: "",
-    amount: null,
+    amountWhole: null,
+    amountFrac: null,
   });
 
   const handleSubmit = () => {
+    console.log(newIngredient);
+
     if (
-      newIngredient.amount === 0 ||
       newIngredient.unit === "" ||
       newIngredient.unit === "Select Unit" ||
       newIngredient.ingredient === ""
@@ -38,7 +44,8 @@ function AddIngredientsForm({ ingredientsList, addIngredient }) {
     setNewIngredient({
       ingredient: "",
       unit: "",
-      amount: null,
+      amountWhole: "whole",
+      amountFrac: "fractions",
     });
   };
 
@@ -75,6 +82,37 @@ function AddIngredientsForm({ ingredientsList, addIngredient }) {
     );
   });
 
+  const twoHundred = Array.from({ length: 100 }, (_, index) => index + 1);
+
+  const numOptions = twoHundred.map((num, index) => {
+    return (
+      <option key={index} num={num}>
+        {num}
+      </option>
+    );
+  });
+
+  const fractions = [
+    "-",
+    "1/8",
+    "1/4",
+    "1/3",
+    "3/8",
+    "1/2",
+    "5/8",
+    "2/3",
+    "3/4",
+    "7/8",
+  ];
+
+  const fractionOptions = fractions.map((num, index) => {
+    return (
+      <option key={index} num={num}>
+        {num}
+      </option>
+    );
+  });
+
   return (
     <div>
       <table className="table-auto">
@@ -93,20 +131,36 @@ function AddIngredientsForm({ ingredientsList, addIngredient }) {
             <th>&nbsp; </th>
           </tr>
           <tr>
-            <td>
-              <input
+            <td className="inline-block">
+              {/* <input
                 className="w-24 text-center rounded-sm mr-1"
-                type="number"
-                step=".1"
+                type="text"
                 placeholder="Amount"
                 name="amount"
                 value={newIngredient.amount}
                 onChange={handleChange}
-              />
+              /> */}
+              <select
+                className="w-16 text-center max-h-40 rounded-sm mr-1"
+                name="amountWhole"
+                value={newIngredient.amountWhole}
+                onChange={handleChange}
+              >
+                <option>-</option>
+                {numOptions}
+              </select>
+              <select
+                className="w-18 text-center max-h-40 rounded-sm mr-1"
+                name="amountFrac"
+                value={newIngredient.amountFrac}
+                onChange={handleChange}
+              >
+                {fractionOptions}
+              </select>
             </td>
             <td>
               <select
-                className="w-40 text-center rounded-sm mr-1"
+                className="w-38 text-center rounded-sm mr-1"
                 name="unit"
                 value={newIngredient.unit}
                 onChange={handleChange}

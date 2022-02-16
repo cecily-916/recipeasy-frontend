@@ -56,7 +56,7 @@ function Step({
     return stepText;
   };
   console.log(bg);
-
+  console.log(step.ingredients);
   const nextStepNum = num + 1;
   const handleNext = () => {
     document

@@ -53,7 +53,7 @@ function AddRecipeForm({ handleSubmit, newRecipe, setNewRecipe }) {
 
   return (
     // <div className="overscroll-auto bg-scroll  bg-[#C9B9AC]">
-    <div className="max-w-lg max-h-fit min-w-full rounded-md mt-8 mx-auto pb-24 bg-opacity-60 p-2 shadow-xl">
+    <div className="max-w-xl max-h-fit min-w-full rounded-md mt-8 mx-auto pb-24 bg-opacity-60 p-2 shadow-xl">
       <div className="bg-white p-4 border-black">
         <h1 className="pt-2.5 text-center text-[#512C24]">Add New Recipe</h1>
         <form onSubmit={handleSubmit}>
@@ -110,7 +110,6 @@ function AddRecipeForm({ handleSubmit, newRecipe, setNewRecipe }) {
             type="number"
             placeholder="Number of servings"
             name="servings"
-            required
             value={newRecipe.servings}
             onChange={handleChange}
           />

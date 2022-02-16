@@ -14,17 +14,23 @@ function Ingredient({ ingredient }) {
       return <img src={cup} className="h-8" alt="cup" />;
     }
   };
-
+  console.log(ingredient);
   return (
     <div className="bg-[#F1F1F1] border-b-2 mb-2 rounded-md relative">
       <div className="grid grid-cols-4 grid-rows-1">
         <p className="m-3 text-xl font-semibold self-center text-center grid-row-1 ">
           {ingredient.ingredient}
         </p>
-
-        <p className="m-3 text-2xl self-center font-bold text-center  grid-row-1">
-          {ingredient.amount}
-        </p>
+        {ingredient.amount ? (
+          <p className="m-3 text-2xl self-center font-bold text-center  grid-row-1">
+            {ingredient.amount}{" "}
+          </p>
+        ) : (
+          <p className="m-3 text-2xl self-center font-bold text-center  grid-row-1">
+            {ingredient.amountWhole}
+            {ingredient.amountFrac}
+          </p>
+        )}
         <p className="m-3 text-2xl self-center font-bold text-center grid-row-1">
           {ingredient.unit}
         </p>
