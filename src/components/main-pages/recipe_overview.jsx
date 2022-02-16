@@ -35,15 +35,6 @@ function CurrentRecipe() {
     console.log(recipeData)
     console.log(recipeData.ingredients)
 
-    // const deleteRecipe=() => {
-    //     axios
-    //         .delete(`${process.env.REACT_APP_BACKEND_URL}/archive/${recipe.ID}`)
-    //         .then((response)=>{
-    //             alert("Recipe successfully deleted")
-    //         })
-    //         .catch((error) => {console.log("Error with delete.")})
-    //     window.location.href = '/home'
-    // }
 
     return (
         <div className="grid grid-cols-4  bg-[##FEF1CB] bg-cover bg-bottom min-h-screen ">

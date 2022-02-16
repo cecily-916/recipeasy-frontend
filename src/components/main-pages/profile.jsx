@@ -58,8 +58,7 @@ function Profile() {
                         rounded-full
                         text-black
                         hover:border-primary 
-                        hover:bg-emerald-800 hover:text-emerald-800
-                        transition"
+                        hover:bg-emerald-800 hover:text-emerald-800"
                 ><span class="material-icons-outlined">
                 add_to_photos
                 </span> &nbsp;&nbsp;New Collection</button>
