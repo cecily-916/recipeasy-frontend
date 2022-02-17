@@ -37,43 +37,43 @@ function CurrentRecipe() {
 
 
     return (
-        <div className="grid grid-cols-4  bg-[##FEF1CB] bg-cover bg-bottom min-h-screen ">
-            <div className="col-span-2 row-span-2 mt-11 mx-11">
+        <div className="flex flex-auto space-x-0 bg-[##FEF1CB]  align-middle ">
+            <div className="w-1/2 mt-4 mx-8">
                 <RecipeOverview recipe={recipeData} />
             </div>
-            <div className="col-span-1 col-end-4 mt-11 mx-11">
-                <img
-                    className=" row-span-1 rounded-md max-h-96 max-w-md content-center drop-shadow-md "
+            <div className="grid grid-rows-6 w-40% mt-4">
+                {recipeData.image ? <img
+                    className="rounded-md row-start-1 w-full row-end-3 max-h-96 max-w-md  drop-shadow-md "
                     src={recipeData.image}
                     alt=""
-                />
-                <div className="row-start-2 col-span-1 col-end-4 content-top">
-                    <Link
-                        className="flow-root
-                        transition duration-500 ease-in-out hover:-translate-y-1 hover:scale-110
-                        link
-                        font-extrabold
-                        font-quicksand
-                        text-center
-                        shadow-md
-                        w-80
-                        py-2
-                        px-7
-                        border border-[#E5E7EB]
-                        rounded-md 
-                        text-2xl 
-                        m-3 
-                        p-3 
-                        bg-emerald-900 text-white "
-                        to={`./steps`}
-                        state={recipeData}
-                        >
-                        Begin Recipe &nbsp;
-                    </Link>
-                        <button            
+                />:""}
+                <Link
                     className="
+                    w-2/3
+                    self-center
+                    transition duration-500 ease-in-out hover:-translate-y-1 hover:scale-110
+                    link
+                    font-extrabold
+                    font-quicksand
+                    text-center
+                    shadow-md
+                    h-20
+                    px-7
+                    border border-[#E5E7EB]
+                    rounded-md 
+                    text-2xl 
+                    m-3 
+                    p-3 
+                    bg-emerald-900 text-white "
+                    to={`./steps`}
+                    state={recipeData}
+                    >
+                    Begin Recipe &nbsp;
+                </Link>
+            <span className="flex flex-row h-40 mx-auto space-x-2 content-top">
+                    <button            
+                    className="w-1/2
                     transition duration-600 ease-in-out hover:-translate-y-1 hover:scale-110
-                    w-36
                     py-2
                     px-7
                     border-2 border-emerald-900
@@ -81,7 +81,7 @@ function CurrentRecipe() {
                     text-base text-body-color 
                     font-medium 
                     shadow-sm 
-                    m-3 
+                    
                     p-3 
                     bg-white text-emerald-900"
                     onClick={() => setCalendarButton(true)}>
@@ -92,7 +92,7 @@ function CurrentRecipe() {
                     <button            
                     className="
                     transition duration-600 ease-in-out hover:-translate-y-1 hover:scale-110
-                    w-36
+                    basis-1/2
                     py-2
                     px-7
                     border-2 border-emerald-900
@@ -100,7 +100,6 @@ function CurrentRecipe() {
                     text-base text-body-color 
                     font-medium 
                     shadow-sm 
-                    m-3 
                     p-3 
                     bg-white text-emerald-900"
                     onClick={() => setCollectionsButton(true)}>
@@ -108,10 +107,12 @@ function CurrentRecipe() {
                         <br />
                         Add to Collection</button>
                     <AddToCollectionPopup recipe={recipeData} trigger={collectionsButton} setTrigger={setCollectionsButton}/>
+                    </span>
+                <span className='flex h-40 space-x-2 flex-row content-top'>
                     <button            
                     className="
                     transition duration-600 ease-in-out hover:-translate-y-1 hover:scale-110
-                    w-36
+                    w-1/2
                     py-2
                     px-7
                     border border-[#E5E7EB]
@@ -119,7 +120,6 @@ function CurrentRecipe() {
                     text-base text-body-color 
                     font-medium 
                     shadow-sm 
-                    m-3 
                     p-3 
                     bg-white text-emerald-800"
                     onClick={() => setArchiveRecipeButton(true)}>
@@ -130,7 +130,7 @@ function CurrentRecipe() {
                     <button            
                     className="
                     transition duration-600 ease-in-out hover:-translate-y-1 hover:scale-110
-                    w-36
+                    w-1/2
                     py-2
                     px-7
                     border border-[#E5E7EB]
@@ -138,7 +138,6 @@ function CurrentRecipe() {
                     text-base text-body-color 
                     font-medium 
                     shadow-sm 
-                    m-3 
                     p-3 
                     bg-white text-emerald-800"
                     onClick={() => window.print()}>
@@ -146,7 +145,7 @@ function CurrentRecipe() {
                         <br />
 
                         Print</button>
-                </div>
+                </span>
         </div>
         </div>
     );

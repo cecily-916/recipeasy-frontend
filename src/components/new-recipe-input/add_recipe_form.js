@@ -128,7 +128,7 @@ function AddRecipeForm({ handleSubmit, newRecipe, setNewRecipe }) {
             <input
               className=" mt-2 w-1/3 rounded-sm border-1 
             focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
-              type="number"
+              type="text"
               placeholder="Servings"
               name="servings"
               value={newRecipe.servings}

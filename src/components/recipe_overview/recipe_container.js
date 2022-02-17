@@ -6,9 +6,7 @@ import { Link } from "react-router-dom";
 function RecipeOverview(props) {
   return (
     <div className="align-center">
-      <h1>{props.recipe.title}</h1>
-      <br />
-
+      <h1 className="mt-8">{props.recipe.title}</h1>
       {props.recipe.author ? (
         <p className="font-bold text-emerald-900">By: {props.recipe.author}</p>
       ) : (
