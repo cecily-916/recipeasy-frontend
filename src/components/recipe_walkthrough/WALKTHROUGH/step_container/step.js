@@ -204,7 +204,7 @@ function Step({
 
   return (
     <div
-      className="bg-orange-50 snap-center border-b-4 gap-y-1 rounded-md relative"
+      className="bg-orange-50 overflow-auto snap-center border-b-4 gap-y-1 rounded-md relative"
       inView={inView}
       ref={ref}
       // onChange={setCurrentStepNum(num)}
@@ -225,13 +225,14 @@ function Step({
           ""
         )}
         <br />
-        <br />
         <div className="pl-20">
           <p className="font-quicksand text-2xl text-emerald-900">
             {step.details}
+            <br />
           </p>
 
           {renderDetails()}
+          <br />
           <StepIngredients ingredients={step.ingredients} />
           <Confetti active={confetti} config={config} />
         </div>

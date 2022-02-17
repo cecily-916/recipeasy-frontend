@@ -5,16 +5,15 @@ function StepIngredients({ ingredients }) {
   if (ingredients.length !== 0) {
     const ingredientsList = ingredients.map((ingredient, index) => {
       return (
-        <ul key={index} className="w-4/5 ">
+        <ul key={index} className="w-4/5">
           <Ingredient ingredient={ingredient} />
         </ul>
       );
     });
     return (
       <div>
-        <h3 className="text-md font-semibold">Ingredients:</h3>
         <br />
-        <div>{ingredientsList}</div>
+        <div className="h-4">{ingredientsList}</div>
       </div>
     );
   }

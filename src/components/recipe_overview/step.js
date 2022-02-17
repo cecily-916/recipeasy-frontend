@@ -10,6 +10,8 @@ function Step(props) {
         </p>
         &ensp;
         {props.step.details}
+        <br />
+        {props.step.extradetails}
       </p>
       {/* </Link> */}
     </div>
