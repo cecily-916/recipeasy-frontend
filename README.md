@@ -14,7 +14,7 @@ Click the gif to view on YouTube<br>
 ### Add recipe form:<br>
 [![Demo CountPages alpha](https://j.gifs.com/083YR3.gif)](https://youtu.be/KWqMEsoAVH0)
 
-## Feature Set
+# Feature Set
 - Unique user accounts with full sign up, reset password, login features.
 - Recipe gallery
 - Responsive search bar
