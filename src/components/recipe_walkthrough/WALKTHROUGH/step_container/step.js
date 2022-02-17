@@ -46,7 +46,7 @@ function Step({
     const stepText = parsedStepText.map((sentence, index) => {
       return (
         <ul key={index} className="text-xl">
-          <p className="text-xl font-quicksand">{sentence}</p>
+          <p className="text-xl mt-1 font-quicksand">{sentence}</p>
         </ul>
       );
     });
@@ -230,9 +230,7 @@ function Step({
             {step.details}
             <br />
           </p>
-
           {renderDetails()}
-          <br />
           <StepIngredients ingredients={step.ingredients} />
           <Confetti active={confetti} config={config} />
         </div>
