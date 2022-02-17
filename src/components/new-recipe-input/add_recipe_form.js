@@ -17,6 +17,7 @@ function AddRecipeForm({ handleSubmit, newRecipe, setNewRecipe }) {
   };
 
   const [newSteps, setNewSteps] = useState([]);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const setImage = (imageUrl) => {
     setNewRecipe((prevState) => ({
@@ -67,23 +68,25 @@ function AddRecipeForm({ handleSubmit, newRecipe, setNewRecipe }) {
             value={newRecipe.title}
             onChange={handleChange}
           />
-          <input
-            className="w-full mt-1 rounded-sm focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
-            type="text"
-            placeholder="Author"
-            name="author"
-            required
-            value={newRecipe.author}
-            onChange={handleChange}
-          />
-          <input
-            className="w-full mt-1 rounded-sm "
-            type="text"
-            placeholder="Source"
-            name="source"
-            value={newRecipe.source}
-            onChange={handleChange}
-          />
+          <span className="flex space-x-2">
+            <input
+              className="w-1/2 mt-1 rounded-sm focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
+              type="text"
+              placeholder="Author"
+              name="author"
+              required
+              value={newRecipe.author}
+              onChange={handleChange}
+            />
+            <input
+              className="w-1/2 mt-1 rounded-sm "
+              type="text"
+              placeholder="Source (optional)"
+              name="source"
+              value={newRecipe.source}
+              onChange={handleChange}
+            />
+          </span>
           <textarea
             className="w-full mt-2 rounded-sm"
             placeholder="Description"
@@ -98,46 +101,58 @@ function AddRecipeForm({ handleSubmit, newRecipe, setNewRecipe }) {
             value={newRecipe.ingredients}
             onChange={handleChange}
           />
-          <UploadAndDisplayImage
-            setImageDelete={setImageDelete}
-            setImageId={setImageId}
-            setImage={setImage}
-          />
-          {/* <input
-            className="w-full mt-2 rounded-sm"
-            type="url"
-            placeholder="Enter Image URL"
-            name="image"
-            value={newRecipe.image}
-            onChange={handleChange}
-          /> */}
-          <input
-            className=" mt-2 rounded-sm border-1 
+          <hr />
+          <p className="italic p-2">
+            Upload your own image OR add the image address URL input box
+          </p>
+          <span className="flex items-center space-x-3 pb-2">
+            <input
+              className="w-50% mt-2 rounded-sm"
+              type="url"
+              placeholder="Enter Image URL"
+              name="image"
+              value={newRecipe.image}
+              onChange={handleChange}
+            />
+            <UploadAndDisplayImage
+              className="w-50%"
+              setImageDelete={setImageDelete}
+              setImageId={setImageId}
+              setImage={setImage}
+              setSelectedImage={setSelectedImage}
+              selectedImage={selectedImage}
+            />
+          </span>
+          <hr />
+          <span className="flex items-center space-x-1">
+            <input
+              className=" mt-2 w-1/3 rounded-sm border-1 
             focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
-            type="number"
-            placeholder="Number of servings"
-            name="servings"
-            value={newRecipe.servings}
-            onChange={handleChange}
-          />
-          <br />
-          <input
-            className=" mt-2 rounded-sm"
-            placeholder="Prep Time"
-            name="prepTime"
-            type="text"
-            value={newRecipe.prepTime}
-            onChange={handleChange}
-          />
-          <br />
-          <input
-            className="mt-1.5 rounded-sm"
-            placeholder="Cook Time"
-            name="cookTime"
-            type="text"
-            value={newRecipe.cookTime}
-            onChange={handleChange}
-          />
+              type="number"
+              placeholder="Servings"
+              name="servings"
+              value={newRecipe.servings}
+              onChange={handleChange}
+            />
+            <br />
+            <input
+              className=" mt-2 w-1/3 rounded-sm"
+              placeholder="Prep Time"
+              name="prepTime"
+              type="text"
+              value={newRecipe.prepTime}
+              onChange={handleChange}
+            />
+            <br />
+            <input
+              className="mt-1.5 w-1/3 rounded-sm"
+              placeholder="Cook Time"
+              name="cookTime"
+              type="text"
+              value={newRecipe.cookTime}
+              onChange={handleChange}
+            />
+          </span>
           <br />
           <br />
           <AddStepsForm addStep={addStep} />

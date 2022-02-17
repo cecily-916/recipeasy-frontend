@@ -19,6 +19,7 @@ function AddStepsForm({ addStep }) {
     imagedelete: "",
     imageid: "",
   });
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const handleSubmit = () => {
     if (newStep.details === "") {
@@ -31,10 +32,12 @@ function AddStepsForm({ addStep }) {
       ) {
         addStep(newStep);
         resetNewStep();
+        setSelectedImage(null);
       }
     } else {
       addStep(newStep);
       resetNewStep();
+      setSelectedImage(null);
     }
   };
 
@@ -105,11 +108,25 @@ function AddStepsForm({ addStep }) {
         onChange={handleChange}
       />
       <br />
-      <UploadAndDisplayImage
-        setImageDelete={setImageDelete}
-        setImageId={setImageId}
-        setImage={setImage}
-      />
+      <p className="italic p-2">Each step can have its own image.</p>
+      <span className="flex items-center space-x-3 pb-2">
+        <input
+          className="w-50% mt-2 rounded-sm"
+          type="url"
+          placeholder="Enter Image URL"
+          name="image"
+          value={newStep.image}
+          onChange={handleChange}
+        />
+        <UploadAndDisplayImage
+          className="w-50%"
+          setImageDelete={setImageDelete}
+          setImageId={setImageId}
+          setImage={setImage}
+          setSelectedImage={setSelectedImage}
+          selectedImage={selectedImage}
+        />
+      </span>
       <br />
       <p className="font-bold mt-3">Step Ingredients</p>
       <br />

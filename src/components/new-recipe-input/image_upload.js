@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const UploadAndDisplayImage = ({ setImage, setImageDelete, setImageId }) => {
-  const [selectedImage, setSelectedImage] = useState(null);
+const UploadAndDisplayImage = ({
+  setImage,
+  setImageDelete,
+  setImageId,
+  setSelectedImage,
+  selectedImage,
+}) => {
+  // const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     if (selectedImage) {
