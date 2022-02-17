@@ -27,6 +27,18 @@ function CollectionsListContainer({ collections, setPageUpdate }) {
                 space-x-5
                 "
       >
+        {
+          {
+            0: (
+              <div className="max-w-lg  p-16 mx-auto">
+                <p className="text-center rounded-md text-emerald-900 text-lg p-12 bg-white">
+                  No collections found.
+                  <br /> Click "New Collection" to create one!
+                </p>
+              </div>
+            ),
+          }[collections.length]
+        }
         {collectionItems}
       </div>
     </section>

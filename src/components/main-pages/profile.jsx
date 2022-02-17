@@ -42,7 +42,7 @@ function Profile() {
     <div className="profile ">
         <div className="container">
         <div className=" align-items-center my-5">
-            <h1 className="text-emerald-900">{userData.name}'s Collections</h1>
+            <h1 className="text-emerald-900">My Collections</h1>
             <br />
             <button 
                         onClick={() => setCollectionButton(true)}
