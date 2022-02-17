@@ -28,11 +28,7 @@ function AddIngredientsForm({ ingredientsList, addIngredient }) {
   const handleSubmit = () => {
     console.log(newIngredient);
 
-    if (
-      newIngredient.unit === "" ||
-      newIngredient.unit === "Select Unit" ||
-      newIngredient.ingredient === ""
-    ) {
+    if (newIngredient.ingredient === "") {
       alert("Input valid ingredient details before clicking save.");
     } else {
       addIngredient(newIngredient);
@@ -44,8 +40,8 @@ function AddIngredientsForm({ ingredientsList, addIngredient }) {
     setNewIngredient({
       ingredient: "",
       unit: "",
-      amountWhole: "whole",
-      amountFrac: "fractions",
+      amountWhole: "",
+      amountFrac: "",
     });
   };
 
