@@ -94,7 +94,7 @@ function AddStepsForm({ addStep }) {
       <p className="font-extrabold">Add Step</p>
       <textarea
         className="w-full mt-2 rounded-sm focus:invalid:border-pink-500 focus:invalid:ring-pink-500"
-        placeholder="Details"
+        placeholder="Title or category"
         name="details"
         value={newStep.details}
         onChange={handleChange}
@@ -102,7 +102,7 @@ function AddStepsForm({ addStep }) {
       <br />
       <textarea
         className="w-full mt-2 rounded-sm"
-        placeholder="Extra Details"
+        placeholder="Instructions"
         name="extradetails"
         value={newStep.extradetails}
         onChange={handleChange}

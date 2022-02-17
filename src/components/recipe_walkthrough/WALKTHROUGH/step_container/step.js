@@ -37,7 +37,7 @@ function Step({
 
   console.log(num, inView);
   const renderDetails = () => {
-    let details = step.details;
+    let details = step.extradetails;
 
     const parsedStepText = details
       .replace(/([.?!])\s*(?=[A-Z])/g, "$1|")
@@ -46,7 +46,7 @@ function Step({
     const stepText = parsedStepText.map((sentence, index) => {
       return (
         <ul key={index} className="text-xl">
-          {sentence}
+          <p className="text-xl font-quicksand">{sentence}</p>
           <br />
           <br />
         </ul>
@@ -215,10 +215,7 @@ function Step({
         id={num}
         className=" p-9 bg-{bg} relative rounded-md shadow-2xl h-screen  w-full"
       >
-        <h1 className="text-emerald-900">
-          {num}
-          {step.description}
-        </h1>
+        <h1 className="text-emerald-900">{num}&nbsp;&nbsp;</h1>
         <br />
         {step.image ? (
           <img
@@ -232,6 +229,10 @@ function Step({
         <br />
         <br />
         <div className="pl-20">
+          <p className="font-quicksand text-2xl text-emerald-900">
+            {step.details}
+          </p>
+
           {renderDetails()}
           <StepIngredients ingredients={step.ingredients} />
           <Confetti active={confetti} config={config} />

@@ -36,7 +36,8 @@ function StepCard({ step, order }) {
       <p className="text-emerald-900 text-2xl font-bold">Step {order}</p>
       <br />
       <DisplayImgPreview image={step.image} />
-      <p>{step.details}</p>
+      <p className="font-semibold">{step.details}</p>
+      <p>{step.extradetails}</p>
       <br />
       <IngredientsList ingredients={step.ingredients} />
     </div>

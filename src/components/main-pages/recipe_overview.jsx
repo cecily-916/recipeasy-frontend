@@ -43,13 +43,13 @@ function CurrentRecipe() {
             </div>
             <div className="grid grid-rows-6 w-40% mt-4">
                 {recipeData.image ? <img
-                    className="rounded-md row-start-1 w-full row-end-3 max-h-96 max-w-md  drop-shadow-md "
+                    className="rounded-md row-start-1 w-full object-cover row-end-3 max-h-96 max-w-md  drop-shadow-md "
                     src={recipeData.image}
                     alt=""
                 />:""}
                 <Link
                     className="
-                    w-2/3
+                    content-top
                     self-center
                     transition duration-500 ease-in-out hover:-translate-y-1 hover:scale-110
                     link
@@ -70,7 +70,7 @@ function CurrentRecipe() {
                     >
                     Begin Recipe &nbsp;
                 </Link>
-            <span className="flex flex-row h-40 mx-auto space-x-2 content-top">
+                <span className="flex flex-row h-40 mx-auto space-x-2 content-top">
                     <button            
                     className="w-1/2
                     transition duration-600 ease-in-out hover:-translate-y-1 hover:scale-110
@@ -108,11 +108,11 @@ function CurrentRecipe() {
                         Add to Collection</button>
                     <AddToCollectionPopup recipe={recipeData} trigger={collectionsButton} setTrigger={setCollectionsButton}/>
                     </span>
-                <span className='flex h-40 space-x-2 mx-auto flex-row content-top'>
+                <span className="flex-row flex mx-auto space-x-4 mt-2 ">
                     <button            
                     className="
                     transition duration-600 ease-in-out hover:-translate-y-1 hover:scale-110
-                    w-1/2
+                    w-44
                     py-2
                     px-7
                     border border-[#E5E7EB]
@@ -130,9 +130,9 @@ function CurrentRecipe() {
                     <button            
                     className="
                     transition duration-600 ease-in-out hover:-translate-y-1 hover:scale-110
-                    w-1/2
                     py-2
                     px-7
+                    w-44
                     border border-[#E5E7EB]
                     rounded-md 
                     text-base text-body-color 
@@ -145,7 +145,7 @@ function CurrentRecipe() {
                         <br />
 
                         Print</button>
-                </span>
+                        </span>
         </div>
         </div>
     );

@@ -11,13 +11,15 @@ const Recipe = (props) => {
       state={props.recipe}
       className="link"
     >
-      <div className="bg-white hover:drop-shadow-xl rounded-xl overflow-hidden mx-auto m-4 max-w-xs shadow-lg transition hover:-translate-y-0.5 ease-in-out hover:scale-105 duration-150 border-opacity-100">
+      <div className="bg-white hover:drop-shadow-xl  align-middle truncate-ellipses rounded-xl h-80 w-60 overflow-hidden mx-auto m-4 shadow-lg  transition hover:-translate-y-0.5 ease-in-out hover:scale-105 duration-150 border-opacity-100">
         {props.recipe.image ? (
-          <img
-            src={props.recipe.image}
-            alt="dish"
-            className="w-3xl border-b-4 object-center max-h-full  justify-self-center shadow-md"
-          />
+          <div className="bg-gradient-to-b from-slate-900 ">
+            <img
+              src={props.recipe.image}
+              alt="dish"
+              className="w-3xl border-b-4 mx-auto max-h-48 rounded-xl shadow-md "
+            />
+          </div>
         ) : (
           ""
         )}
