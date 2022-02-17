@@ -47,8 +47,6 @@ function Step({
       return (
         <ul key={index} className="text-xl">
           <p className="text-xl font-quicksand">{sentence}</p>
-          <br />
-          <br />
         </ul>
       );
     });
