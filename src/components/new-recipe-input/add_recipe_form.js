@@ -96,7 +96,7 @@ function AddRecipeForm({ handleSubmit, newRecipe, setNewRecipe }) {
           />
           <textarea
             className="w-full mt-2 rounded-sm"
-            placeholder="Ingredients. Use a period or asterisk to indicate a line break."
+            placeholder="Ingredients"
             name="ingredients"
             value={newRecipe.ingredients}
             onChange={handleChange}

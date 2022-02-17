@@ -31,7 +31,7 @@ function RecipeOverview(props) {
       <p className="text-xl font-bold">Steps:</p>
       <StepsList steps={props.recipe.steps} />
       <br />
-      <IngredientsList steps={props.recipe.ingredients} />
+      <IngredientsList ingredients={props.recipe.ingredients} />
       {/* <StepIngredients ingredients={ingredients}/> */}
     </div>
   );

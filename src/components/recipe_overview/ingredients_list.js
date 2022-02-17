@@ -1,4 +1,5 @@
 import React from "react";
+import Parser from "../new-recipe-input/parser";
 
 // List of total ingredients for recipe.
 // Called by both the main recipe overview and the recipe walkthrough screens.
@@ -19,7 +20,7 @@ function IngredientsList({ ingredients }) {
   return ingredients ? (
     <div className="mb-8">
       <p className="text-xl font-bold">Ingredients:</p>
-      <ul>{ingredients}</ul>
+      <Parser ingredients={ingredients} />
     </div>
   ) : (
     ""
