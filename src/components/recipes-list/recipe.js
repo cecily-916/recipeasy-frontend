@@ -17,7 +17,7 @@ const Recipe = (props) => {
             <img
               src={props.recipe.image}
               alt="dish"
-              className="w-3xl border-b-4 mx-auto max-h-48 rounded-xl shadow-md "
+              className="w-3xl border-b-4 mx-auto max-h-40 rounded-xl shadow-md "
             />
           </div>
         ) : (
