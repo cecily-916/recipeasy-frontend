@@ -47,7 +47,7 @@ function NewRecipe(){
                 .then((response) => {
                 console.log("Response:", response.data);
                 alert("You've created a new recipe!");
-                // window.location = "/Home";
+                window.location = "/Home";
                 })
                 .catch((error) => {
                 console.log("Error:", error);

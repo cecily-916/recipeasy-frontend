@@ -49,7 +49,7 @@ function Ingredient({ ingredient }) {
           </p>
         ) : (
           <p className="m-3 text-xl self-center font-bold text-center  grid-row-1">
-            {ingredient.amountwhole} &nbsp;and&nbsp;
+            {ingredient.amountwhole} &nbsp;&nbsp;
             {ingredient.amountfrac}
           </p>
         )}

@@ -108,7 +108,7 @@ function CurrentRecipe() {
                         Add to Collection</button>
                     <AddToCollectionPopup recipe={recipeData} trigger={collectionsButton} setTrigger={setCollectionsButton}/>
                     </span>
-                <span className='flex h-40 space-x-2 flex-row content-top'>
+                <span className='flex h-40 space-x-2 mx-auto flex-row content-top'>
                     <button            
                     className="
                     transition duration-600 ease-in-out hover:-translate-y-1 hover:scale-110
