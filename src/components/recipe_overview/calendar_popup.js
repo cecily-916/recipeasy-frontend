@@ -20,7 +20,7 @@ function AddToCalendarPopup(props) {
     });
   }, [props.recipe.title]);
 
-  const html_url = `https://www.google.com/calendar/render?action=TEMPLATE&text=${formData.title}&dates=${formData.date}&details=Link+to+recipe+on+Recipeasy:+http://localhost:3000/recipe/${props.recipe.ID}&sf=true&output=xml`;
+  const html_url = `https://www.google.com/calendar/render?action=TEMPLATE&text=${formData.title}&dates=${formData.date}&details=Link+to+recipe+on+Recipeasy:+http://reci-peasy.herokuapp.com/recipe/${props.recipe.ID}&sf=true&output=xml`;
 
   const handleSubmit = (event) => {
     event.preventDefault();
