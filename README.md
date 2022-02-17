@@ -47,7 +47,7 @@ Recipeasy relies on:
 - Postcss
 - Autoprefixer
 - Google Material Icons and Fonts
-- Imugr API
+- Imgur API
 - Heroku
 
 Environment Variables: 
