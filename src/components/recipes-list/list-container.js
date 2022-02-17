@@ -21,7 +21,7 @@ function ListContainer({ recipes }) {
         flex 
         // flex-wrap 
         // flex-row 
-        justify-start 
+        justify-center 
         justify-items-center 
         space-x-5"
         // flex-auto
