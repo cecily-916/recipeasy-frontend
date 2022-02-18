@@ -98,7 +98,6 @@ function Step({
   const withoutSideBar = () => {
     return !sideBar ? (
       <div>
-        <Confetti active={confetti} config={config} />
         <p className="absolute bottom-5 right-5 text-slate-400">
           {num} / {recipe.steps.length}
         </p>
