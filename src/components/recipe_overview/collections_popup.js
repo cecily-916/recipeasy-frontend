@@ -40,13 +40,12 @@ function AddToCollectionPopup({ recipe, trigger, setTrigger }) {
         )
         .then((response) => {
           console.log(response);
-          alert(
-            `Recipe successfully assigned to ${collectionsData[collectionID].name} collection!`
-          );
         })
         .catch((error) => {
           console.log("error: Assignment request failed.");
         });
+      alert(`Recipe successfully assigned to collection!`);
+      setTrigger(false);
     }
   };
 
@@ -82,7 +81,7 @@ function AddToCollectionPopup({ recipe, trigger, setTrigger }) {
 
           <br />
           <input
-            className="font-bold text-xl border p-3 rounded-md shadow-sm text-emerald-900"
+            className="font-bold text-xl border p-3 transition duration-200 ease-in-out hover:-translate-y-1 hover:scale-110 rounded-md shadow-sm text-emerald-900"
             type="Submit"
           />
         </form>

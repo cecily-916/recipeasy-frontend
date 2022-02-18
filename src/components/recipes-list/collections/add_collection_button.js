@@ -26,6 +26,7 @@ function AddCollectionPopup({ userid, trigger, setTrigger, setPageUpdate }) {
       .catch((error) => {
         console.log("Error: Post collection failed.");
       });
+    setTrigger(false);
   };
 
   const handleChange = (event) => {
