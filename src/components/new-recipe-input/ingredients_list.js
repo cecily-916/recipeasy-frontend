@@ -6,7 +6,8 @@ function IngredientsList({ ingredients }) {
       return (
         <div key={index}>
           {ingredient.amountWhole}&nbsp;
-          {ingredient.amountFrac} {ingredient.unit} of {ingredient.ingredient}
+          {ingredient.amountFrac} {ingredient.unit} &nbsp;
+          {ingredient.ingredient}
         </div>
       );
     });
