@@ -14,9 +14,8 @@ function Step({
   sideBar,
   isLast,
   isFirst,
-  setSideBar,
-  setConversionPopup,
   currentStep,
+  setSideBar,
   isListening,
   setIsListening,
 }) {
@@ -26,6 +25,7 @@ function Step({
   console.log(sideBar);
   const [onScreen, setOnScreen] = useState(false);
 
+  console.log("num", num, "cs", currentStep);
   useEffect(() => {
     if (inView) {
       setOnScreen(true);
@@ -56,6 +56,7 @@ function Step({
   console.log(bg);
   console.log(step.ingredients);
   const nextStepNum = num + 1;
+
   const handleNext = () => {
     document
       .getElementById(`${nextStepNum}`)
@@ -70,6 +71,11 @@ function Step({
     setCurrentStepNum(nextStepNum - 2);
   };
 
+  const scrollToTop = () => {
+    document.getElementById(`${1}`).scrollIntoView({ behavior: "smooth" });
+    setCurrentStepNum(1);
+  };
+
   const config = {
     angle: "11",
     spread: 360,
@@ -78,7 +84,7 @@ function Step({
     dragFriction: 0.12,
     duration: "3590",
     stagger: "8",
-    width: "10px",
+    width: "15px",
     height: "37px",
     perspective: "761px",
     colors: ["#a864fd", "#29cdff", "#78ff44", "#ff718d", "#fdff6a"],
@@ -93,7 +99,6 @@ function Step({
     return !sideBar ? (
       <div>
         <Confetti active={confetti} config={config} />
-
         <p className="absolute bottom-5 right-5 text-slate-400">
           {num} / {recipe.steps.length}
         </p>
@@ -120,7 +125,20 @@ function Step({
             <br />
             <p className="text-sm ">conversions</p>
           </button> */}
-          <button
+          {/* <button
+            className="
+          absolute top-8 right-80
+          border border-[#E5E7EB]
+          rounded-md 
+          text-base text-body-color 
+          font-medium 
+          shadow-sm 
+          m-3 
+          cursor-pointer
+          p-3
+          text-emerald-800 hover:text-white hover:bg-emerald-800"
+          > */}
+          {/* <span
             className="
           absolute top-8 right-80
           border border-[#E5E7EB]
@@ -134,15 +152,13 @@ function Step({
           text-emerald-800 hover:text-white hover:bg-emerald-800"
           >
             <Speech
-              setSideBar={setSideBar}
-              setConversionPopup={setConversionPopup}
-              sideBar={sideBar}
-              currentStep={currentStep}
-              setCurrentStepNum={setCurrentStepNum}
               isListening={isListening}
               setIsListening={setIsListening}
+              currentStep={currentStep}
+              setCurrentStep={setCurrentStepNum}
             />
-          </button>
+          </span>
+          </button> */}
           <button
             className="
             absolute top-8 right-40
@@ -153,6 +169,7 @@ function Step({
             shadow-sm 
             m-3 
             cursor-pointer
+            w-34
             p-3
             text-emerald-800 hover:text-white hover:bg-emerald-800"
             onClick={() => setSideBar(true)}
@@ -173,8 +190,8 @@ function Step({
           ) : (
             <button
               className="
-            absolute
-            top-8 right-8
+              absolute
+              top-8 right-80
             py-2
             border border-[#E5E7EB]
             rounded-md 
@@ -186,7 +203,7 @@ function Step({
             p-3 
             text-emerald-800 hover:text-white hover:bg-emerald-800"
               onClick={() => {
-                window.scrollTo(0, 0);
+                scrollToTop();
               }}
             >
               <span className="material-icons-outlined text-4xl">
@@ -209,6 +226,11 @@ function Step({
       ref={ref}
       // onChange={setCurrentStepNum(num)}
     >
+      <Confetti
+        className="absolute left-1/2 top-80 z-40"
+        active={confetti}
+        config={config}
+      />
       <div
         id={num}
         className=" p-9 bg-{bg} relative rounded-md shadow-2xl h-screen  w-full"
@@ -232,9 +254,7 @@ function Step({
           </p>
           {renderDetails()}
           <StepIngredients ingredients={step.ingredients} />
-          <Confetti active={confetti} config={config} />
         </div>
-
         {withoutSideBar()}
 
         {isLast ? (

@@ -1,9 +1,9 @@
 import React from "react";
 // import Header from "./header";
 import Recipe from "./recipe";
-import StackGrid, { transitions } from "react-stack-grid";
+// import StackGrid, { transitions } from "react-stack-grid";
 
-const { scaleDown } = transitions;
+// const { scaleDown } = transitions;
 
 function ListContainer({ recipes }) {
   // Map the recipe items to display individual recipes

@@ -1,12 +1,12 @@
 import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from "react";
-import RecipeOverview from '../recipe_overview/recipe_container';
+// import RecipeOverview from '../recipe_overview/recipe_container';
 import StepsContainer from '../recipe_walkthrough/WALKTHROUGH/step_container/steps_container';
 import IngredientsList from '../recipe_overview/ingredients_list';
 import SidebarChecklist from '../recipe_walkthrough/WALKTHROUGH/sidebar_checklist';
 import Speech from '../recipe_walkthrough/WALKTHROUGH/step_container/speech_recognition';
 import React from 'react';
-import ConversionPopup from '../recipe_walkthrough/conversion_popup/conversion_popup';
+// import ConversionPopup from '../recipe_walkthrough/conversion_popup/conversion_popup';
 
 function RecipeWalkthrough() {
     const location = useLocation()
@@ -18,6 +18,7 @@ function RecipeWalkthrough() {
     const [conversionPopup, setConversionPopup] = useState(false)
     const [currentStepNum, setCurrentStepNum] = useState(1)
     const [isListening, setIsListening] = useState(false);
+
 
     console.log(currentStepNum)
 
@@ -54,7 +55,7 @@ function RecipeWalkthrough() {
                             <br/>
                                 fullscreen
                         </button>
-                        <button
+                        <div
                             className="
                         border border-[#E5E7EB]
                         rounded-md 
@@ -69,8 +70,8 @@ function RecipeWalkthrough() {
                         p-3
                         text-emerald-800 hover:text-amber-500 "
                         >
-                        <Speech currentStep={currentStepNum} setCurrentStepNum={setCurrentStepNum} isListening={isListening} setIsListening={setIsListening}/>          
-                        </button>
+                            <Speech currentStep={currentStepNum} isListening={isListening} setIsListening={setIsListening} setCurrentStep={setCurrentStepNum}/>          
+                        </div>
                         <button className="
                             border border-[#E5E7EB]
                             row-start-1 col-start-3
@@ -108,14 +109,34 @@ function RecipeWalkthrough() {
             </div>
             </div>
             <div className="col-end-6 col-span-4">
-            <StepsContainer  recipe={recipeData} currentStep={currentStepNum} setSideBar={setSideBar} setIsListening={setIsListening} isListening={isListening} setCurrentStepNum={setCurrentStepNum} sideBar={sideBar} setConversionPopup={setConversionPopup}/>
+            <StepsContainer  setIsListening={setIsListening} recipe={recipeData} currentStep={currentStepNum} setSideBar={setSideBar} setCurrentStepNum={setCurrentStepNum} sideBar={sideBar} setConversionPopup={setConversionPopup}/>
             </div>
         </div>
     ):(
     <div>
-        <div className="col-end-6 col-span-4">
-            <StepsContainer  recipe={recipeData} currentStep={currentStepNum} setSideBar={setSideBar} setIsListening={setIsListening} isListening={isListening} setCurrentStepNum={setCurrentStepNum} sideBar={sideBar} setConversionPopup={setConversionPopup}/>
-            <button onClick={()=>document.body.scrollTop = document.documentElement.scrollTop = 0}>Back to top</button>
+        <div className="col-end-6 col-span-4 relative">
+            <StepsContainer setIsListening={setIsListening} isListening={isListening} recipe={recipeData} currentStep={currentStepNum} setSideBar={setSideBar} setCurrentStepNum={setCurrentStepNum} sideBar={sideBar} setConversionPopup={setConversionPopup}/>
+            {/* <button onClick={()=>document.body.scrollTop = document.documentElement.scrollTop = 0}>Back to top</button> */}
+
+            <div
+                className="
+                text-center
+                fixed 
+                top-8 right-4
+                border border-[#E5E7EB]
+                rounded-md 
+                text-base text-body-color 
+                font-medium 
+                shadow-sm 
+                m-3
+                w-32
+                h-24
+                cursor-pointer
+                p-1
+                text-emerald-800 hover:text-white hover:bg-emerald-800"
+            >
+            <Speech currentStep={currentStepNum} isListening={isListening} setIsListening={setIsListening} setCurrentStep={setCurrentStepNum}/>          
+            </div>
         </div>
     </div>
     )
