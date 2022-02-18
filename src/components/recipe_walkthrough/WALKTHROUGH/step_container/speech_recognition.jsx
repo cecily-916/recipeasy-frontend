@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 import "./microphone.css";
 
-function Speech({ currentStep, setCurrentStep, setIsListening, isListening})  {
+function Speech({ currentStep, setSideBar, setCurrentStep, setIsListening, isListening})  {
     console.log(currentStep)
 
     const commands = [
@@ -41,6 +41,18 @@ function Speech({ currentStep, setCurrentStep, setIsListening, isListening})  {
         command: "stop listening",
         callback: () => {
             stopHandle();
+        },
+    },
+    {
+        command: "hide sidebar",
+        callback: () => {
+            setSideBar(false);
+        },
+    },
+    {
+        command: "show sidebar",
+        callback: () => {
+            setSideBar(true);
         },
     },
     ];

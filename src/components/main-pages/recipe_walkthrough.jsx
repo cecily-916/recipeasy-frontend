@@ -70,7 +70,7 @@ function RecipeWalkthrough() {
                         p-3
                         text-emerald-800 hover:text-amber-500 "
                         >
-                            <Speech currentStep={currentStepNum} isListening={isListening} setIsListening={setIsListening} setCurrentStep={setCurrentStepNum}/>          
+                            <Speech setSideBar={setSideBar} currentStep={currentStepNum} isListening={isListening} setIsListening={setIsListening} setCurrentStep={setCurrentStepNum}/>          
                         </div>
                         <button className="
                             border border-[#E5E7EB]
@@ -135,7 +135,7 @@ function RecipeWalkthrough() {
                 p-1
                 text-emerald-800 hover:text-white hover:bg-emerald-800"
             >
-            <Speech currentStep={currentStepNum} isListening={isListening} setIsListening={setIsListening} setCurrentStep={setCurrentStepNum}/>          
+            <Speech setSideBar={setSideBar} currentStep={currentStepNum} isListening={isListening} setIsListening={setIsListening} setCurrentStep={setCurrentStepNum}/>          
             </div>
         </div>
     </div>
